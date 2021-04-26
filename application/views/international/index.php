@@ -102,7 +102,7 @@ refresh=setTimeout("action()",speed);}action();
               <input type="file" class="form-control" name="berkas" id="berkas" required/>
               </div>
               <div class="form-group">
-              <i style="color:#03a5fc; padding-top:4px; padding-right:5px" class="icofont-file-pdf float-left"></i><a class="float-left" href="#">Lihat Syarat</a>
+              <i style="color:#03a5fc; padding-top:4px; padding-right:5px" class="icofont-file-pdf float-left"></i><a class="float-left" href="<?=base_url('program/syarat')?>">Lihat Syarat</a>
               </div>     
               <br>         
               <div class="text-center"><button style="border-radius:10px;height:40px; width:100px" class="btn-primary" type="submit">Daftar</button></div>

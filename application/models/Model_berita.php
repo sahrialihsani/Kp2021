@@ -1,11 +1,11 @@
 <?php
 class Model_berita extends CI_Model{
 	public function tampil_data(){
-	$hasil=$this->db->query("SELECT tb_berita.id, tb_berita.judul,tb_berita.isi, tb_berita.gambar, tb_berita.tgl_posting, tb_kategori.kategori FROM tb_berita  join tb_kategori on tb_berita.id_kategori=tb_kategori.id ORDER BY tb_berita.judul ASC LIMIT 0,6");
+	$hasil=$this->db->query("SELECT tb_berita.id, tb_berita.judul,tb_berita.isi, tb_berita.gambar, tb_berita.tgl_posting, tb_kategori.kategori FROM tb_berita  join tb_kategori on tb_berita.id_kategori=tb_kategori.id ORDER BY tb_berita.tgl_posting DESC LIMIT 0,6");
             return $hasil;
 	}
 	public function tampil_data_all(){
-	$hasil=$this->db->query("SELECT tb_berita.id, tb_berita.judul, tb_berita.isi,tb_berita.gambar, tb_berita.tgl_posting, tb_kategori.kategori FROM tb_berita  join tb_kategori on tb_berita.id_kategori=tb_kategori.id ORDER BY tb_berita.judul ASC");
+	$hasil=$this->db->query("SELECT tb_berita.id, tb_berita.judul, tb_berita.isi,tb_berita.gambar, tb_berita.tgl_posting, tb_kategori.kategori FROM tb_berita  join tb_kategori on tb_berita.id_kategori=tb_kategori.id ORDER BY tb_berita.tgl_posting DESC");
             return $hasil;
 	}
 	// public function detail_berita($id){
@@ -14,7 +14,7 @@ class Model_berita extends CI_Model{
     //     return $query->result();
 	// }
 	public function tampil_data_terbaru(){
-		$hasil=$this->db->query("SELECT tb_berita.id, tb_berita.judul,tb_berita.isi, tb_berita.gambar, tb_berita.tgl_posting, tb_kategori.kategori FROM tb_berita  join tb_kategori on tb_berita.id_kategori=tb_kategori.id ORDER BY tb_berita.tgl_posting ASC LIMIT 0,6");
+		$hasil=$this->db->query("SELECT tb_berita.id, tb_berita.judul,tb_berita.isi, tb_berita.gambar, tb_berita.tgl_posting, tb_kategori.kategori FROM tb_berita  join tb_kategori on tb_berita.id_kategori=tb_kategori.id ORDER BY tb_berita.tgl_posting DESC LIMIT 0,6");
 				return $hasil;
 		}
 	public function detail_berita($id){

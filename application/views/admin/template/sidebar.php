@@ -55,7 +55,7 @@
          <i class="zmdi zmdi-comment-text"></i> <span> Pertanyaan Pengguna </span>
        </a>
      </li>
-     <li class="sidebar-header">MENU KELOLA LAYANAN</li>
+     <li class="sidebar-header">MENU KELOLA PROGAM & LAYANAN</li>
      <li>
        <a href="<?=base_url('admin/programdanbea')?>">
          <i class="zmdi zmdi-city"></i> <span> Program UPT dan Beasiswa</span>

@@ -1,11 +1,11 @@
 <?php
 class Model_staf extends CI_Model{
 	public function tampil_data(){
-	$hasil=$this->db->query("SELECT * FROM tb_staf ORDER BY nama ASC LIMIT 0,12");
+	$hasil=$this->db->query("SELECT * FROM tb_staf ORDER BY id ASC LIMIT 0,12");
             return $hasil;
 	}
 	public function tampil_data_all(){
-	$hasil=$this->db->query("SELECT * FROM tb_staf ORDER BY nama ASC");
+	$hasil=$this->db->query("SELECT * FROM tb_staf ORDER BY id ASC");
             return $hasil;
 	}
 	public function detail_staf($id){

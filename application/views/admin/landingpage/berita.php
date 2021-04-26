@@ -75,7 +75,7 @@ refresh=setTimeout("action()",speed);}action();
                 <tr>
         <td><?=$no++ ?></td>
         <td><?=$brta->judul; ?></td>
-        <td><?php echo wordwrap($brta->isi,100,"<br>\n");?></td>
+        <td><?php echo wordwrap(word_limiter("$brta->isi",30),50,"<br>\n");?></td>
         <td><?=$brta->kategori; ?></td>   
         <td align="center"> <img src="<?php echo base_url('assets/dua/img/berita/'.$brta->gambar)?> " width="200px" height="100px"></td>
         <td><?=date('d F Y', strtotime($brta->tgl_posting)); ?></td> 

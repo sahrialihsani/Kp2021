@@ -120,6 +120,10 @@ public function detailBerkasIns($id){
 
 $this->load->view('international/detail_berkas_ins', $data);
 		
-			}	
+			}
+public function syarat()
+	{
+		$this->load->view('international/syarat');
+	}	
 }
 

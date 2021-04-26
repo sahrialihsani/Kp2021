@@ -139,7 +139,6 @@ refresh=setTimeout("action()",speed);}action();
                 <div class="post-item clearfix">
                   <img src="<?=base_url('assets/dua/img/berita/').$pbaru->gambar?>" alt="">
                   <h4><a href="<?=base_url('post/detailberita/').$pbaru->id?>"><?=$pbaru->judul?></a></h4>
-                  <time datetime="2020-01-01"><?=date('d F Y', strtotime($post->tgl_posting)); ?></time>
                 </div>
               <?php endforeach;?>
 

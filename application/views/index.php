@@ -244,20 +244,13 @@ refresh=setTimeout("action()",speed);}action();
                 <h4><?=$stf['nama']?></h4>
                 <span><?=$stf['jabatan']?></span>
                 <p>NIP: <?=$stf['nip']?></p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
               </div>
             </div>
+            <br>
+
           </div>
           <?php endforeach?>
-
-
         </div>
-
       </div>
     </section><!-- End Team Section -->
     <!-- ======= Frequently Asked Questions Section ======= -->
@@ -349,7 +342,7 @@ refresh=setTimeout("action()",speed);}action();
               <div class="entry-meta">
                 <ul>
                   <li class="d-flex align-items-center"><i class="icofont-user"></i> <a>Admin KSlI</a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a><time datetime="2020-01-01"><?=date('d F Y', strtotime($berita->tgl_posting)); ?></time></a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a><time><?=date('d F Y', strtotime($berita->tgl_posting)); ?></time></a></li>
                 </ul>
               </div>
 
