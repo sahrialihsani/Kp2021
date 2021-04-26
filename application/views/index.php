@@ -406,7 +406,7 @@ refresh=setTimeout("action()",speed);}action();
           <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 5px;
   font-size: 25px;
-  color: #05579e;">Connect with Us</h2>
+  color: #05579e;">Wanna ask?</h2>
             <form action="<?=base_url('sendconnection')?>"  method="post"  enctype="multipart/form-data">
               <div class="form-row">
                 <div class="col-md-6 form-group">

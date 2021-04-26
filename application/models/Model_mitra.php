@@ -1,11 +1,11 @@
 <?php
 class Model_mitra extends CI_Model{
 	public function tampil_data(){
-	$hasil=$this->db->query("SELECT * FROM tb_mitra ORDER BY institusi ASC LIMIT 0,12");
+	$hasil=$this->db->query("SELECT * FROM tb_mitra WHERE status='Diterima'  ORDER BY institusi ASC LIMIT 0,12");
             return $hasil;
 	}
 	public function tampil_data_all(){
-	$hasil=$this->db->query("SELECT * FROM tb_mitra ORDER BY institusi ASC");
+	$hasil=$this->db->query("SELECT * FROM tb_mitra WHERE status='Diterima' OR status='Menunggu' ORDER BY institusi, status ASC");
             return $hasil;
 	}
 	public function detail_mitra($id){

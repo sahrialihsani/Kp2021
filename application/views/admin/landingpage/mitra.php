@@ -66,6 +66,7 @@ refresh=setTimeout("action()",speed);}action();
                 <th>Email</th>
                 <th>Nama Mitra</th>
                 <th>Pesan</th>
+                <th>Status</th>
                 <th>Gambar</th>
                 <th>Aksi</th>
             </tr>
@@ -79,7 +80,8 @@ refresh=setTimeout("action()",speed);}action();
         <td><?=$mtra->nama; ?></td>
         <td><?=$mtra->email; ?></td>   
         <td><?=$mtra->institusi; ?></td>   
-        <td><?=$mtra->pesan; ?></td>   
+        <td><?php echo wordwrap(word_limiter("$mtra->pesan",30),50,"<br>\n");?></td>   
+        <td><?=$mtra->status; ?></td>   
         <td align="center"> <img src="<?php echo base_url('assets/dua/img/mitra/'.$mtra->gambar)?> " width="200px" height="100px"></td>
 
                   <td>
@@ -90,6 +92,8 @@ refresh=setTimeout("action()",speed);}action();
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
                       <ul style="background-color:#fff" class="dropdown-menu" role="menu">
+                        <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/mitra/terima/') . $mtra->id; ?>"> Terima</a></li>
+                        <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/mitra/tolak/') . $mtra->id; ?>"> Tolak</a></li>
                         <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/mitra/editMitra/') . $mtra->id; ?>"> Edit Data</a></li>
                         <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/mitra/hapusMitra/') . $mtra->id; ?>" onclick="return confirm('Apakah yakin data mitra ini di hapus?')">Hapus Data</a></li>
                       </ul> 

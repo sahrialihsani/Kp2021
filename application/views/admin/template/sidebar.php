@@ -55,13 +55,12 @@
          <i class="zmdi zmdi-comment-text"></i> <span> Pertanyaan Pengguna </span>
        </a>
      </li>
-     <li class="sidebar-header">MENU KELOLA PROGAM & LAYANAN</li>
+     <li class="sidebar-header">MENU KELOLA PROGAM,LAYANAN & KERJASAMA</li>
      <li>
        <a href="<?=base_url('admin/programdanbea')?>">
          <i class="zmdi zmdi-city"></i> <span> Program UPT dan Beasiswa</span>
        </a>
      </li>
-     <li class="sidebar-header">MENU KELOLA KERJASAMA</li>
      <li>
        <a href="<?=base_url('admin/pangkalandata')?>">
          <i class="zmdi zmdi-file-text"></i> <span> Pangkalan Data Kerjasama</span>
@@ -72,6 +71,7 @@
          <i class="zmdi zmdi-wifi-alt"></i> <span> Jaringan</span>
        </a>
      </li>
+    
    </ul>
    
   

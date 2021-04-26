@@ -52,9 +52,10 @@ $data=array(
 		'email'=>$email,
 	'institusi'=>$institusi,
 	'pesan'=>$pesan,
+	'status'=>"Menunggu",
 	'gambar'=>$gambar);
 $this->Model_mitra->tambah_mitra($data,'tb_mitra');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil meenambahkan mitra</div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan mitra</div>');
 
 	redirect(base_url('admin/mitra'));
 	}
@@ -77,6 +78,7 @@ $data['data_mitra']=$this->Model_mitra->edit_mitra($where,'tb_mitra')->result();
 		$email =$this->input->post('email');
 		$institusi =$this->input->post('institusi');
 		$pesan =$this->input->post('pesan');
+		$status =$this->input->post('status');
 		$gambar =$this->input->post('gambar');
 		if($gambar=''){
 			
@@ -98,6 +100,7 @@ $data['data_mitra']=$this->Model_mitra->edit_mitra($where,'tb_mitra')->result();
 		'email'=>$email,
 	'institusi'=>$institusi,
 	'pesan'=>$pesan,
+	'status'=>$status,
 	'gambar'=>$gambar);
 		$where=array(
 			'id'=>$id
@@ -115,4 +118,13 @@ $data['data_mitra']=$this->Model_mitra->edit_mitra($where,'tb_mitra')->result();
 
 		redirect(base_url('admin/mitra'));
 	}
+	public function terima($id){
+		$data['user']= $this->db->get_where('tb_admin',['email'=> $this->session->userdata('email')])->row_array();
+		$where = array('id'=>$id);
+	$data['data_mitra']=$this->Model_mitra->edit_mitra($where,'tb_mitra')->result();
+		$this->load->view('admin/template/header');
+		$this->load->view('admin/template/sidebar');
+		$this->load->view('admin/landingpage/edit_mitra', $data);
+	
+		}
   }

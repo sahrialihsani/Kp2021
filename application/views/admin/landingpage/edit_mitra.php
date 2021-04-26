@@ -83,6 +83,16 @@ refresh=setTimeout("action()",speed);}action();
                 </div>
               </div>
               <div class="form-group">
+                <label class="col-sm-2 control-label">Status</label>
+                <div class="col-sm-12">
+                <select  name="status" class="form-control" required>
+                <option>Menunggu</option>
+                <option>Diterima</option>
+                <option>Ditolak</option>
+                </select>
+                </div>
+              </div>
+              <div class="form-group">
                 <label class="col-sm-2 control-label">Gambar</label>
                 <div class="col-sm-12">
                 <img src="<?php echo base_url('assets/dua/img/mitra/'.$mtra->gambar)?> " width="200" height="100">

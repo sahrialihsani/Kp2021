@@ -48,6 +48,9 @@ refresh=setTimeout("action()",speed);}action();
   margin-bottom: 20px;
   font-size: 30px;
   color: #05579e;">Pangkalan Data Kerjasama</h2>
+      <button onclick="window.location.href='<?=base_url('#')?>'" style="margin-left:15px;border-radius:10px; margin-bottom:10px" class="btn btn-primary">Daftar Menjadi Mitra Kami</button>
+      <br>
+      <br>
       <div style="margin-bottom:20px" class="container-fluid justify-content-center">
 
         <div class="row">
