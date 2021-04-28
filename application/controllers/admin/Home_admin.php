@@ -16,7 +16,6 @@ class home_admin extends CI_Controller {
 		$data['total_mitra'] = $this->Model_mitra->total_data()->num_rows();
 		$data['total_organisasi'] = $this->Model_organisasi->total_data()->num_rows();
 
-
 		$this->load->view('admin/template/header');
 		$this->load->view('admin/template/sidebar');
 		$this->load->view('admin/dashboard/index',$data);
