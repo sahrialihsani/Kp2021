@@ -63,7 +63,7 @@ refresh=setTimeout("action()",speed);}action();
                <?= form_error('nama','<small class="text-danger pl-3">','</small>')  ?>
               </div>
              <div class="form-group">
-     <img src="<?php echo base_url('assets/dua/img/profil/'.$profile['foto'])?> " width="200" height="150">
+     <img style="object-fit: contain;" src="<?php echo base_url('assets/dua/img/profil/'.$profile['foto'])?> " width="300" height="200">
        
      </div>
                <div class="form-group">

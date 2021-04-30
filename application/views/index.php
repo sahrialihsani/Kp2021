@@ -25,7 +25,7 @@ refresh=setTimeout("action()",speed);}action();
   <link href="<?base_url('')?>assets/dua/vendor2/animate.css/animate.min.css" rel="stylesheet">
   <link href="<?base_url('')?>ssets/dua/vendor2/remixicon/remixicon.css" rel="stylesheet">
   <link href="<?=base_url('')?>assets/dua/vendor2/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="<?base_url('')?>assets/dua/vendor2/venobox/venobox.css" rel="stylesheet">
+  <link href="<?base_url('assets/dua/vendor2/venobox/venobox.css')?>" rel="stylesheet">
   <link href="<?= base_url('')?>assets/dua/vendor2/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
@@ -107,7 +107,7 @@ refresh=setTimeout("action()",speed);}action();
         <?php foreach($data_mitra as $mtr):?>
 
           <div>
-          <img height="100px" src="<?=base_url('assets/dua/img/mitra/').$mtr['gambar']?>" alt="">
+          <img style="object-fit: contain;" height="100px" src="<?=base_url('assets/dua/img/mitra/').$mtr['gambar']?>" alt="">
           <p style="margin-top:10px;background-color:rgba(3, 56, 102, 0.9);;opacity:0.3;font-size:16px;font-weight:700; color:#fff; padding-left:5px"><?=$mtr['institusi']?></p>
           </div>
 
@@ -186,7 +186,7 @@ refresh=setTimeout("action()",speed);}action();
                     <p>
                     UPT KSLI Selalu Mengupadate Informasi-informasi terkini, Silahkan klik tombol dibawah ini untuk mengunjungi berita terkini
                     </p>
-                    <button style="background-color:#0880e8" class="btn btn-info mt-2">Selengkapnya</button>
+                    <button onclick="window.location.href='<?=base_url('post')?>'" style="background-color:#0880e8" class="btn btn-info mt-2">Selengkapnya</button>
                   </div>
                 </li>
 
@@ -196,7 +196,7 @@ refresh=setTimeout("action()",speed);}action();
                     <p>
                     Sesuai dengan visi Universitas Bengkulu yaitu Menjadi Universitas kelas Dunia pada tahun 2025, UPT KSLI telah memiliki program-program internasional. 
                     </p>
-                    <button style="background-color:#0880e8" class="btn btn-info mt-2">Selengkapnya</button>
+                    <button onclick="window.location.href='<?=base_url('program')?>'" style="background-color:#0880e8" class="btn btn-info mt-2">Selengkapnya</button>
                   </div>
                 </li>
 
@@ -205,7 +205,7 @@ refresh=setTimeout("action()",speed);}action();
                   <div id="accordion-list-3" class="collapse" data-parent=".accordion-list">
                     <p>
                     Universitas Bengkulu mempunyai jaringan yang luas dengan bekerja sama dengan berbagai instansi dan universitas baik lokal maupun luar negeri.   </p>
-                    <button style="background-color:#0880e8" class="btn btn-info mt-2">Selengkapnya</button>
+                    <button onclick="window.location.href='<?=base_url('program/partners')?>'" style="background-color:#0880e8" class="btn btn-info mt-2">Selengkapnya</button>
 
                   </div>
                 </li>
@@ -239,7 +239,7 @@ refresh=setTimeout("action()",speed);}action();
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="member d-flex align-items-start">
 
-              <div class="pic"><img src="<?=base_url('assets/dua/img/staf/').$stf['foto']?>" class="img-fluid" alt=""></div>
+              <div class="pic"><img style="object-fit: contain;" src="<?=base_url('assets/dua/img/staf/').$stf['foto']?>" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4><?=$stf['nama']?></h4>
                 <span><?=$stf['jabatan']?></span>
@@ -422,7 +422,7 @@ refresh=setTimeout("action()",speed);}action();
               <div class="form-group">
                 <textarea class="form-control" name="pesan" rows="5" required data-rule="required" data-msg="Please fill out your message to us" placeholder="Your Message"></textarea>
               </div>
-              <div class="text-center"><button style="border-radius:10px;" class="btn-primary"  type="submit">Send Connection</button></div>
+              <div class="text-center"><button style="border-radius:10px;" class="btn-primary"  type="submit">Send your question</button></div>
           </div>
 
         </div>

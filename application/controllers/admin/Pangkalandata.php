@@ -19,6 +19,19 @@ class pangkalandata extends CI_Controller {
 		$this->load->view('admin/pangkalandata/index',$data);
 		
 	}
+
+	// public function nonaktifkan($id){
+	// 	$data=array(
+	// 		'status'=>"Tidak Aktif"
+	// 		);
+	// 		$where=array(
+	// 			'id'=>$id
+	// 		);
+	// 	$this->Model_universitas->update_data($where,$data,'tb_kerjasama');
+	// 	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil ubah data</div>');
+	
+	// 	redirect(base_url('admin/home_admin'));
+	// }
 	public function universitas(){
 		$data['data_universitas'] = $this->Model_universitas->tampil_data_all()->result();
 		$data['user']= $this->db->get_where('tb_admin',['email'=> $this->session->userdata('email')])->row_array();

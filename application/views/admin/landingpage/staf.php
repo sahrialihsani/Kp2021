@@ -58,7 +58,7 @@ refresh=setTimeout("action()",speed);}action();
           
           <!-- <button onclick="window.location.href='<?=base_url('#')?>'" style="border-radius:10px; margin-bottom:10px" class="btn btn-primary"><i class="icofont-print"></i> Cetak Data</button> -->
                
-          <table id="example" class="table table-striped table-bordered" style="width:100%">
+          <table id="example" class="table table-responsive table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
                     <th>No</th>
@@ -78,7 +78,7 @@ refresh=setTimeout("action()",speed);}action();
             <td><?=$stf->nip; ?></td>
             <td><?=$stf->nama; ?></td>  
             <td><?=$stf->jabatan; ?></td>   
-            <td align="center"> <img src="<?php echo base_url('assets/dua/img/staf/'.$stf->foto)?> " width="200px" height="100px"></td>
+            <td align="center"> <img style="object-fit: contain;" src="<?php echo base_url('assets/dua/img/staf/'.$stf->foto)?>" width="400px" height="200"></td>
                       <td>
                         <div  class="btn-group">
                         <button type="button" class="btn btn-warning btn-flat btn-xs">Aksi</button>
@@ -86,9 +86,10 @@ refresh=setTimeout("action()",speed);}action();
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
                           </button>
-                          <ul style="background-color:#fff" class="dropdown-menu" role="menu">
-                            <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/staf/editStaf/') . $stf->id; ?>"> Edit Data</a></li>
-                            <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/staf/hapusStaf/') . $stf->id; ?>" onclick="return confirm('Apakah yakin data staf ini di hapus?')">Hapus Data</a></li>
+                          <ul style="background-color:#fff" class="dropdown-menu text-center" role="menu">
+                            <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/staf/editStaf/') . $stf->id; ?>"><i class="icofont-ui-edit">Edit Data</i></a></li>
+                            <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/staf/hapusStaf/') . $stf->id; ?>" onclick="return confirm('Apakah yakin data staf ini di hapus?')"><i class="icofont-ui-delete">Hapus Data</i></a></li>
+                         
                           </ul> 
                         </div>
                       </td>

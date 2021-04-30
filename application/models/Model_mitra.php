@@ -35,4 +35,12 @@ class Model_mitra extends CI_Model{
 	$hasil=$this->db->query("SELECT * FROM tb_mitra ");
             return $hasil;
 	}
+	public function detail_data($id){
+		$this->db->select('*');
+   $this->db->from('tb_mitra');
+   $this->db->where('id', $id);  // Also mention table name here
+   $query = $this->db->get();    
+   if($query->num_rows() > 0)
+	   return $query->result();
+   }
 }

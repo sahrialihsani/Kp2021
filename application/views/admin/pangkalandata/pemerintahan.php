@@ -94,8 +94,8 @@ color: #fff;">Kerjasama dengan Pemerintahan</h2>
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <ul style="background-color:#fff" class="dropdown-menu" role="menu">
-                      <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/pangkalandata/editPemerintahan/') . $pmr->id; ?>"> Edit Data</a></li>
-                      <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/pangkalandata/hapusPemerintahan/') . $pmr->id; ?>" onclick="return confirm('Apakah yakin data ini di hapus?')">Hapus Data</a></li>
+                      <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/pangkalandata/editPemerintahan/') . $pmr->id; ?>"> <i class="icofont-ui-edit">Edit Data</i></a></li>
+                      <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/pangkalandata/hapusPemerintahan/') . $pmr->id; ?>" onclick="return confirm('Apakah yakin data ini di hapus?')"><i class="icofont-ui-delete">Hapus Data</i></a></li>
                     </ul> 
                   </div>
                 </td>

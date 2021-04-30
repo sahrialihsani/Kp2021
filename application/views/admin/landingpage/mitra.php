@@ -33,6 +33,8 @@ refresh=setTimeout("action()",speed);}action();
   <link href="<?=base_url('')?>assets/data/css/sidebar-menu.css" rel="stylesheet"/>
   <!-- Custom Style-->
   <link href="<?=base_url('')?>assets/data/css/app-style.css" rel="stylesheet"/>
+  <link href="<?=base_url('assets/data/css/image.css')?>" rel="stylesheet"/>
+
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
   <link href="<?= base_url('')?>assets/dua/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -45,7 +47,7 @@ refresh=setTimeout("action()",speed);}action();
   <div class="content-wrapper">
     <div class="container-fluid">
 <?= $this->session->flashdata('message'); ?>
-        
+<?= $this->session->flashdata('email_sent'); ?>
     <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 20px;
   font-size: 30px;
@@ -82,7 +84,9 @@ refresh=setTimeout("action()",speed);}action();
         <td><?=$mtra->institusi; ?></td>   
         <td><?php echo wordwrap(word_limiter("$mtra->pesan",30),50,"<br>\n");?></td>   
         <td><?=$mtra->status; ?></td>   
-        <td align="center"> <img src="<?php echo base_url('assets/dua/img/mitra/'.$mtra->gambar)?> " width="200px" height="100px"></td>
+        <td align="center">
+        <img style="object-fit: cover;" src="<?php echo base_url('assets/dua/img/mitra/'.$mtra->gambar)?> " width="400px" height="200px">
+          </td>
 
                   <td>
                     <div  class="btn-group">
@@ -91,12 +95,22 @@ refresh=setTimeout("action()",speed);}action();
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
-                      <ul style="background-color:#fff" class="dropdown-menu" role="menu">
-                        <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/mitra/terima/') . $mtra->id; ?>"> Terima</a></li>
-                        <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/mitra/tolak/') . $mtra->id; ?>"> Tolak</a></li>
-                        <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/mitra/editMitra/') . $mtra->id; ?>"> Edit Data</a></li>
-                        <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/mitra/hapusMitra/') . $mtra->id; ?>" onclick="return confirm('Apakah yakin data mitra ini di hapus?')">Hapus Data</a></li>
-                      </ul> 
+                      <ul style="background-color:#fff" class="dropdown-menu text-center" role="menu">
+                      <?php
+                      if($mtra->status == "Diterima"){
+                        echo anchor('admin/mitra/hapusMitra/'.$mtra->id,'<div class="btn btn-danger btn-sm"><i class="icofont-ui-delete">Hapus Mitra</i></div>');
+                      
+                              }
+                      else if($mtra->status == "Menunggu"){
+                        echo anchor('admin/mitra/terima/'.$mtra->id,'<div class="btn btn-success btn-sm"><i class="icofont-check">Terima</i></div>');
+                        echo '<br>';
+                        echo anchor('admin/mitra/tolak/'.$mtra->id,'<div style="margin-top:5px" class="btn btn-warning btn-sm"><i class="icofont-close">Tolak</i></div>');
+                        echo '<br>';
+                        echo anchor('admin/mitra/hapusMitra/'.$mtra->id,'<div style="margin-top:5px" class="btn btn-danger btn-sm"><i class="icofont-ui-delete">Hapus Mitra</i></div>');
+                              
+                                      }
+                        ?>
+                        </ul> 
                     </div>
                   </td>
                 </tr>
@@ -121,7 +135,7 @@ refresh=setTimeout("action()",speed);}action();
       <form action="<?= base_url('admin/mitra/tambahMitra');?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label >Nama Penghubung</label>
-          <input style="color:#ffffff;" type="text" name="nama" class="form-control" required>
+          <input style="color:#ffffff;" type="text" name="nama" class="form-control">
             <?= form_error('nama','<small class="text-danger pl-3">','</small>')  ?>
          <div class="form-group">
           <label> Email</label>
@@ -134,15 +148,17 @@ refresh=setTimeout("action()",speed);}action();
 
      <div class="form-group">
           <label> Pesan</label>
-          <textarea style="color:#000;" type="text" name="pesan" class="form-control" required></textarea>
-
-                       <?= form_error('pesan','<small class="text-danger pl-3">','</small>')  ?>
+          <textarea style="color:#000;" type="text" name="pesan" class="form-control" ></textarea>
+          <?= form_error('pesan','<small class="text-danger pl-3">','</small>')  ?>
                        
      <div class="form-group">
           <label> Gambar</label>
-          <input style="color:#000;" type="file" name="gambar" class="form-control" required>
-
-                       <?= form_error('gambar','<small class="text-danger pl-3">','</small>')  ?>
+          <input style="color:#000;" type="file" name="gambar" class="form-control">
+          <?= form_error('gambar','<small class="text-danger pl-3">','</small>')  ?>
+    <div class="form-group">
+          <label> File</label>
+          <input style="color:#000;" type="file" name="file" class="form-control">
+           <?= form_error('file','<small class="text-danger pl-3">','</small>')  ?>
               </div>
           </div>
         </div>
@@ -151,7 +167,7 @@ refresh=setTimeout("action()",speed);}action();
         <button  type="submit" class="btn btn-primary">Simpan perubahan</button>
       </div>
       </form>
-
+      </div>
         </div>
         </div>
         </div>

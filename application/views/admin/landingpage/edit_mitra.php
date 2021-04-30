@@ -95,7 +95,7 @@ refresh=setTimeout("action()",speed);}action();
               <div class="form-group">
                 <label class="col-sm-2 control-label">Gambar</label>
                 <div class="col-sm-12">
-                <img src="<?php echo base_url('assets/dua/img/mitra/'.$mtra->gambar)?> " width="200" height="100">
+                <img style="object-fit: contain;" src="<?php echo base_url('assets/dua/img/mitra/'.$mtra->gambar)?> " width="400px" height="300px">
                   <input type="file" class="form-control" name="gambar"  required>
                 </div>
               </div>

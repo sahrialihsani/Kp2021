@@ -5,8 +5,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
   <script language='JavaScript'>
-var txt="UPT KSLI UNIB | PANGKALAN DATA KERJASAMA ";
+var txt="UPT KSLI UNIB | COOPERATION ";
 var speed=300;
 var refresh=null;
 function action() { document.title=txt;
@@ -19,13 +20,13 @@ refresh=setTimeout("action()",speed);}action();
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="<?= base_url('')?>assets/dua/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?= base_url('')?>assets/dua/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="<?= base_url('')?>assets/dua/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?= base_url('')?>assets/dua/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="<?= base_url('')?>assets/dua/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/dua/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/dua/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/dua/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/dua/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/dua/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="<?=base_url('')?>assets/dua/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="<?= base_url('')?>assets/dua/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/dua/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="<?= base_url('')?>assets/dua/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
@@ -43,56 +44,50 @@ refresh=setTimeout("action()",speed);}action();
 </head>
 <body>
 <main id="main">
-<section class="counts" style="margin-top:100px; margin-bottom:20px">
-<h2 class="justify-content-center text-center" style=" font-weight: 700;
-  margin-bottom: 20px;
+<section style="background-color:#fff;" id="oportunity" class="oportunity">
+      <div class="container section-title">
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <h2 class="justify-content-center text-center" style=" font-weight: 700;
   font-size: 30px;
-  color: #05579e;">Pangkalan Data Kerjasama</h2>
-      <button onclick="window.location.href='<?=base_url('daftarmitra')?>'" style="margin-left:15px;border-radius:10px; margin-bottom:10px" class="btn btn-primary">Daftar Menjadi Mitra Kami</button>
+  color: #05579e;">Daftar Menjadi Mitra</h2>
       <br>
-      <br>
-      <div style="margin-bottom:20px" class="container-fluid justify-content-center">
+       
+      <?= $this->session->flashdata('message'); ?>
 
-        <div class="row">
+          <div class="justify-content-center">
 
-          <div class="col-lg-4 col- text-center" data-aos="fade-up">
-            <div style="border-radius:20px;background-color:#ffffff" class="count-box">
-            <i class="icofont-university" style="color: #91daff;"></i>
-              <span data-toggle="counter-up"><?=$total_universitas?></span>
-              <p>Perguruan Tinggi</p>
-        <button onclick="window.location.href='<?=base_url('program/university')?>'" style="border-radius:10px;margin-top:10px" class="btn btn-primary">Lihat Data</button>
-
-            </div>
-
+          <form action="<?=base_url('daftarmitra/daftar')?>"  method="post"  enctype="multipart/form-data">
+                <div class="form-group">
+                  <input type="text" name="nama" class="form-control" required id="nama" placeholder="Your Name"/>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" required id="email" placeholder="Your Institution Email"/>
+                </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="institusi" required id="institusi" placeholder="Your Institution"/>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="pesan" rows="5" required placeholder="Your Message"></textarea>
+              </div>
+              <div class="form-group">
+                <p class="float-left">Insert your institution logo </p>
+                <input type="file" class="form-control" name="gambar" required id="institusi" placeholder="Your institution logo"/>
+              </div>
+              <div class="form-group">
+                <p class="float-left">Insert your cooperation file</p>
+                <input type="file" class="form-control" name="file" required id="institusi" placeholder="File"/>
+              </div>
+              <div class="text-center"><button style="border-radius:10px;" class="btn-primary"  type="submit">Send Connection</button></div>
           </div>
-
-          <div class="col-lg-4 text-center" data-aos="fade-up" data-aos-delay="200">
-          <div style="border-radius:20px; background-color:#ffffff" class="count-box">
-          <i class="icofont-institution" style="color: #91daff;"></i>
-
-              <span data-toggle="counter-up"><?=$total_pemerintahan?></span>
-              <p>Instansi Pemerintahan</p>
-              <button onclick="window.location.href='<?=base_url('program/goverment')?>'" style="border-radius:10px;margin-top:10px" class="btn btn-primary">Lihat Data</button>
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-4 text-center" data-aos="fade-up" data-aos-delay="400">
-          <div style="border-radius:20px;background-color:#ffffff" class="count-box">
-          <i class="icofont-building" style="color: #91daff;"></i>
-
-              <span data-toggle="counter-up"><?=$total_swasta?></span>
-              <p>Perusahaan/Swasta</p>
-              <button onclick="window.location.href='<?=base_url('program/institution')?>'" style="border-radius:10px;margin-top:10px" class="btn btn-primary">Lihat Data</button>
-
-            </div>
-
-          </div>
+        </form>
         </div>
-      </div>
-    </section><!-- End Counts Section -->
 
+      </div>
+    </section><!-- End Contact Section -->
   <div id="preloader"></div>
 </main>
   <!-- ======= Footer ======= -->

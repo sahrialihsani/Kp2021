@@ -82,7 +82,7 @@ refresh=setTimeout("action()",speed);}action();
               <div class="form-group">
                 <label class="col-sm-2 control-label">Foto</label>
                 <div class="col-sm-12">
-                <img src="<?php echo base_url('assets/dua/img/staf/'.$stf->foto)?> " width="200" height="100">
+                <img style="object-fit: contain;" src="<?php echo base_url('assets/dua/img/staf/'.$stf->foto)?> " width="400px" height="300px">
                   <input type="file" class="form-control" name="foto" value="<?= $stf->foto;?>" required>
                 </div>
               </div>

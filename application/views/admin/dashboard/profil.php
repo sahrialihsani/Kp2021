@@ -56,7 +56,7 @@ refresh=setTimeout("action()",speed);}action();
                     <div class="block block-three"></div>
                     <div class="block block-four"></div>
                  
-               <img width="200px" height="200px" class="avatar" src="<?=base_url('assets/dua/img/profil/').$user['foto']?>" alt="foto profil">
+               <img style="object-fit: contain;" width="400px" height="300px" class="avatar" src="<?=base_url('assets/dua/img/profil/').$user['foto']?>" alt="foto profil">
                <br>
                <br>
                   <h3 style="color: #fff;" class="text-center description">

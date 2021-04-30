@@ -87,8 +87,8 @@ refresh=setTimeout("action()",speed);}action();
                             <span class="sr-only">Toggle Dropdown</span>
                           </button>
                           <ul style="background-color:#fff" class="dropdown-menu" role="menu">
-                            <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/mobility/editStudentmob/') . $stmb->id; ?>"> Edit Data</a></li>
-                            <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/mobility/hapusStudentmob/') . $stmb->id; ?>" onclick="return confirm('Apakah yakin data mobility ini di hapus?')">Hapus Data</a></li>
+                            <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/mobility/editStudentmob/') . $stmb->id; ?>"> <i class="icofont-ui-edit">Edit Data</i></a></li>
+                            <li><a style="padding-left:5px;padding-bottom:3px;padding-top:3px;color:#000" href="<?= base_url('admin/mobility/hapusStudentmob/') . $stmb->id; ?>" onclick="return confirm('Apakah yakin data mobility ini di hapus?')"><i class="icofont-ui-delete">Hapus Data</i></a></li>
                           </ul> 
                         </div>
                       </td>

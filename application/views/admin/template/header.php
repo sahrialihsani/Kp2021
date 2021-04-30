@@ -17,7 +17,10 @@ $user= $this->db->get_where('tb_admin',['email'=> $this->session->userdata('emai
   </ul>
   <ul class="navbar-nav align-items-center right-nav-link">
       <li class="nav-item language">
-
+      <!-- <?php if($_SESSION['nonaktifkan']){
+        echo base_url('pangkalandata/nonaktifkan/').$nonaktifkan->id;
+      }
+        ?> -->
       <a  style="font-size:16px"  class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="icofont-notification">
         <?= count($_SESSION['notif']) ?>
       </i></a>
