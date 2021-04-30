@@ -26,7 +26,13 @@ $user= $this->db->get_where('tb_admin',['email'=> $this->session->userdata('emai
       </i></a>
       <ul style="font-size:15px;background-color:#2b5981" class="dropdown-menu dropdown-menu-right mr-3">
 				<?php foreach($_SESSION['notif'] as $notif ){ ?>
-					<li style="font-size:15px;background-color:#2b5981" class="dropdown-item"><i class="icofont-clock-time"></i> masa kerja sama <strong><?= $notif->nama_kerjasama ?> </strong> tinggal <?= $notif->selisih ?> hari lagi </li>
+          <?php if( count($_SESSION['notif'])<=0){
+            echo '<li style="font-size:15px;background-color:#2b5981" class="dropdown-item">Tidak ada Notifikasi</li>';
+          } else{
+            echo anchor('admin/pangkalandata','<li style="font-size:15px;background-color:#2b5981" class="dropdown-item"><i style="color:#ed0000" class="icofont-clock-time"></i> masa kerja sama "'.$notif->nama_kerjasama.'" tinggal <strong style="color:#ed0000">'.$notif->selisih.'</strong> hari lagi</li>');
+
+          }
+            ?>
 				<?php } ?>
 			</ul>
     </li>
