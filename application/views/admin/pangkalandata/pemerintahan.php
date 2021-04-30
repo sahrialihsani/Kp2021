@@ -52,7 +52,7 @@ refresh=setTimeout("action()",speed);}action();
 margin-bottom: 20px;
 font-size: 30px;
 color: #fff;">Kerjasama dengan Pemerintahan</h2>
-<button class="btn btn-sm btn-primary float-left ml-2"><i class="icofont-print"></i>Cetak Data</button>
+<button onclick="window.location.href='<?=base_url('cetak/cetakpemerintahan')?>'" class="btn btn-sm btn-primary float-left ml-2"><i class="icofont-print"></i>Cetak Data</button>
 
 <button class="btn btn-sm btn-primary float-left ml-2" data-toggle="modal" data-target="#tambah_pemerintahan">Tambah Data Kerjasama</button>
   <br>
@@ -80,7 +80,7 @@ color: #fff;">Kerjasama dengan Pemerintahan</h2>
             foreach ($data_pemerintahan as $pmr) { ?>
               <tr>
       <td><?=$no++ ?></td>
-      <td><?=$pmr->nama; ?></td>
+      <td><?=$pmr->institusi; ?></td>
       <td><?=$pmr->nama_kerjasama; ?></td>
       <td><?=$pmr->status; ?></td>
       <td><a style="color:#fc9b3f" href="<?=base_url('admin/pangkalandata/detailBerkasGov/').$pmr->id?>"><?=$pmr->file?></a></td>

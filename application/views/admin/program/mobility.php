@@ -50,6 +50,8 @@ refresh=setTimeout("action()",speed);}action();
   margin-bottom: 20px;
   font-size: 30px;
   color: #fff;">Program Mobility</h2>
+    <button onclick="window.location.href='<?=base_url('cetak/cetakmobility')?>'" class="btn btn-sm btn-primary float-left ml-2"><i class="icofont-print"></i>Cetak Data</button>
+
     <button class="btn btn-sm btn-primary float-left ml-2" data-toggle="modal" data-target="#tambah_mobility">Tambah Data Mobility</button>
         <br>
         <br>
@@ -57,7 +59,7 @@ refresh=setTimeout("action()",speed);}action();
           
           <!-- <button onclick="window.location.href='<?=base_url('#')?>'" style="border-radius:10px; margin-bottom:10px" class="btn btn-primary"><i class="icofont-print"></i> Cetak Data</button> -->
                
-          <table id="example" class="table table-striped table-bordered" style="width:100%">
+          <table id="example" class="table table-responsive table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
                     <th>No</th>
@@ -77,7 +79,7 @@ refresh=setTimeout("action()",speed);}action();
             <td><?=$stmb->nama; ?></td>
             <td><?= $stmb->email?></td>  
             <td><?= $stmb->status?></td>   
-            <td><a style="color:#fc9b3f" href=""><?=$stmb->berkas?></a></td>
+            <td><a style="color:#fc9b3f" href="<?=base_url('admin/mobility/detailBerkas/').$stmb->id?>"><?=$stmb->berkas?></a></td>
 
                       <td>
                         <div  class="btn-group">

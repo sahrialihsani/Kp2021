@@ -52,7 +52,7 @@ refresh=setTimeout("action()",speed);}action();
   margin-bottom: 20px;
   font-size: 30px;
   color: #fff;">Kerjasama dengan Universitas</h2>
-<button class="btn btn-sm btn-primary float-left ml-2"><i class="icofont-print"></i>Cetak Data</button>
+<button onclick="window.location.href='<?=base_url('cetak/cetakuniv')?>'" class="btn btn-sm btn-primary float-left ml-2"><i class="icofont-print"></i>Cetak Data</button>
 
 <button class="btn btn-sm btn-primary float-left ml-2" data-toggle="modal" data-target="#tambah_universitas">Tambah Data Kerjasama</button>
         <br>
@@ -80,7 +80,7 @@ refresh=setTimeout("action()",speed);}action();
                   foreach ($data_universitas as $unv) { ?>
                     <tr>
             <td><?=$no++ ?></td>
-            <td><?=$unv->nama; ?></td>
+            <td><?=$unv->institusi; ?></td>
             <td><?=$unv->nama_kerjasama; ?></td>
             <td><?=$unv->status; ?></td>
             <td><a style="color:#fc9b3f" href="<?=base_url('admin/pangkalandata/detailBerkasUniv/').$unv->id?>"><?=$unv->file?></a></td>

@@ -53,7 +53,7 @@ refresh=setTimeout("action()",speed);}action();
       <div style="margin-bottom:20px" class="container-fluid justify-content-center">
       <button style="border-radius:10px;margin-bottom:10px " class="btn btn-primary " data-toggle="modal" data-target="#tambah_berita">Tambah Faq</button>
        
-      <table id="example" class="table justify-image-center table-striped table-bordered" style="width:100%">
+      <table id="example" class="table justify-image-center table-responsive table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>No</th>

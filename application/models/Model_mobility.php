@@ -35,4 +35,12 @@ class Model_mobility extends CI_Model{
 	$hasil=$this->db->query("SELECT * FROM tb_mobility");
             return $hasil;
 	}
+	public function detail_berkas($id){
+		$this->db->select('*');
+   $this->db->from('tb_mobility');
+   $this->db->where('id', $id);  // Also mention table name here
+   $query = $this->db->get();    
+   if($query->num_rows() > 0)
+	   return $query->result();
+   }
 }

@@ -48,7 +48,7 @@ refresh=setTimeout("action()",speed);}action();
   margin-bottom: 20px;
   font-size: 30px;
   color: #fff;">Jaringan</h2>
-      <button class="btn btn-sm btn-primary float-left ml-2"><i class="icofont-print"></i>Cetak Data</button>
+      <!-- <button class="btn btn-sm btn-primary float-left ml-2"><i class="icofont-print"></i>Cetak Data</button> -->
       <button class="btn btn-sm btn-primary float-left ml-2" data-toggle="modal" data-target="#tambah_organisasi">Tambah Organisasi</button>
     <br>
     <br>
@@ -62,7 +62,7 @@ refresh=setTimeout("action()",speed);}action();
             <tr>
                 <th>No</th>
                 <th>Nama Organisasi</th>
-                <th>Tahun Masuk</th>
+                <th>Tahun Bergabung</th>
                 <th>Aksi</th>
             </tr>
         </thead>

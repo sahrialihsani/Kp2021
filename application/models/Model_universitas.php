@@ -1,11 +1,11 @@
 <?php
 class Model_universitas extends CI_Model{
 	public function tampil_data(){
-	$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.nama, tb_kerjasama.status, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Universitas' AND tb_kerjasama.status='Aktif' ORDER BY tb_kerjasama.nama_kerjasama ASC LIMIT 0,3");
+	$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.status, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Universitas' AND tb_kerjasama.status='Aktif' ORDER BY tb_kerjasama.nama_kerjasama ASC LIMIT 0,3");
             return $hasil;
 	}
 	public function tampil_data_all(){
-	$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.nama, tb_kerjasama.status, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Universitas' AND tb_kerjasama.status='Aktif' ORDER BY tb_kerjasama.nama_kerjasama ASC");
+	$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.status, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Universitas' AND tb_kerjasama.status='Aktif' ORDER BY tb_kerjasama.nama_kerjasama ASC");
             return $hasil;
 	}
 	public function detail_universitas($id){

@@ -112,5 +112,11 @@ $this->Model_mobility->tambah_mobility($data,'tb_mobility');
 	
 			redirect(base_url('admin/mobility'));
 		}
+		public function detailBerkas($id){
+		
+			$data['detail_berkas'] = $this->Model_mobility->detail_berkas($id);
+			$this->load->view('admin/program/detail_berkas_mobility', $data);
+	
+			}	
 }
 
