@@ -21,7 +21,7 @@ $user= $this->db->get_where('tb_admin',['email'=> $this->session->userdata('emai
         echo base_url('pangkalandata/nonaktifkan/').$nonaktifkan->id;
       }
         ?> -->
-      <a  style="font-size:16px"  class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="icofont-notification">
+      <a  style="font-size:16px;margin-top:7px"  class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="icofont-notification">
         <?php
 		  	$notifikasi= $this->db->query("SELECT id,nama_kerjasama,tgl_akhir,status,DATEDIFF(tgl_akhir,CURRENT_DATE()) AS selisih FROM tb_kerjasama  WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())=0 or DATEDIFF(tgl_akhir,CURRENT_DATE())=1 or DATEDIFF(tgl_akhir,CURRENT_DATE())=2 or DATEDIFF(tgl_akhir,CURRENT_DATE())=3) and status='aktif' ORDER BY tgl_akhir ASC")->result();
 		  	$habis= $this->db->query("SELECT id,nama_kerjasama,tgl_akhir,status,DATEDIFF(tgl_akhir,CURRENT_DATE()) AS selisih FROM tb_kerjasama  WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())=0) and status='aktif' ORDER BY tgl_akhir ASC")->result();

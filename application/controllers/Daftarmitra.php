@@ -7,9 +7,10 @@ class daftarmitra extends CI_Controller {
 		$this->load->library('form_validation');
 	}
 	public function index(){
-		$this->load->view('template/header');
 		$this->load->view('template/headerlayanan');
 		$this->load->view('daftarmitra');
+		$this->load->view('template/footer');
+
 		
 	}
 	public function daftar(){

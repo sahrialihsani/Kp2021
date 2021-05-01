@@ -52,7 +52,7 @@
      </li>
      <li>
        <a href="<?=base_url('admin/userquestion')?>">
-         <i class="zmdi zmdi-comment-text"></i> <span> Pertanyaan Pengguna </span>
+         <i class="icofont-question"></i> <span> Pertanyaan Pengguna </span>
        </a>
      </li>
      <li class="sidebar-header">MENU KELOLA PROGAM,LAYANAN & KERJASAMA</li>
