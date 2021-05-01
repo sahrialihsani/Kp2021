@@ -34,7 +34,7 @@ $data=array(
 		'pertanyaan'=>$pertanyaan,
 	'jawaban'=>$jawaban);
 $this->Model_faq->tambah_faq($data,'tb_faq');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil meenambahkan faq</div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan faq</div>');
 
 	redirect(base_url('admin/faq'));
 	}

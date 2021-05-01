@@ -51,7 +51,7 @@ $data=array(
 		'nama'=>$nama,
 	'foto'=>$foto);
 $this->Model_staf->tambah_staf($data,'tb_staf');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil meenambahkan Staf</div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan Staf</div>');
 
 	redirect(base_url('admin/staf'));
 	}

@@ -51,7 +51,7 @@ $data=array(
 		'email'=> $email,
 	'berkas'=>$berkas);
 $this->Model_studentmob->tambah_studentmob($data,'tb_studentmob');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil meenambahkan Student mobility</div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan Student mobility</div>');
 
 	redirect(base_url('admin/studentmob'));
 	}

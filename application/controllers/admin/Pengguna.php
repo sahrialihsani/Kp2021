@@ -56,7 +56,7 @@ $data=array(
 		'status'=> $status,
 	'foto'=>$foto);
 $this->Model_pengguna->tambah_pengguna($data,'tb_admin');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil meenambahkan data pengguna</div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan data pengguna</div>');
 
 	redirect(base_url('admin/pengguna'));
 	}

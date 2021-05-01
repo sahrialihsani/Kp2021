@@ -19,7 +19,97 @@ class pangkalandata extends CI_Controller {
 		$this->load->view('admin/pangkalandata/index',$data);
 		
 	}
-
+	public function setNonaktif($id){
+		$emailConfig = [
+			'protocol' => 'smtp', 
+			'smtp_host' => 'ssl://smtp.googlemail.com', 
+			'smtp_port' => 465, 
+			'smtp_user' => 'notiftesting7@gmail.com', 
+			'smtp_pass' => 'testnotif123', 
+			'mailtype' => 'html', 
+			'charset' => 'iso-8859-1'
+		];
+		// Set your email information
+		$from = [
+			'email' => 'notiftesting7@gmail.com',
+			'name' => 'testing notif'
+		];
+		$datailemail = $this->Model_program->detail_data($id);
+		foreach ($datailemail as $row)
+		{
+			$to .=  $row->email;
+		}
+		$subject = 'Masa Kerjasama Telah Berakhir';
+		$pesan = 'Masa Kerjasama telah habis. Anda dapat Memperbaharui kerjasama dengan membalas email ini.<br><br> Terimakasih,<br> Salam hangat, <br>
+		UPT KSLI Universitas Bengkulu';
+		$this->load->library('email', $emailConfig);
+		$this->email->set_newline("\r\n");
+		// Set email preferences
+		$this->email->from($from['email'], $from['name']);
+		$this->email->to($to);
+		$this->email->subject($subject);
+		$this->email->message($pesan);
+		if (!$this->email->send()) {
+		$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Gagal mengirim email</div>');
+	
+		redirect(base_url('admin/pangkalandata'));
+			
+		} else {
+		$data=array('status'=>'Tidak Aktif');
+		$where = array('id'=>$id);
+		$this->Model_pemerintahan->update_data($where,$data,'tb_kerjasama');
+		$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil mengirim email</div>');
+		redirect(base_url('admin/pangkalandata'));
+	
+		}
+	}
+	public function setMin1($id){
+		$emailConfig = [
+			'protocol' => 'smtp', 
+			'smtp_host' => 'ssl://smtp.googlemail.com', 
+			'smtp_port' => 465, 
+			'smtp_user' => 'notiftesting7@gmail.com', 
+			'smtp_pass' => 'testnotif123', 
+			'mailtype' => 'html', 
+			'charset' => 'iso-8859-1'
+		];
+		// Set your email information
+		$from = [
+			'email' => 'notiftesting7@gmail.com',
+			'name' => 'testing notif'
+		];
+		$datailemail = $this->Model_program->detail_data($id);
+		foreach ($datailemail as $row)
+		{
+			$to .=  $row->email;
+		}
+		$subject = 'Masa Kerjasama Tinggal 1 Hari Lagi';
+		$pesan = 'Masa Kerjasama hampir habis. Anda dapat Memperbaharui kerjasama dengan membalas email ini.<br><br> Terimakasih,<br> Salam hangat, <br>
+		UPT KSLI Universitas Bengkulu';
+		$this->load->library('email', $emailConfig);
+		$this->email->set_newline("\r\n");
+		// Set email preferences
+		$this->email->from($from['email'], $from['name']);
+		$this->email->to($to);
+		$this->email->subject($subject);
+		$this->email->message($pesan);
+		if (!$this->email->send()) {
+		$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Gagal mengirim email</div>');
+		redirect(base_url('admin/pangkalandata'));
+			
+		} else {
+		$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil mengirim email</div>');
+		redirect(base_url('admin/pangkalandata'));
+		}
+	}
+	public function setMin2(){
+		$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Kerjasama tinggal 2 hari lagi</div>');
+		redirect(base_url('admin/pangkalandata'));
+	}
+	public function setMin3(){
+		$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Kerjasama tinggal 3 hari lagi</div>');
+		redirect(base_url('admin/pangkalandata'));
+	}
 	// public function nonaktifkan($id){
 	// 	$data=array(
 	// 		'status'=>"Tidak Aktif"
@@ -80,7 +170,7 @@ $data=array(
 		'tgl_mulai'=>$tgl_mulai,
 		'tgl_akhir'=>$tgl_akhir);
 $this->Model_universitas->tambah_universitas($data,'tb_kerjasama');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil meenambahkan data</div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan data</div>');
 
 	redirect(base_url('admin/pangkalandata/universitas'));
 
@@ -198,7 +288,7 @@ $data=array(
 		'tgl_mulai'=>$tgl_mulai,
 		'tgl_akhir'=>$tgl_akhir);
 $this->Model_pemerintahan->tambah_pemerintahan($data,'tb_kerjasama');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil meenambahkan data</div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan data</div>');
 
 	redirect(base_url('admin/pangkalandata/pemerintahan'));
 
@@ -316,7 +406,7 @@ $data=array(
 		'tgl_mulai'=>$tgl_mulai,
 		'tgl_akhir'=>$tgl_akhir);
 $this->Model_swasta->tambah_swasta($data,'tb_kerjasama');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil meenambahkan data</div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan data</div>');
 
 	redirect(base_url('admin/pangkalandata/swasta'));
 

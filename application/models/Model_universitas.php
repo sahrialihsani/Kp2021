@@ -48,4 +48,12 @@ class Model_universitas extends CI_Model{
 	   if($query->num_rows() > 0)
 		   return $query->result();
 	   }
+	   public function detail_data($id){
+		$this->db->select('*');
+   $this->db->from('tb_kerjasama');
+   $this->db->where('id', $id);  // Also mention table name here
+   $query = $this->db->get();    
+   if($query->num_rows() > 0)
+	   return $query->result();
+   }
 }

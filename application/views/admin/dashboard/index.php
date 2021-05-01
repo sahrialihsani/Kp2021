@@ -85,7 +85,7 @@ refresh=setTimeout("action()",speed);}action();
       </div>  
 
       <div class="row justify-content-center">
-     <div class="col-12 col-lg-8 col-xl-8">
+     <div class="col-12 col-lg-8 col-xl-12">
 	    <div class="card">
 		 <div class="card-body">
 			  <canvas id="canvasku"></canvas>
@@ -127,7 +127,7 @@ refresh=setTimeout("action()",speed);}action();
    for ($i=0;$i<12;$i++){
      // code...
      $bln = digit($i+1);
-      $no_kk = $this->db->query("SELECT count(*) as jumlah FROM `tb_kerjasama` WHERE tgl_mulai LIKE '2021-$bln-%' AND jenis='Universitas' AND status='Aktif'")->result();
+      $no_kk = $this->db->query("SELECT count(*) as jumlah FROM `tb_kerjasama`  WHERE tgl_mulai LIKE '2021-$bln-%' AND jenis='Universitas' AND status='Aktif' ")->result();
       // $no_kk = $this->db->query("SELECT count(*) as jumlah FROM `tb_universitas` GROUP BY YEAR(tgl_masuk)")->result();
       foreach($no_kk as $nk){
 

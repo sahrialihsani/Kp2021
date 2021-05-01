@@ -43,4 +43,13 @@ class Model_program extends CI_Model{
    if($query->num_rows() > 0)
 	   return $query->result();
    }
+   public function detail_data($id){
+	$this->db->select('tb_kerjasama.id,tb_kerjasama.nama_kerjasama,tb_kerjasama.status, tb_mitra.id,tb_mitra.nama,tb_mitra.email,tb_mitra.institusi');
+	$this->db->from('tb_kerjasama');
+	$this->db->join('tb_mitra', 'tb_kerjasama.id_mitra = tb_mitra.id');
+$this->db->where('tb_kerjasama.id', $id);  // Also mention table name here
+$query = $this->db->get();    
+if($query->num_rows() > 0)
+   return $query->result();
+}
 }

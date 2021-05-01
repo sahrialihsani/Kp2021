@@ -39,7 +39,7 @@ $data=array(
 	'institusi'=>$institusi,
 	'pesan'=>$pesan);
 $this->Model_mitra->tambah_mitra($data,'tb_mitra');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil meenambahkan mitra</div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan mitra</div>');
 
 	redirect(base_url('admin/mitra'));
 	}

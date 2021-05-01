@@ -20,7 +20,6 @@ class login extends CI_Controller {
 			$where 		= array('email' => $email);
 			$admin 		= $this->db->get_where('tb_admin', ['email' => $email],['status' => "Admin"])->row_array();
 			$fakultas	= $this->db->get_where('tb_admin', ['email' => $email],['status' => "Fakultas"])->row_array();
-			$notif		= $this->db->query("SELECT id,nama_kerjasama,DATEDIFF(tgl_akhir,CURRENT_DATE()) AS selisih FROM tb_kerjasama WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())=3 or DATEDIFF(tgl_akhir,CURRENT_DATE())=2 or DATEDIFF(tgl_akhir,CURRENT_DATE())=1) and status='aktif'")->result();
 			
 			if ($password_hash == $admin['password_hash']) {
 				$data = $this->M_login->index($where,'tb_admin')->row();
@@ -30,9 +29,7 @@ class login extends CI_Controller {
 					'email'		=> $data->email,
 					'foto'		=>	$data->foto,
 					'password'	=>	$data->password,
-					'status'	=> 'admin_login',
-					'notif'		=> $notif
-					// 'nonaktifkan'=> $nonaktifkan
+					'status'	=> 'admin_login'
 				);
 				$this->session->set_userdata($data_session);
 				$this->session->set_flashdata('message', '<div class="alert alert-success alert-message text-center"><b>Login Berhasil !,<br></b> Halaman ini akan dialihkan ke Halaman Admin</div>');

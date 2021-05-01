@@ -38,8 +38,8 @@ class mitra extends CI_Controller {
 	{
 		$to .=  $row->email;
 	}
-	$subject = 'Subject';
-	$pesan = 'Keterangan';
+	$subject = 'Kerjasama Diterima';
+	$pesan = 'Kami telah melihat program kerjasama yang anda tawarkan. Kami berharap dapat melakukan kerjasama yang dapat meningkatkan hubungan kita bersama. <br><br> Balas email ini untuk pembahasan lebih lanjut.<br><br>Terimakasih,<br>Salam Hangat, <br> UPT KSLI Universitas Bengkulu';
 	$this->load->library('email', $emailConfig);
 	$this->email->set_newline("\r\n");
 	// Set email preferences
@@ -48,12 +48,15 @@ class mitra extends CI_Controller {
 	$this->email->subject($subject);
 	$this->email->message($pesan);
 	if (!$this->email->send()) {
+	$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Gagal mengirim email</div>');
+
 	redirect(base_url('admin/mitra'));
 		
 	} else {
 		$data=array('status'=>'Diterima');
 	$where = array('id'=>$id);
 	$this->Model_mitra->update_data($where,$data,'tb_mitra');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Mitra diterima dan email akan dikirimkan kepada mitra terkait</div>');
 	redirect(base_url('admin/mitra'));
 	}
 	}
@@ -61,6 +64,7 @@ class mitra extends CI_Controller {
 		$data=array('status'=>'Ditolak');
 		$where = array('id'=>$id);
 		$this->Model_mitra->update_data($where,$data,'tb_mitra');
+		$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Mitra ditolak</div>');
 		redirect(base_url('admin/mitra'));
 	
 		}

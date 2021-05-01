@@ -34,7 +34,7 @@ redirect(base_url('admin/jaringan'));
 	$data['data_organisasi']= $this->db->get_where('tb_organisasi')->row_array();
 $data=array('nama'=>$nama,'tahun'=>$tahun);
 $this->Model_organisasi->tambah_organisasi($data,'tb_organisasi');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil meenambahkan organisasi</div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan organisasi</div>');
 
 
 redirect(base_url('admin/jaringan'));

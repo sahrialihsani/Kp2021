@@ -52,7 +52,7 @@ $data=array('judul'=>$judul,
 'tgl_posting'=>$tgl_posting
 );
 $this->Model_berita->tambah_berita($data,'tb_berita');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil meenambahkan berita</div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan berita</div>');
 
 	redirect(base_url('admin/berita'));
 	}
@@ -131,7 +131,7 @@ redirect(base_url('admin/berita/kategori'));
 	$data['data_kategori']= $this->db->get_where('tb_kategori')->row_array();
 $data=array('kategori'=>$kategori);
 $this->Model_kategori->tambah_kategori($data,'tb_kategori');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil meenambahkan kategori</div>');
+	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan kategori</div>');
 
 	redirect(base_url('admin/berita/kategori'));
 	}
