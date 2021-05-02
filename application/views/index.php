@@ -456,8 +456,8 @@ refresh=setTimeout("action()",speed);}action();
 
   <!-- Template Main JS File -->
   <script src="<?=base_url('assets/dua/js/main.js')?>"></script>
-  <script src="<?=base_url('assets/dua/js/js2.js')?>"></script>
-  <script src="<?=base_url('assets/dua/js/js3.js')?>"></script>
+  <!-- <script src="<?=base_url('assets/dua/js/js2.js')?>"></script>
+  <script src="<?=base_url('assets/dua/js/js3.js')?>"></script> -->
 
   <script src="<?=base_url('assets/dua/js/preloader.js')?>"></script>
 

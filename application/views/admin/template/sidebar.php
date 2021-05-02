@@ -46,11 +46,6 @@
        </a>
      </li>
      <li>
-       <a href="<?=base_url('admin/faq')?>">
-         <i class="zmdi zmdi-comment-text"></i> <span> Faq </span>
-       </a>
-     </li>
-     <li>
        <a href="<?=base_url('admin/userquestion')?>">
          <i class="icofont-question"></i> <span> Pertanyaan Pengguna </span>
        </a>

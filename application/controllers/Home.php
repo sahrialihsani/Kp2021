@@ -11,7 +11,6 @@ class home extends CI_Controller {
 	{
 		$data['data_mitra'] = $this->Model_mitra->tampil_data()->result_array();
 		$data['data_staf'] = $this->Model_staf->tampil_data()->result_array();
-		$data['data_faq'] = $this->Model_faq->tampil_data()->result_array();
 		$data['data_berita'] = $this->Model_berita->tampil_data()->result();
 
 		$this->load->view('template/header');

@@ -39,6 +39,10 @@ $user= $this->db->get_where('tb_admin',['email'=> $this->session->userdata('emai
       </i></a>
       <ul style="font-size:15px;background-color:#2b5981" class="dropdown-menu dropdown-menu-right mr-3">
       <?php
+      if(count($notifikasi)<=0){
+        echo '<li style="font-size:15px;background-color:#2b5981" class="dropdown-item">Tidak Ada Data</li>';
+      }
+      else{
       foreach ($habis as $notif)
       {
         if(count($notifikasi)<0){
@@ -52,37 +56,23 @@ $user= $this->db->get_where('tb_admin',['email'=> $this->session->userdata('emai
       }
       foreach ($min1 as $notif)
       {
-        if(count($notifikasi)<0){
-          echo '<li style="font-size:15px;background-color:#2b5981" class="dropdown-item">Tidak Ada Data</li>';
-
-        }
-        else{
+       
         echo anchor('admin/pangkalandata/setMin1/'.$notif->id,'<li style="font-size:15px;background-color:#2b5981" class="dropdown-item"><i style="color:#ed0000" class="icofont-clock-time"></i> masa kerja sama "'.$notif->nama_kerjasama.'" tinggal <strong style="color:#ed0000">'.$notif->selisih.'</strong> hari lagi</li>');
 
-        }
       }
       foreach ($min2 as $notif)
       {
-        if(count($notifikasi)<0){
-          echo '<li style="font-size:15px;background-color:#2b5981" class="dropdown-item">Tidak Ada Data</li>';
-
-        }
-        else{
+       
         echo anchor('admin/pangkalandata/setMin2','<li style="font-size:15px;background-color:#2b5981" class="dropdown-item"><i style="color:#ed0000" class="icofont-clock-time"></i> masa kerja sama "'.$notif->nama_kerjasama.'" tinggal <strong style="color:#ed0000">'.$notif->selisih.'</strong> hari lagi</li>');
 
-        }
       }
       foreach ($min3 as $notif)
       {
-        if(count($notifikasi)<0){
-          echo '<li style="font-size:15px;background-color:#2b5981" class="dropdown-item">Tidak Ada Data</li>';
-
-        }
-        else{
+        
         echo anchor('admin/pangkalandata/setMin3','<li style="font-size:15px;background-color:#2b5981" class="dropdown-item"><i style="color:#ed0000" class="icofont-clock-time"></i> masa kerja sama "'.$notif->nama_kerjasama.'" tinggal <strong style="color:#ed0000">'.$notif->selisih.'</strong> hari lagi</li>');
 
-        }
       }
+    }
           
         ?>
 			</ul>
