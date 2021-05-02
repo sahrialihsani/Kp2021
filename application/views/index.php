@@ -19,13 +19,13 @@ refresh=setTimeout("action()",speed);}action();
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="<?base_url('')?>assets/dua/vendor2/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?base_url('')?>assets/dua/vendor2/icofont/icofont.min.css" rel="stylesheet">
-  <link href="<?base_url('')?>assets/dua/vendor2/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?base_url('')?>assets/dua/vendor2/animate.css/animate.min.css" rel="stylesheet">
-  <link href="<?base_url('')?>ssets/dua/vendor2/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/dua/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/dua/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/dua/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/dua/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/dua/vendor2/remixicon/remixicon.css" rel="stylesheet">
   <link href="<?=base_url('')?>assets/dua/vendor2/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="<?base_url('assets/dua/vendor2/venobox/venobox.css')?>" rel="stylesheet">
+  <link href="assets/dua/vendor2/venobox/venobox.css" rel="stylesheet">
   <link href="<?= base_url('')?>assets/dua/vendor2/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
@@ -166,17 +166,16 @@ refresh=setTimeout("action()",speed);}action();
 
         <div class="row">
 
-          <div class="col-lg-5 align-items-stretch video-box" style='background-image: url("<?= base_url('assets/dua/img/mingchi.jpg')?>");' data-aos="fade-right">
-            <a href="https://www.youtube.com/watch?v=-9QlXVuoFvw&feature=youtu.be" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+          <div class="col-lg-5 align-items-stretch" data-aos="fade-right">
+            <iframe class="text-center" width="100%" height="100%" src="https://www.youtube.com/embed/-9QlXVuoFvw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
 
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch" data-aos="fade-left">
             <div class="content">
-              <h3>Unit Pelaksana Teknis Kerjasama dan Layanan Internasional <strong>Universitas Bengkulu</strong></h3>
-              <p>UPT Kerja Sama dan Layanan Internasional (UPT KSLi) merupakan Unit Pelaksana Teknis yang bertanggung jawab atas hubungan kerja sama UNIB dengan Instansi/Universitas lokal dan luar negeri.
+              <h3>UPT KSLI <strong>Universitas Bengkulu</strong></h3>
+              <p>UPT KSLI merupakan Unit Pelaksana Teknis yang bertanggung jawab atas hubungan kerja sama UNIB dengan Instansi/Universitas lokal dan luar negeri.
               </p>
             </div>
-            <br>
 
             <div class="accordion-list">
               <ul>
