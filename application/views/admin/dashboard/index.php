@@ -35,6 +35,29 @@ refresh=setTimeout("action()",speed);}action();
   <link href="<?=base_url('')?>assets/data/css/sidebar-menu.css" rel="stylesheet"/>
   <!-- Custom Style-->
   <link href="<?=base_url('')?>assets/data/css/app-style.css" rel="stylesheet"/>
+	<style>
+		.loader {
+            border: 10px solid #dfe1e2; /* Light grey */
+            border-top: 10px solid rgb(22, 22, 134);
+            border-bottom: 10px solid rgb(22, 22, 134);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+	</style>
   
 </head>
 
@@ -88,6 +111,13 @@ refresh=setTimeout("action()",speed);}action();
      <div class="col-12 col-lg-8 col-xl-12">
 	    <div class="card">
 		 <div class="card-body">
+		 		<select name="tahun" id="tahun_kerja" class="form-control mb-3">
+					<option value="" selected disabled>Pilih Tahun Grafik</option>
+					<?php foreach($tahun_kerja as $thn){  ?>
+						<option value="<?= $thn->tahun ?>"><?= $thn->tahun ?></option>
+					<?php } ?>
+				</select>
+				<div class="loader d-none"></div>
 			  <canvas id="canvasku"></canvas>
 			</div>
 		 </div>
@@ -113,276 +143,131 @@ refresh=setTimeout("action()",speed);}action();
  
   <!-- Index js -->
   <script src="<?=base_url('')?>assets/data/js/index.js"></script>
-  <!-- data masuk -->
-<?php
-   function digit($angka){
-     if($angka < 10){
-       return '0'.$angka;
-     }
-     else{
-       return $angka;
-     }
-   }
-   $bulan = array('Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
-   for ($i=0;$i<12;$i++){
-     // code...
-     $bln = digit($i+1);
-      $no_kk = $this->db->query("SELECT count(*) as jumlah FROM `tb_kerjasama`  WHERE tgl_mulai LIKE '2021-$bln-%' AND jenis='Universitas' AND status='Aktif' ")->result();
-      // $no_kk = $this->db->query("SELECT count(*) as jumlah FROM `tb_universitas` GROUP BY YEAR(tgl_masuk)")->result();
-      foreach($no_kk as $nk){
-
-          echo "<script>";
-        if($nk->jumlah > 0){
-          echo "var universitas".$bln."={$nk->jumlah}";}
-
-      else{
-        echo "var universitas".$bln."=0";
-      }
-      echo "</script>";
-    }}
-
-    for ($i=0;$i<12;$i++){
-      // code...
-      $bln = digit($i+1);
-      $ikut = $this->db->query("SELECT count(*) as jumlah FROM `tb_kerjasama` WHERE tgl_mulai LIKE '2021-$bln-%' AND jenis='Swasta' AND status='Aktif'")->result();
-      // $ikut = $this->db->query("SELECT count(*) as jumlah FROM `tb_swasta` GROUP BY YEAR(tgl_keluar)")->result();
-       foreach($ikut as $nk){
-
-           echo "<script>";
-         if($nk->jumlah > 0){
-           echo "var swasta".$bln."={$nk->jumlah}";}
-
-       else{
-         echo "var swasta".$bln."=0";
-       }
-       echo "</script>";
-     }}
-     for ($i=0;$i<12;$i++){
-      // code...
-      $bln = digit($i+1);
-      $ikut = $this->db->query("SELECT count(*) as jumlah FROM `tb_kerjasama` WHERE tgl_mulai LIKE '2021-$bln-%' AND jenis='Pemerintahan' AND status='Aktif'")->result();
-      // $ikut = $this->db->query("SELECT count(*) as jumlah FROM `tb_swasta` GROUP BY YEAR(tgl_keluar)")->result();
-       foreach($ikut as $nk){
-
-           echo "<script>";
-         if($nk->jumlah > 0){
-           echo "var pemerintahan".$bln."={$nk->jumlah}";}
-
-       else{
-         echo "var pemerintahan".$bln."=0";
-       }
-       echo "</script>";
-     }}
-          ?>
-<script>
-
-        var MONTHS = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-        
-        var randomScalingFactor = function() {
-            return Math.round(Math.random() * 100);
-            //return 0;
-        };
-        var randomColorFactor = function() {
-            return Math.round(Math.random() * 255);
-        };
-        var randomColor = function(opacity) {
-            return 'rgba(' + randomColorFactor() + ',' + randomColorFactor() + ',' + randomColorFactor() + ',' + (opacity || '.3') + ')';
-        };
-
-        var config = {
-            type: 'line',
-            data: {
-                labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
-                datasets: [{
+	<script>
+		function grafik(tahun){
+			$('.loader').removeClass('d-none');
+			$('#canvasku').addClass('d-none');
+			$.ajax({
+					url: "<?php echo base_url() ?>admin/home_admin/load_data",
+					method: "GET",
+					data:{tahun:tahun},
+					success: function(data) {
+						var label = data.bulan;
+						var value_universitas = data.universitas;
+						var value_swasta = data.swasta;
+						var value_pemerintahan = data.pemerintahan;
+						var ctx = document.getElementById('canvasku').getContext('2d');
+						var chart = new Chart(ctx, {
+								type: 'line',
+								data: {
+										labels: label,
+										datasets: [{
                     label: "Universitas",
-                    data: [universitas01,universitas02,universitas03,universitas04,universitas05,universitas06,universitas07,universitas08,universitas09,universitas10,universitas11,universitas12],
+                    data: value_universitas,
                     fill: false,
                     backgroundColor: "black",
                     borderDash: [5, 5],
                     borderColor: "purple",
                 }, {
                     label: "Swasta",
-                    data: [swasta01,swasta02,swasta03,swasta04,swasta05,swasta06,swasta07,swasta08,swasta09,swasta10,swasta11,swasta12],
+                    data: value_swasta,
                     borderColor: "blue",
                     fill: false,
                     backgroundColor: "blue"
 
                   }, {
                     label: "Pemerintahan",
-                    data: [pemerintahan01,pemerintahan02,pemerintahan03,pemerintahan04,pemerintahan05,pemerintahan06,pemerintahan07,pemerintahan08,pemerintahan09,pemerintahan10,pemerintahan11,pemerintahan12],
+                    data: value_pemerintahan,
                     borderColor: "yellow",
                     fill: false,
                     backgroundColor: "blue"
 
                   }
                 ]
-            },
-            options: {
-              legend: {
-                labels: {
-                    fontColor: "white",
-                    fontSize: 14
-                }
-            },
-                responsive: true,
-                title:{
-                    display:true,
-                    text:'Rekapitulasi Kerja Sama Tahun 2021',
-                    fontColor:'white',
-                    fontSize: 20
+								},
+								options: {
+									legend: {
+										labels: {
+												fontColor: "white",
+												fontSize: 14
+										}
+								},
+										responsive: true,
+										title:{
+												display:true,
+												text:'Rekapitulasi Kerja Sama Tahun '+tahun,
+												fontColor:'white',
+												fontSize: 20
 
-                },
-                tooltips: {
-                    mode: 'label',
-                    callbacks: {
-                        // beforeTitle: function() {
-                        //     return '...beforeTitle';
-                        // },
-                        // afterTitle: function() {
-                        //     return '...afterTitle';
-                        // },
-                        // beforeBody: function() {
-                        //     return '...beforeBody';
-                        // },
-                        // afterBody: function() {
-                        //     return '...afterBody';
-                        // },
-                        // beforeFooter: function() {
-                        //     return '...beforeFooter';
-                        // },
-                        // footer: function() {
-                        //     return 'Footer';
-                        // },
-                        // afterFooter: function() {
-                        //     return '...afterFooter';
-                        // },
-                    }
-                },
-                hover: {
-                    mode: 'dataset'
-                },
-                scales: {
-                    xAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            show: true,
-                            labelString: 'Month'
-                        },
-                        ticks: {
-                        fontColor: "white",
-                        fontSize: 12
-                    }
-                    }],
-                    yAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            show: true,
-                            labelString: 'Value'
-                        },
-                        ticks: {
-                        fontColor: "white",
-                        fontSize: 12
-                    }
-                    }]
-                }
-            }
-        };
-
-        $.each(config.data.datasets, function(i, dataset) {
-            dataset.borderColor = randomColor(0.4);
-            dataset.backgroundColor = randomColor(0.5);
-            dataset.pointBorderColor = randomColor(0.7);
-            dataset.pointBackgroundColor = randomColor(0.5);
-            dataset.pointBorderWidth = 1;
-        });
-
-        window.onload = function() {
-            var ctx = document.getElementById("canvasku").getContext("2d");
-            window.myLine = new Chart(ctx, config);
-        };
-
-        $('#randomizeData').click(function() {
-            $.each(config.data.datasets, function(i, dataset) {
-                dataset.data = dataset.data.map(function() {
-                    return randomScalingFactor();
-                });
-
-            });
-
-            window.myLine.update();
-        });
-
-        $('#changeDataObject').click(function() {
-            config.data = {
-                labels: ["July", "August", "September", "October", "November", "December"],
-                datasets: [{
-                    label: "My First dataset",
-                    data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()],
-                    fill: false,
-                }, {
-                    label: "My Second dataset",
-                    fill: false,
-                    data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()],
-                }]
-            };
-
-            $.each(config.data.datasets, function(i, dataset) {
-                dataset.borderColor = randomColor(0.4);
-                dataset.backgroundColor = randomColor(0.5);
-                dataset.pointBorderColor = randomColor(0.7);
-                dataset.pointBackgroundColor = randomColor(0.5);
-                dataset.pointBorderWidth = 1;
-            });
-
-            // Update the chart
-            window.myLine.update();
-        });
-
-        $('#addDataset').click(function() {
-            var newDataset = {
-                label: 'Dataset ' + config.data.datasets.length,
-                borderColor: randomColor(0.4),
-                backgroundColor: randomColor(0.5),
-                pointBorderColor: randomColor(0.7),
-                pointBackgroundColor: randomColor(0.5),
-                pointBorderWidth: 1,
-                data: [],
-            };
-
-            for (var index = 0; index < config.data.labels.length; ++index) {
-                newDataset.data.push(randomScalingFactor());
-            }
-
-            config.data.datasets.push(newDataset);
-            window.myLine.update();
-        });
-
-        $('#addData').click(function() {
-            if (config.data.datasets.length > 0) {
-                var month = MONTHS[config.data.labels.length % MONTHS.length];
-                config.data.labels.push(month);
-
-                $.each(config.data.datasets, function(i, dataset) {
-                    dataset.data.push(randomScalingFactor());
-                });
-
-                window.myLine.update();
-            }
-        });
-
-        $('#removeDataset').click(function() {
-            config.data.datasets.splice(0, 1);
-            window.myLine.update();
-        });
-
-        $('#removeData').click(function() {
-            config.data.labels.splice(-1, 1); // remove the label first
-
-            config.data.datasets.forEach(function(dataset, datasetIndex) {
-                dataset.data.pop();
-            });
-
-            window.myLine.update();
-        });
-    </script>
+										},
+										tooltips: {
+												mode: 'label',
+												callbacks: {
+														// beforeTitle: function() {
+														//     return '...beforeTitle';
+														// },
+														// afterTitle: function() {
+														//     return '...afterTitle';
+														// },
+														// beforeBody: function() {
+														//     return '...beforeBody';
+														// },
+														// afterBody: function() {
+														//     return '...afterBody';
+														// },
+														// beforeFooter: function() {
+														//     return '...beforeFooter';
+														// },
+														// footer: function() {
+														//     return 'Footer';
+														// },
+														// afterFooter: function() {
+														//     return '...afterFooter';
+														// },
+												}
+										},
+										hover: {
+												mode: 'dataset'
+										},
+										scales: {
+												xAxes: [{
+														display: true,
+														scaleLabel: {
+																show: true,
+																labelString: 'Month'
+														},
+														ticks: {
+														fontColor: "white",
+														fontSize: 12
+												}
+												}],
+												yAxes: [{
+														display: true,
+														scaleLabel: {
+																show: true,
+																labelString: 'Value'
+														},
+														ticks: {
+														fontColor: "white",
+														fontSize: 12,
+														stepSize: 1
+												}
+												}]
+										}
+								}
+						});
+						$('#canvasku').removeClass('d-none');
+						$('.loader').addClass('d-none');
+					}
+			});
+		}
+		
+		window.onload = function exampleFunction() {			
+			grafik(2021);
+		}
+		$('#tahun_kerja').change(function (e) { 
+				var tahun=$(this).val();
+				grafik(parseInt(tahun))
+			});
+	</script>
 </html>

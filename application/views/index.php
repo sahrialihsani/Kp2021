@@ -169,7 +169,6 @@ refresh=setTimeout("action()",speed);}action();
           <div class="col-lg-5 align-items-stretch" data-aos="fade-right">
             <iframe class="text-center" width="100%" height="100%" src="https://www.youtube.com/embed/-9QlXVuoFvw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch" data-aos="fade-left">
             <div class="content">
               <h3>UPT KSLI <strong>Universitas Bengkulu</strong></h3>
