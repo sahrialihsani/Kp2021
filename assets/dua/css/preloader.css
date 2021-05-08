@@ -12,7 +12,7 @@
   #preloader:before {
     content: "";
     position: fixed;
-    top: calc(50% - 30px);
+    top: calc(50% -  30px);
     left: calc(50% - 30px);
     border: 6px solid #0880e8;
     border-top-color: #bfe0fd;
