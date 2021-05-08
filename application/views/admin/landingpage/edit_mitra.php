@@ -57,14 +57,7 @@ refresh=setTimeout("action()",speed);}action();
           <!-- form start -->
           <form action="<?=base_url('admin/mitra/ubah_mitra');?>" method="post" enctype="multipart/form-data" class="form-horizontal">
             <div class="box-body">
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Nama Penghubung</label>
-                <input type="hidden" name="id" value="<?= $mtra->id;?>">
-                <div class="col-sm-12">
-                  <input type="text" class="form-control" name="nama" value="<?= $mtra->nama;?>" required>
-                </div>
-              </div>
-                <div class="form-group">
+             <div class="form-group">
                 <label class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-12">
                   <input type="email" rows="5" class="form-control" name="email" value="<?= $mtra->email;?>"required></input>
@@ -74,6 +67,20 @@ refresh=setTimeout("action()",speed);}action();
                 <label class="col-sm-2 control-label">Institusi</label>
                 <div class="col-sm-12">
                   <input type="text" class="form-control" name="institusi" value="<?= $mtra->institusi;?>" required>
+                </div>
+              </div>
+              <div class="form-group">
+              <label>Negara</label>
+               <div class="col-sm-12">
+               <select name="negara" required class="form-control">
+                <option selected="true" disabled="disabled">Pilih Negara Asal</option>
+                <?php $result= mysqli_query("Select")?>
+            <?php 
+            $result = $this->db->query("SELECT * FROM tb_negara")->result();
+            foreach($result  as $rsl) : ?>
+                <option value="<?php echo $rsl->id ?>">(<?php echo $rsl->iso?>) <?php echo $rsl->name?></option>
+                <?php endforeach; ?>
+                </select>
                 </div>
               </div>
               <div class="form-group">

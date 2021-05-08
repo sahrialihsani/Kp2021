@@ -35,7 +35,7 @@
   <!-- ======= Header ======= -->
   <header style="background: rgba(3, 56, 102, 0.9);" id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
-
+    <img style="object-fit:contain" src="<?=base_url('assets/dua/img/unib.png')?>" alt="Logo Unib" width="50px" height="50px">
     <h2 class="logo mr-auto"><a href="#header" class="scrollto"><a href="<?=base_url('')?>">OFFICE OF PARTNERSHIP AND INTERNATIONAL AFFAIRS</a></h4>
 
       <!-- Uncomment below if you prefer to use an image logo -->

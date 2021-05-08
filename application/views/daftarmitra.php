@@ -61,15 +61,26 @@ refresh=setTimeout("action()",speed);}action();
           <div class="justify-content-center">
 
           <form action="<?=base_url('daftarmitra/daftar')?>"  method="post"  enctype="multipart/form-data">
-                <div class="form-group">
-                  <input type="text" name="nama" class="form-control" required id="nama" placeholder="Your Name"/>
-                </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="institusi" required id="institusi" placeholder="Your Institution"/>
+              </div>
                 <div class="form-group">
                   <input type="email" class="form-control" name="email" required id="email" placeholder="Your Institution Email"/>
                 </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="institusi" required id="institusi" placeholder="Your Institution"/>
-              </div>
+                <p class="float-left">Your Country</p>
+
+                <select name="negara" required class="form-control">
+                <option selected="true" disabled="disabled">Choose your Country</option>
+
+                <?php $result= mysqli_query("Select")?>
+            <?php 
+            $result = $this->db->query("SELECT * FROM tb_negara")->result();
+            foreach($result  as $rsl) : ?>
+                <option value="<?php echo $rsl->id ?>">(<?php echo $rsl->iso?>) <?php echo $rsl->name?></option>
+                <?php endforeach; ?>
+                </select>
+                </div>
               <div class="form-group">
                 <textarea class="form-control" name="pesan" rows="5" required placeholder="Your Message"></textarea>
               </div>

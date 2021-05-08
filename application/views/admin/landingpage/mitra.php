@@ -64,9 +64,9 @@ refresh=setTimeout("action()",speed);}action();
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama Penghubung</th>
                 <th>Email</th>
                 <th>Nama Mitra</th>
+                <th>Asal</th>
                 <th>Pesan</th>
                 <th>Status</th>
                 <th>Gambar</th>
@@ -79,9 +79,9 @@ refresh=setTimeout("action()",speed);}action();
               foreach ($data_mitra as $mtra) { ?>
                 <tr>
         <td><?=$no++ ?></td>
-        <td><?=$mtra->nama; ?></td>
         <td><?=$mtra->email; ?></td>   
-        <td><?=$mtra->institusi; ?></td>   
+        <td><?=$mtra->institusi; ?></td>  
+        <td><?=$mtra->name; ?></td> 
         <td><?php echo wordwrap(word_limiter("$mtra->pesan",30),50,"<br>\n");?></td>   
         <td><?=$mtra->status; ?></td>   
         <td align="center">
@@ -133,10 +133,6 @@ refresh=setTimeout("action()",speed);}action();
       </div>
       <div style="background-color:#3f80ba" class="modal-body">
       <form action="<?= base_url('admin/mitra/tambahMitra');?>" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-          <label >Nama Penghubung</label>
-          <input style="color:#ffffff;" type="text" name="nama" class="form-control">
-            <?= form_error('nama','<small class="text-danger pl-3">','</small>')  ?>
          <div class="form-group">
           <label> Email</label>
           <input style="color:#ffffff;" type="email" name="email" class="form-control" required >
@@ -145,7 +141,17 @@ refresh=setTimeout("action()",speed);}action();
      <label>Institusi</label>
      <input style="color:#ffffff;" type="text" name="institusi" class="form-control" required>
         <?= form_error('institusi','<small class="text-danger pl-3">','</small>')  ?>
-
+        <div class="form-group">
+          <label>Negara</label>
+                <select name="negara" required class="form-control">
+                <option selected="true" disabled="disabled">Pilih Negara Asal</option>
+                <?php $result= mysqli_query("Select")?>
+            <?php 
+            $result = $this->db->query("SELECT * FROM tb_negara")->result();
+            foreach($result  as $rsl) : ?>
+                <option value="<?php echo $rsl->id ?>">(<?php echo $rsl->iso?>) <?php echo $rsl->name?></option>
+                <?php endforeach; ?>
+                </select>
      <div class="form-group">
           <label> Pesan</label>
           <textarea style="color:#000;" type="text" name="pesan" class="form-control" ></textarea>

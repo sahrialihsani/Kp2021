@@ -69,11 +69,13 @@ class mitra extends CI_Controller {
 	
 		}
 	public function tambahMitra(){
-		$nama =$this->input->post('nama',true);
 		$email =$this->input->post('email');
 		$institusi =$this->input->post('institusi');
+		$negara =$this->input->post('negara');
 		$pesan =$this->input->post('pesan');
 		$gambar =$this->input->post('gambar');
+		$file =$this->input->post('file');
+
 $sql = $this->db->query("SELECT institusi FROM tb_mitra where institusi='$institusi'");
 $cek_mitra = $sql->num_rows();
 if ($cek_mitra > 0) {
@@ -95,15 +97,30 @@ redirect(base_url('admin/mitra'));
 			
 					}
 				}
+				if($file=''){
+			
+				}else{
+						$config['upload_path']='./assets/dua/berkas/mitra/';
+						$config['allowed_types']='pdf|doc|docx';
+						$this->load->library('upload',$config);
+						if($this->upload->do_upload('file')){
+							$file=$this->upload->data('file_name');
+				
+						}else{
+						$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>gambar gagal diupload, masukan ekstensi jpg,jpeg,png</div>');
+				
+						}
+					}
 	
 	$data['data_mitra']= $this->db->get_where('tb_mitra')->row_array();
 $data=array(
-			'nama'=> htmlspecialchars($nama),
 		'email'=>$email,
 	'institusi'=>$institusi,
+	'id_negara'=>$negara,
 	'pesan'=>$pesan,
 	'status'=>"Menunggu",
-	'gambar'=>$gambar);
+	'gambar'=>$gambar,
+'file'=>$file);
 $this->Model_mitra->tambah_mitra($data,'tb_mitra');
 	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan mitra</div>');
 

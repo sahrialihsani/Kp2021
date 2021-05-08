@@ -11,12 +11,11 @@ class daftarmitra extends CI_Controller {
 		$this->load->view('daftarmitra');
 		$this->load->view('template/footer');
 
-		
 	}
 	public function daftar(){
-		$nama =$this->input->post('nama',true);
 		$email =$this->input->post('email');
 		$institusi =$this->input->post('institusi');
+		$negara =$this->input->post('negara');
 		$pesan =$this->input->post('pesan');
 		$gambar =$this->input->post('gambar');
 		$file =$this->input->post('file');
@@ -59,9 +58,9 @@ redirect(base_url('daftarmitra'));
 	
 	$data['data_mitra']= $this->db->get_where('tb_mitra')->row_array();
 $data=array(
-			'nama'=> htmlspecialchars($nama),
 		'email'=>$email,
 	'institusi'=>$institusi,
+	'id_negara'=>$negara,
 	'pesan'=>$pesan,
 	'status'=>"Menunggu",
 	'gambar'=>$gambar,
