@@ -88,7 +88,6 @@ refresh=setTimeout("action()",speed);}action();
         <td><a style="color:#fc9b3f" href="<?=base_url('admin/mitra/detailBerkas/').$mtra->id?>"><?=$mtra->berkas?></a></td>   
           
           </td>
-
                   <td>
                     <div  class="btn-group">
                     <button type="button" class="btn btn-warning btn-flat btn-xs">Aksi</button>
