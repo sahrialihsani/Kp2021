@@ -62,6 +62,11 @@
        </a>
      </li>
      <li>
+       <a href="<?=base_url('admin/pendapatan')?>">
+         <i class="zmdi zmdi-file-text"></i> <span> Pendapatan Kerjasama</span>
+       </a>
+     </li>
+     <li>
        <a href="<?=base_url('admin/jaringan')?>">
          <i class="zmdi zmdi-wifi-alt"></i> <span> Jaringan</span>
        </a>

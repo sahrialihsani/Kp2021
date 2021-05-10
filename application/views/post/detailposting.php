@@ -100,7 +100,7 @@ refresh=setTimeout("action()",speed);}action();
               <div class="float-left">
                   <ul class="tags">
                      <?php foreach($detail_post as $post): ?>
-                    <li><a href="#"><?=$post->kategori?></a></li>
+                    <li><a href="<?php echo base_url('post/tampilKategori/').$post->kategori?>"><?=$post->kategori?></a></li>
                      <?php endforeach;?>
                      
                   </ul>

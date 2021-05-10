@@ -109,12 +109,11 @@ $this->Model_pengguna->tambah_pengguna($data,'tb_admin');
 		$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil ubah data pengguna</div>');
 	
 			redirect(base_url('admin/pengguna'));
-	
 	  }
 	public function hapusPengguna($id){
 		$where=array('id'=> $id);
 		$this->Model_pengguna->hapus_data($where,'tb_admin');
-		$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil hapus Student pengguna</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil hapus pengguna</div>');
 	
 			redirect(base_url('admin/pengguna'));
 		}

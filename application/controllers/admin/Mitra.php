@@ -95,11 +95,10 @@ redirect(base_url('admin/mitra'));
 		
 				}
 			}
-				if($berkas=''){
-		
+		if($berkas=''){
 		}else{
 				$config['upload_path']='./assets/dua/berkas/mitra/';
-				$config['allowed_types']='pdf|doc|docx';
+				$config['allowed_types']='pdf|jpeg|png';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('berkas')){
 					$berkas=$this->upload->data('file_name');
@@ -143,35 +142,31 @@ $data['data_mitra']=$this->Model_mitra->edit_mitra($where,'tb_mitra')->result();
 		$gambar =$this->input->post('gambar');
 		$berkas =$this->input->post('berkas');
 		if($gambar=''){
-			
+		}
+		elseif($berkas=''){
 		}else{
-				$config['upload_path']='./assets/dua/img/mitra/';
+				$config['upload_path']='./assets/dua/berkas/mitra/';
 				$config['allowed_types']='jpg|jpeg|png';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('gambar')){
 					$gambar=$this->upload->data('file_name');
 		
 				}else{
-				$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>gambar gagal diupload, masukan ekstensi jpg,jpeg,png</div>');
+					$this->session->set_flashdata('message', '<div class="alert alert-success alert-message alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>File gagal diupload, masukan ekstensi jpg,jpeg,png</div>');
 		
 				}
-		if($berkas=''){
-			
-		}else{
 				$config['upload_path']='./assets/dua/berkas/mitra/';
 				$config['allowed_types']='pdf|doc|docx';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('berkas')){
 					$berkas=$this->upload->data('file_name');
-				
+		
 				}else{
-				$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>berkas gagal diupload, masukan ekstensi pdf,doc,docx</div>');
-				
+			$this->session->set_flashdata('message', '<div class="alert alert-success alert-message alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>File gagal diupload, masukan ekstensi pdf,doc,docx</div>');
 				}
 			}
-
 	$data=array(
-		'email'=>$email,
+	'email'=>$email,
 	'institusi'=>$institusi,
 	'pesan'=>$pesan,
 	'status'=>$status,
@@ -185,7 +180,6 @@ $data['data_mitra']=$this->Model_mitra->edit_mitra($where,'tb_mitra')->result();
 	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil ubah mitra</div>');
 
 		redirect(base_url('admin/mitra'));
-	}
   }
   public function hapusMitra($id){
 	$where=array('id'=> $id);
