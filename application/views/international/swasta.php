@@ -58,9 +58,9 @@
       <thead>
           <tr>
               <th>No</th>
-              <th>Nama Penghubung</th>
+              <th>Nama Mitra</th>
               <th>Nama Kerjasama</th>
-              <th>Status Kerjasama</th>
+              <th>MOU</th>
               <th>Berkas</th>
               <th>Tanggal Mulai</th>
               <th>Tanggal Berakhir</th>
@@ -72,9 +72,9 @@
             foreach ($data_swasta as $sws) { ?>
               <tr>
       <td><?=$no++ ?></td>
-      <td><?=$sws->nama; ?></td>
+      <td><?=$sws->institusi; ?></td>
       <td><?=$sws->nama_kerjasama; ?></td>
-      <td><?=$sws->status; ?></td>
+      <td><?=$sws->mou_or_pks; ?></td>
       <td><a style="color:#fc9b3f" href="<?=base_url('program/detailBerkasIns/').$sws->id?>"><?=$sws->file?></a></td>
       <td><?=date('d F Y', strtotime($sws->tgl_mulai)); ?></td> 
       <td><?=date('d F Y', strtotime($sws->tgl_akhir)); ?></td>  

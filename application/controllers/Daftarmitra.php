@@ -18,7 +18,7 @@ class daftarmitra extends CI_Controller {
 		$negara =$this->input->post('negara');
 		$pesan =$this->input->post('pesan');
 		$gambar =$this->input->post('gambar');
-		$file =$this->input->post('file');
+		$berkas =$this->input->post('berkas');
 
 $sql = $this->db->query("SELECT institusi FROM tb_mitra where institusi='$institusi'");
 $cek_mitra = $sql->num_rows();
@@ -41,14 +41,14 @@ redirect(base_url('daftarmitra'));
 			
 					}
 				}
-			if($file=''){
+			if($berkas=''){
 			
 			}else{
 					$config['upload_path']='./assets/dua/berkas/mitra/';
 					$config['allowed_types']='pdf|doc|docx';
 					$this->load->library('upload',$config);
-					if($this->upload->do_upload('file')){
-					$gambar=$this->upload->data('file_name');
+					if($this->upload->do_upload('berkas')){
+					$berkas=$this->upload->data('file_name');
 				
 					}else{
 					$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>file gagal diupload, masukan ekstensi pdf,doc,docx</div>');

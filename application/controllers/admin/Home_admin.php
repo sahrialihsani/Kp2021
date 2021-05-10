@@ -12,7 +12,7 @@ class home_admin extends CI_Controller {
 	public function index()
 	{
 		$data['total_program'] = $this->Model_program->total_data()->num_rows();
-		$data['total_kerjasama'] = $this->Model_universitas->total_data_keseluruhan()->num_rows();
+		$data['total_kerjasama'] = $this->Model_kerjasama->total_data_keseluruhan()->num_rows();
 		$data['total_mitra'] = $this->Model_mitra->total_data()->num_rows();
 		$data['total_organisasi'] = $this->Model_organisasi->total_data()->num_rows();
 		$data['tahun_kerja']=$this->db->query('select year(tgl_mulai) as tahun from tb_kerjasama GROUP BY YEAR(tgl_mulai)')->result();

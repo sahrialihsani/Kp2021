@@ -1,11 +1,11 @@
 <?php
 class Model_mitra extends CI_Model{
 	public function tampil_data(){
-	$hasil=$this->db->query("SELECT tb_negara.id, tb_negara.name, tb_mitra.id, tb_mitra.email,tb_mitra.institusi,tb_mitra.status,tb_mitra.gambar,tb_mitra.pesan, tb_mitra.file FROM tb_mitra join tb_negara on tb_mitra.id_negara=tb_negara.id WHERE status='Diterima'  ORDER BY institusi ASC LIMIT 0,12");
+	$hasil=$this->db->query("SELECT tb_negara.id, tb_negara.name, tb_mitra.id, tb_mitra.email,tb_mitra.institusi,tb_mitra.status,tb_mitra.gambar,tb_mitra.pesan, tb_mitra.berkas FROM tb_mitra join tb_negara on tb_mitra.id_negara=tb_negara.id WHERE status='Diterima'  ORDER BY institusi ASC LIMIT 0,12");
             return $hasil;
 	}
 	public function tampil_data_all(){
-		$hasil=$this->db->query("SELECT tb_negara.id, tb_negara.name, tb_mitra.id, tb_mitra.email,tb_mitra.institusi,tb_mitra.status,tb_mitra.gambar,tb_mitra.pesan, tb_mitra.file FROM tb_mitra join tb_negara on tb_mitra.id_negara=tb_negara.id WHERE (status='Diterima' or status='Menunggu')  ORDER BY institusi ASC");
+		$hasil=$this->db->query("SELECT tb_negara.id, tb_negara.name, tb_mitra.id, tb_mitra.email,tb_mitra.institusi,tb_mitra.status,tb_mitra.gambar,tb_mitra.pesan, tb_mitra.berkas FROM tb_mitra join tb_negara on tb_mitra.id_negara=tb_negara.id WHERE (status='Diterima' or status='Menunggu')  ORDER BY institusi ASC");
 		return $hasil;
 	}	
 	public function detail_mitra($id){

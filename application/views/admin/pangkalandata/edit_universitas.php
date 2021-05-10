@@ -19,8 +19,6 @@ refresh=setTimeout("action()",speed);}action();
   <script src="<?=base_url('')?>assets/data/js/pace.min.js"></script>
   <!--favicon-->
   <link rel="icon" href="<?=base_url('')?>assets/data/images/favicon.ico" type="image/x-icon">
-  <!-- Vector CSS -->
-  <link href="<?=base_url('')?>assets/data/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
   <!-- simplebar CSS-->
   <link href="<?=base_url('')?>assets/data/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
@@ -64,7 +62,7 @@ refresh=setTimeout("action()",speed);}action();
                 <select name="nama" class="form-control">
                 <?php $result= mysqli_query("Select")?>
             <?php 
-            $result = $this->db->query("SELECT * FROM tb_mitra")->result();
+            $result = $this->db->query("SELECT * FROM tb_mitra WHERE status='Diterima'")->result();
             foreach($result  as $rsl) : ?>
                 <option value="<?php echo $rsl->id ?>"><?php echo $rsl->institusi?></option>
                 <?php endforeach; ?>
@@ -91,6 +89,16 @@ refresh=setTimeout("action()",speed);}action();
                 <select name="status" class="form-control" required>
                 <option>Aktif</option>
                 <option>Tidak Aktif</option>
+                </select>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="col-sm-2 control-label">MOU/PKS</label>
+                <div class="col-sm-12">
+                <select name="mou_or_pks" class="form-control" required>
+                <option>MOU</option>
+                <option>PKS</option>
                 </select>
                 </div>
               </div>
@@ -136,8 +144,6 @@ refresh=setTimeout("action()",speed);}action();
   <!-- sidebar-menu js -->
   <script src="<?=base_url('')?>assets/data/js/sidebar-menu.js"></script>
   <!-- loader scripts -->
-  <script src="<?=base_url('')?>assets/data/js/jquery.loading-indicator.js"></script>
-  <!-- Custom scripts -->
   <script src="<?=base_url('')?>assets/data/js/app-script.js"></script>
   <!-- Chart js -->
   

@@ -20,8 +20,8 @@ class cetakuniv extends CI_Controller {
         $pdf->SetFont('Arial','B',10);
 
         $pdf->Cell(8,6,'No',1,0,'C');
-        $pdf->Cell(60,6,'Nama Kerjasama',1,0,'C');
         $pdf->Cell(35,6,'Institusi',1,0,'C');
+        $pdf->Cell(60,6,'Nama Kerjasama',1,0,'C');
         $pdf->Cell(20,6,'Status',1,0,'C');
         $pdf->Cell(35,6,'Tanggal Dimulai',1,0,'C');
         $pdf->Cell(35,6,'Tanggal Berakhir',1,1,'C');
@@ -31,8 +31,8 @@ class cetakuniv extends CI_Controller {
         $no=1;
         foreach ($universitas as $data){
             $pdf->Cell(8,6,$no,1,0,'C');
-            $pdf->Cell(60,6,$data->nama_kerjasama,1,0,'C');
             $pdf->Cell(35,6,$data->institusi,1,0,'C');
+            $pdf->Cell(60,6,$data->nama_kerjasama,1,0,'C');
             $pdf->Cell(20,6,$data->status,1,0,'C');
             $pdf->Cell(35,6,date('d F Y', strtotime($data->tgl_mulai)),1,0,'C');
             $pdf->Cell(35,6,date('d F Y', strtotime($data->tgl_akhir)),1,1,'C');

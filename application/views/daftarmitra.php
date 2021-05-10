@@ -86,13 +86,13 @@ refresh=setTimeout("action()",speed);}action();
               </div>
               <div class="form-group">
                 <p class="float-left">Insert your institution logo </p>
-                <input type="file" class="form-control" name="gambar" required id="institusi" placeholder="Your institution logo"/>
+                <input type="file" class="form-control" name="gambar" required id="gambar" />
               </div>
               <div class="form-group">
                 <p class="float-left">Insert your cooperation file</p>
-                <input type="file" class="form-control" name="file" required id="institusi" placeholder="File"/>
+                <input type="file" class="form-control" name="berkas" required id="berkas" />
               </div>
-              <div class="text-center"><button style="border-radius:10px;" class="btn-primary"  type="submit">Send Connection</button></div>
+              <div class="text-center"><button style="border-radius:10px;" class="btn-primary" type="submit">Send Connection</button></div>
           </div>
         </form>
         </div>

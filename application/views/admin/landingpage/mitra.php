@@ -19,8 +19,6 @@ refresh=setTimeout("action()",speed);}action();
   <script src="<?=base_url('')?>assets/data/js/pace.min.js"></script>
   <!--favicon-->
   <link rel="icon" href="<?=base_url('')?>assets/data/images/favicon.ico" type="image/x-icon">
-  <!-- Vector CSS -->
-  <link href="<?=base_url('')?>assets/data/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
   <!-- simplebar CSS-->
   <link href="<?=base_url('')?>assets/data/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
@@ -70,6 +68,7 @@ refresh=setTimeout("action()",speed);}action();
                 <th>Pesan</th>
                 <th>Status</th>
                 <th>Gambar</th>
+                <th>Berkas</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -85,7 +84,9 @@ refresh=setTimeout("action()",speed);}action();
         <td><?php echo wordwrap(word_limiter("$mtra->pesan",30),50,"<br>\n");?></td>   
         <td><?=$mtra->status; ?></td>   
         <td align="center">
-        <img style="object-fit: cover;" src="<?php echo base_url('assets/dua/img/mitra/'.$mtra->gambar)?> " width="400px" height="200px">
+        <img style="object-fit: cover;" src="<?php echo base_url('assets/dua/img/mitra/'.$mtra->gambar)?> " width="200px" height="150px">
+        <td><a style="color:#fc9b3f" href="<?=base_url('admin/mitra/detailBerkas/').$mtra->id?>"><?=$mtra->berkas?></a></td>   
+          
           </td>
 
                   <td>
@@ -104,7 +105,9 @@ refresh=setTimeout("action()",speed);}action();
                       else if($mtra->status == "Menunggu"){
                         echo anchor('admin/mitra/terima/'.$mtra->id,'<div class="btn btn-success btn-sm"><i class="icofont-check">Terima</i></div>');
                         echo '<br>';
-                        echo anchor('admin/mitra/tolak/'.$mtra->id,'<div style="margin-top:5px" class="btn btn-warning btn-sm"><i class="icofont-close">Tolak</i></div>');
+                        echo anchor('admin/mitra/tolak/'.$mtra->id,'<div style="margin-top:5px" class="btn btn-danger btn-sm"><i class="icofont-close">Tolak</i></div>');
+                        echo '<br>';
+                        echo anchor('admin/mitra/editMitra/'.$mtra->id,'<div style="margin-top:5px" class="btn btn-warning btn-sm"><i class="icofont-ui-edit">Edit Mitra</i></div>');
                         echo '<br>';
                         echo anchor('admin/mitra/hapusMitra/'.$mtra->id,'<div style="margin-top:5px" class="btn btn-danger btn-sm"><i class="icofont-ui-delete">Hapus Mitra</i></div>');
                               
@@ -156,18 +159,19 @@ refresh=setTimeout("action()",speed);}action();
           <label> Pesan</label>
           <textarea style="color:#000;" type="text" name="pesan" class="form-control" ></textarea>
           <?= form_error('pesan','<small class="text-danger pl-3">','</small>')  ?>
-                       
-     <div class="form-group">
+    <div class="form-group">
           <label> Gambar</label>
           <input style="color:#000;" type="file" name="gambar" class="form-control">
-          <?= form_error('gambar','<small class="text-danger pl-3">','</small>')  ?>
+           <?= form_error('gambar','<small class="text-danger pl-3">','</small>')  ?>
     <div class="form-group">
           <label> File</label>
-          <input style="color:#000;" type="file" name="file" class="form-control">
-           <?= form_error('file','<small class="text-danger pl-3">','</small>')  ?>
+          <input style="color:#000;" type="file" name="berkas" class="form-control">
+           <?= form_error('berkas','<small class="text-danger pl-3">','</small>')  ?>
               </div>
           </div>
         </div>
+        </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Keluar</button>
         <button  type="submit" class="btn btn-primary">Simpan perubahan</button>
@@ -189,8 +193,6 @@ refresh=setTimeout("action()",speed);}action();
   <!-- sidebar-menu js -->
   <script src="<?=base_url('')?>assets/data/js/sidebar-menu.js"></script>
   <!-- loader scripts -->
-  <script src="<?=base_url('')?>assets/data/js/jquery.loading-indicator.js"></script>
-  <!-- Custom scripts -->
   <script src="<?=base_url('')?>assets/data/js/app-script.js"></script>
   <!-- Chart js -->
   

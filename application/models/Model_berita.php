@@ -17,6 +17,10 @@ class Model_berita extends CI_Model{
 		$hasil=$this->db->query("SELECT tb_berita.id, tb_berita.judul,tb_berita.isi, tb_berita.gambar, tb_berita.tgl_posting, tb_kategori.kategori FROM tb_berita  join tb_kategori on tb_berita.id_kategori=tb_kategori.id ORDER BY tb_berita.tgl_posting DESC LIMIT 0,6");
 				return $hasil;
 		}
+	public function tampil_data_by_kategori($kategori){
+		$hasil=$this->db->query("SELECT tb_berita.id, tb_berita.judul,tb_berita.isi, tb_berita.gambar, tb_berita.tgl_posting, tb_kategori.kategori FROM tb_berita  join tb_kategori on tb_berita.id_kategori=tb_kategori.id WHERE tb_kategori.kategori='$kategori' ORDER BY tb_berita.tgl_posting  DESC");
+				return $hasil;
+		}
 	public function detail_berita($id){
 		$this->db->select('*');
    $this->db->from('tb_berita');

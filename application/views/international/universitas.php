@@ -57,9 +57,9 @@
       <thead>
           <tr>
               <th>No</th>
-              <th>Nama Penghubung</th>
+              <th>Nama Mitra</th>
               <th>Nama Kerjasama</th>
-              <th>Status Kerjasama</th>
+              <th>MOU</th>
               <th>Berkas</th>
               <th>Tanggal Mulai</th>
               <th>Tanggal Berakhir</th>
@@ -71,9 +71,9 @@
             foreach ($data_universitas as $unv) { ?>
               <tr>
       <td><?=$no++ ?></td>
-      <td><?=$unv->nama; ?></td>
+      <td><?=$unv->institusi; ?></td>
       <td><?=$unv->nama_kerjasama; ?></td>
-      <td><?=$unv->status; ?></td>
+      <td><?=$unv->mou_or_pks; ?></td>
       <td><a style="color:#fc9b3f" href="<?=base_url('program/detailBerkasUniv/').$unv->id?>"><?=$unv->file?></a></td>
       <td><?=date('d F Y', strtotime($unv->tgl_mulai)); ?></td> 
       <td><?=date('d F Y', strtotime($unv->tgl_akhir)); ?></td>  

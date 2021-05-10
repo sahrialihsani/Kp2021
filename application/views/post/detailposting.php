@@ -124,9 +124,10 @@ refresh=setTimeout("action()",speed);}action();
               <h3 class="sidebar-title">Categories</h3>
               <div class="sidebar-item categories">
                 <ul>
-                <?php foreach($data_kategori as $ktg): ?>
+                <?php 
+                foreach($data_kategori as $ktg): ?>
 
-                  <li><a href="#"><?=$ktg->kategori?> </a></li>
+        <li><a href="<?php echo base_url('post/tampilKategori/').$ktg->kategori?>"><?=$ktg->kategori?> </a></li>
               <?php endforeach;?>
 
                 </ul>

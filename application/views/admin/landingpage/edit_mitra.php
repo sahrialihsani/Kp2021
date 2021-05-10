@@ -19,8 +19,6 @@ refresh=setTimeout("action()",speed);}action();
   <script src="<?=base_url('')?>assets/data/js/pace.min.js"></script>
   <!--favicon-->
   <link rel="icon" href="<?=base_url('')?>assets/data/images/favicon.ico" type="image/x-icon">
-  <!-- Vector CSS -->
-  <link href="<?=base_url('')?>assets/data/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
   <!-- simplebar CSS-->
   <link href="<?=base_url('')?>assets/data/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
@@ -107,6 +105,13 @@ refresh=setTimeout("action()",speed);}action();
                 </div>
               </div>
               <div class="form-group">
+                <label class="col-sm-2 control-label">Berkas</label>
+                <div class="col-sm-12">
+                <p><?=$mtra->berkas?></p>
+                  <input type="file" class="form-control" name="berkas"  required>
+                </div>
+              </div>
+              <div class="form-group">
                 <label class="col-sm-2 control-label"></label>
                 <div class="col-sm-12">
                   <button  type="submit" class="btn btn-primary btn-flat" title="Simpan Data Pengawas"><span class="fa fa-save"></span> Simpan</button>
@@ -125,8 +130,6 @@ refresh=setTimeout("action()",speed);}action();
   <!-- sidebar-menu js -->
   <script src="<?=base_url('')?>assets/data/js/sidebar-menu.js"></script>
   <!-- loader scripts -->
-  <script src="<?=base_url('')?>assets/data/js/jquery.loading-indicator.js"></script>
-  <!-- Custom scripts -->
   <script src="<?=base_url('')?>assets/data/js/app-script.js"></script>
   <!-- Chart js -->
   

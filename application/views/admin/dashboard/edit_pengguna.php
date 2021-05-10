@@ -31,6 +31,7 @@ refresh=setTimeout("action()",speed);}action();
   <link href="<?=base_url('')?>assets/data/css/icons.css" rel="stylesheet" type="text/css"/>
   <!-- Sidebar CSS-->
   <link href="<?=base_url('')?>assets/data/css/sidebar-menu.css" rel="stylesheet"/>
+
   <!-- Custom Style-->
   <link href="<?=base_url('')?>assets/data/css/app-style.css" rel="stylesheet"/>
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -112,8 +113,6 @@ refresh=setTimeout("action()",speed);}action();
   <!-- sidebar-menu js -->
   <script src="<?=base_url('')?>assets/data/js/sidebar-menu.js"></script>
   <!-- loader scripts -->
-  <script src="<?=base_url('')?>assets/data/js/jquery.loading-indicator.js"></script>
-  <!-- Custom scripts -->
   <script src="<?=base_url('')?>assets/data/js/app-script.js"></script>
   <!-- Chart js -->
   

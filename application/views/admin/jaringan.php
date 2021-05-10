@@ -131,30 +131,25 @@ refresh=setTimeout("action()",speed);}action();
  </div>
 
 </body>
-<script src="<?=base_url('')?>assets/data/js/jquery.min.js"></script>
-  <script src="<?=base_url('')?>assets/data/js/popper.min.js"></script>
-  <script src="<?=base_url('')?>assets/data/js/bootstrap.min.js"></script>
+<script src="<?=base_url('assets/data/js/index.js')?>"></script>
+<script src="<?=base_url('assets/data/js/jquery.min.js')?>"></script>
+  <script src="<?=base_url('assets/data/js/popper.min.js')?>"></script>
+  <script src="<?=base_url('assets/data/js/bootstrap.min.js')?>"></script>
 	
  <!-- simplebar js -->
-  <script src="<?=base_url('')?>assets/data/plugins/simplebar/js/simplebar.js"></script>
+  <script src="<?=base_url('assets/data/plugins/simplebar/js/simplebar.j')?>s"></script>
   <!-- sidebar-menu js -->
-  <script src="<?=base_url('')?>assets/data/js/sidebar-menu.js"></script>
+  <script src="<?=base_url('assets/data/js/sidebar-menu.js')?>"></script>
   <!-- loader scripts -->
-  <script src="<?=base_url('')?>assets/data/js/jquery.loading-indicator.js"></script>
-  <!-- Custom scripts -->
-  <script src="<?=base_url('')?>assets/data/js/app-script.js"></script>
+  <script src="<?=base_url('assets/data/js/app-script.js')?>"></script>
   <!-- Chart js -->
-  
-  <script src="<?=base_url('')?>assets/data/plugins/Chart.js/Chart.min.js"></script>
+  <script src="<?=base_url('assets/data/plugins/Chart.js/Chart.min.js')?>"></script>
   <script>
 $(document).ready(function() {
     $('#example').DataTable();
 } );
 </script>
   <!-- Index js -->
-  <script src="<?=base_url('')?>assets/data/js/index.js"></script>
   <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-
-
 </html>

@@ -21,8 +21,6 @@ refresh=setTimeout("action()",speed);}action();
   <link rel="icon" href="<?=base_url('')?>assets/data/images/favicon.ico" type="image/x-icon">
   <!-- Vector CSS -->
   <link href="<?= base_url('')?>assets/dua/vendor/icofont/icofont.min.css" rel="stylesheet">
-
-  <link href="<?=base_url('')?>assets/data/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
   <!-- simplebar CSS-->
   <link href="<?=base_url('')?>assets/data/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
@@ -134,8 +132,7 @@ refresh=setTimeout("action()",speed);}action();
   <!-- sidebar-menu js -->
   <script src="<?=base_url('')?>assets/data/js/sidebar-menu.js"></script>
   <!-- loader scripts -->
-  <script src="<?=base_url('')?>assets/data/js/jquery.loading-indicator.js"></script>
-  <!-- Custom scripts -->
+
   <script src="<?=base_url('')?>assets/data/js/app-script.js"></script>
   <!-- Chart js -->
   

@@ -100,22 +100,24 @@ refresh=setTimeout("action()",speed);}action();
 </section>
 <main id="main">
   <!-- ======= Clients Section ======= -->
-  <section id="clients" class="clients">
-
-      <div class="container" data-aos="zoom-in">
-        <div class="owl-carousel clients-carousel">
-        <?php foreach($data_mitra as $mtr):?>
-
-          <div>
-          <img style="object-fit: contain;" height="100px" src="<?=base_url('assets/dua/img/mitra/').$mtr['gambar']?>" alt="">
-          <p style="margin-top:10px;background-color:rgba(3, 56, 102, 0.9);;opacity:0.3;font-size:16px;font-weight:700; color:#fff; padding-left:5px"><?=$mtr['institusi']?></p>
-          </div>
-
-          <?php endforeach?>
-        
-          </div>
-
-      </div>
+  <?php if($total_mitra>=0){
+      foreach($data_mitra as $mtr){
+      echo'<section id="clients" class="clients">';
+      echo'<div class="container" data-aos="zoom-in">';
+        echo'<div class="owl-carousel clients-carousel">';
+        echo '<div>';
+        $image="$mtr[gambar]";
+        $path= base_url("assets/dua/img/mitra/$image");
+        echo'<img style="object-fit: contain;" height="100px" src="'.$path.'" alt="">';
+        echo '<p style="margin-top:10px;background-color:rgba(3, 56, 102, 0.9);;opacity:0.3;font-size:16px;font-weight:700; color:#fff; padding-left:5px">'.$mtr['institusi'].'</p>';
+      echo'</div>';
+      echo'</div>';
+      echo'</div>';
+          }
+        }else{
+        }
+        ?>
+  
 
     </section><!-- End Clients Section -->
     <!-- ======= Counts Section ======= -->

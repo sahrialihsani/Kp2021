@@ -23,5 +23,11 @@ class post extends CI_Controller {
 		$this->load->view('post/detailposting',$data);
 		$this->load->view('template/footer');
 }
+	public function tampilKategori($kategori){
+		$data['data_select_kategori'] = $this->Model_berita->tampil_data_by_kategori($kategori)->result();
+		$this->load->view('template/headerberita');
+		$this->load->view('post/kategori',$data);
+		$this->load->view('template/footer');
+	}
 }
 

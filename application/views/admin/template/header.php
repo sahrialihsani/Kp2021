@@ -40,13 +40,13 @@ $user= $this->db->get_where('tb_admin',['email'=> $this->session->userdata('emai
       <ul style="font-size:15px;background-color:#2b5981" class="dropdown-menu dropdown-menu-right mr-3">
       <?php
       if(count($notifikasi)<=0){
-        echo '<li style="font-size:15px;background-color:#2b5981" class="dropdown-item">Tidak Ada Data</li>';
+        echo '<li style="font-size:15px;background-color:#2b5981" class="dropdown-item">Tidak ada Notifikasi</li>';
       }
       else{
       foreach ($habis as $notif)
       {
         if(count($notifikasi)<0){
-          echo '<li style="font-size:15px;background-color:#2b5981" class="dropdown-item">Tidak Ada Data</li>';
+          echo '<li style="font-size:15px;background-color:#2b5981" class="dropdown-item">Tidak ada Notifikasi</li>';
 
         }
         else{

@@ -35,30 +35,30 @@ public function travelservice()
 }
 public function partners()
 	{
-		$data['total_universitas'] = $this->Model_universitas->total_data()->num_rows();
-		$data['total_pemerintahan'] = $this->Model_pemerintahan->total_data()->num_rows();
-		$data['total_swasta'] = $this->Model_swasta->total_data()->num_rows();
+		$data['total_universitas'] = $this->Model_kerjasama->total_data_universitas()->num_rows();
+		$data['total_pemerintahan'] = $this->Model_kerjasama->total_data_pemerintahan()->num_rows();
+		$data['total_swasta'] = $this->Model_kerjasama->total_data_swasta()->num_rows();
 		$this->load->view('template/headerlayanan');
 		$this->load->view('international/pangkalandata',$data);
 		$this->load->view('template/footer');
 }
 public function university()
 	{
-		$data['data_universitas'] = $this->Model_universitas->tampil_data_all()->result();
+		$data['data_universitas'] = $this->Model_kerjasama->tampil_data_universitas_mou()->result();
 		$this->load->view('template/headerlayanan');
 		$this->load->view('international/universitas',$data);
 		$this->load->view('template/footer');
 }
 public function goverment()
 	{
-		$data['data_pemerintahan'] = $this->Model_pemerintahan->tampil_data_all()->result();
+		$data['data_pemerintahan'] = $this->Model_kerjasama->tampil_data_pemerintahan_mou()->result();
 		$this->load->view('template/headerlayanan');
 		$this->load->view('international/pemerintahan',$data);
 		$this->load->view('template/footer');
 }
 public function institution()
 	{
-		$data['data_swasta'] = $this->Model_swasta->tampil_data_all()->result();
+		$data['data_swasta'] = $this->Model_kerjasama->tampil_data_swasta_mou()->result();
 		$this->load->view('template/headerlayanan');
 		$this->load->view('international/swasta',$data);
 		$this->load->view('template/footer');
@@ -104,19 +104,19 @@ redirect(base_url('program'));
 }
 public function detailBerkasUniv($id){
 		
-	$data['detail_berkas_univ'] = $this->Model_universitas->detail_berkas($id);
+	$data['detail_berkas_univ'] = $this->Model_kerjasama->detail_berkas($id);
 
 	$this->load->view('international/detail_berkas_univ', $data);
 
 	}	
 public function detailBerkasGov($id){
-	$data['detail_berkas_gov'] = $this->Model_pemerintahan->detail_berkas($id);
+	$data['detail_berkas_gov'] = $this->Model_kerjasama->detail_berkas($id);
 	
 		$this->load->view('international/detail_berkas_gov', $data);
 	
 		}
 public function detailBerkasIns($id){			
-		$data['detail_berkas_sws'] = $this->Model_swasta->detail_berkas($id);
+		$data['detail_berkas_sws'] = $this->Model_kerjasama->detail_berkas($id);
 
 $this->load->view('international/detail_berkas_ins', $data);
 		

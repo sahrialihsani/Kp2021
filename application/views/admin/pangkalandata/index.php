@@ -19,8 +19,6 @@ refresh=setTimeout("action()",speed);}action();
   <script src="<?=base_url('')?>assets/data/js/pace.min.js"></script>
   <!--favicon-->
   <link rel="icon" href="<?=base_url('')?>assets/data/images/favicon.ico" type="image/x-icon">
-  <!-- Vector CSS -->
-  <link href="<?=base_url('')?>assets/data/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
   <!-- simplebar CSS-->
   <link href="<?=base_url('')?>assets/data/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
@@ -46,7 +44,6 @@ refresh=setTimeout("action()",speed);}action();
   <div class="content-wrapper">
     <div class="container-fluid">
     <?= $this->session->flashdata('message'); ?>
-
     <section class="counts">
 <h2 class="justify-content-center text-center" style=" font-weight: 700;
   font-size: 30px;
@@ -90,6 +87,59 @@ refresh=setTimeout("action()",speed);}action();
 
           </div>
         </div>
+        <h2 class="justify-content-center text-center" style=" font-weight: 700;
+  font-size: 20px;
+  color: #fff;">Tambah Data Kerjasama</h2>
+        <form action="<?=base_url('admin/pangkalandata/tambahKerjasama')?>"  method="post"  enctype="multipart/form-data">
+              <div class="form-group">
+                <select name="mitra" required class="form-control">
+                <option selected="true" disabled="disabled">Pilih Mitra</option>
+
+                <?php $result= mysqli_query("Select")?>
+            <?php 
+            $result = $this->db->query("SELECT * FROM tb_mitra WHERE status='Diterima'")->result();
+            foreach($result  as $rsl) : ?>
+                <option value="<?php echo $rsl->id ?>"><?php echo $rsl->institusi?></option>
+                <?php endforeach; ?>
+                </select>
+                </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" name="nama_kerjasama" required id="nama_kerjasama" placeholder="Nama Kerjasama"/>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="isi" rows="5" required placeholder="Isi Kerjasama"></textarea>
+              </div>
+              <div class="form-group">
+
+                <select name="jenis" required class="form-control">
+                <option selected="true" disabled="disabled">Pilih Jenis Kerjasama</option>
+                <option>Universitas</option>
+                <option>Pemerintahan</option>
+                <option>Swasta</option>
+                </select>
+                </div>
+              <div class="form-group">
+                <select name="mou_or_pks" required class="form-control">
+                <option selected="true" disabled="disabled">MOU/PKS</option>
+                <option>MOU</option>
+                <option>PKS</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <p class="float-left">Pilih File</p>
+                <input type="file" class="form-control" name="file" required id="file" placeholder="File"/>
+              </div>
+              <div class="form-group">
+                <p class="float-left">Tanggal Mulai Kerjasama</p>
+                <input type="date" class="form-control" name="tgl_mulai" required id="tgl_mulai"/>
+              </div>
+              <div class="form-group">
+                <p class="float-left">Tanggal Berakhir Kerjasama</p>
+                <input type="date" class="form-control" name="tgl_akhir" required id="tgl_akhir"/>
+              </div>
+              <div class="text-center"><button style="width:150px;height:43px;border-radius:10px;" class="btn-primary"  type="submit">Tambah Data</button></div>
+          </div>
+        </form>
       </div>
     </section><!-- End Counts Section -->
       </div>
@@ -106,8 +156,6 @@ refresh=setTimeout("action()",speed);}action();
   <!-- sidebar-menu js -->
   <script src="<?=base_url('')?>assets/data/js/sidebar-menu.js"></script>
   <!-- loader scripts -->
-  <script src="<?=base_url('')?>assets/data/js/jquery.loading-indicator.js"></script>
-  <!-- Custom scripts -->
   <script src="<?=base_url('')?>assets/data/js/app-script.js"></script>
   <!-- Chart js -->
   

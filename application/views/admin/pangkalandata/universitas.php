@@ -19,8 +19,6 @@ refresh=setTimeout("action()",speed);}action();
   <script src="<?=base_url('')?>assets/data/js/pace.min.js"></script>
   <!--favicon-->
   <link rel="icon" href="<?=base_url('')?>assets/data/images/favicon.ico" type="image/x-icon">
-  <!-- Vector CSS -->
-  <link href="<?=base_url('')?>assets/data/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
   <!-- simplebar CSS-->
   <link href="<?=base_url('')?>assets/data/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
@@ -31,6 +29,8 @@ refresh=setTimeout("action()",speed);}action();
   <link href="<?=base_url('')?>assets/data/css/icons.css" rel="stylesheet" type="text/css"/>
   <!-- Sidebar CSS-->
   <link href="<?=base_url('')?>assets/data/css/sidebar-menu.css" rel="stylesheet"/>
+  <link href="<?=base_url('')?>assets/data/css/pace.min.css" rel="stylesheet"/>
+
   <!-- Custom Style-->
   <link href="<?=base_url('')?>assets/data/css/app-style.css" rel="stylesheet"/>
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -53,8 +53,6 @@ refresh=setTimeout("action()",speed);}action();
   font-size: 30px;
   color: #fff;">Kerjasama dengan Universitas</h2>
 <button onclick="window.location.href='<?=base_url('cetak/cetakuniv')?>'" class="btn btn-sm btn-primary float-left ml-2"><i class="icofont-print"></i>Cetak Data</button>
-
-<button class="btn btn-sm btn-primary float-left ml-2" data-toggle="modal" data-target="#tambah_universitas">Tambah Data Kerjasama</button>
         <br>
         <br>
           <div style="margin-bottom:20px" class="container-fluid justify-content-center">
@@ -67,7 +65,7 @@ refresh=setTimeout("action()",speed);}action();
                     <th>No</th>
                     <th>Nama Mitra</th>
                     <th>Nama Kerjasama</th>
-                    <th>Status Kerjasama</th>
+                    <th>MOU/PKS</th>
                     <th>Berkas</th>
                     <th>Tanggal Mulai</th>
                     <th>Tanggal Berakhir</th>
@@ -82,7 +80,7 @@ refresh=setTimeout("action()",speed);}action();
             <td><?=$no++ ?></td>
             <td><?=$unv->institusi; ?></td>
             <td><?=$unv->nama_kerjasama; ?></td>
-            <td><?=$unv->status; ?></td>
+            <td><?=$unv->mou_or_pks; ?></td>
             <td><a style="color:#fc9b3f" href="<?=base_url('admin/pangkalandata/detailBerkasUniv/').$unv->id?>"><?=$unv->file?></a></td>
             <td><?=date('d F Y', strtotime($unv->tgl_mulai)); ?></td> 
       <td><?php echo date('d F Y', strtotime($unv->tgl_akhir)); ?></td>  
@@ -109,60 +107,7 @@ refresh=setTimeout("action()",speed);}action();
      
         </div>
      </div>
-     <div class="modal fade" id="tambah_universitas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div   class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-             <h5 style="color:#3f80ba" class="modal-title" id="exampleModalLabel">Input data kerjasama dengan Universitas</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div style="background-color:#3f80ba" class="modal-body">
-          <form action="<?= base_url('admin/pangkalandata/tambahUniversitas');?>" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-              <label >Nama Mitra</label>
-              <select name="nama" class="form-control" required>
-              <option selected="true" disabled="disabled">Pilih Mitra</option>
-
-                <?php $result= mysqli_query("Select")?>
-            <?php 
-            $result = $this->db->query("SELECT * FROM tb_mitra")->result();
-            foreach($result  as $rsl) : ?>
-                <option value="<?php echo $rsl->id ?>"><?php echo $rsl->institusi?></option>
-                <?php endforeach; ?>
-                </select>
-                <div class="form-group">
-              <label >Nama Kerjasama</label>
-              <input style="color:#ffffff;" type="text" name="nama_kerjasama" class="form-control" required>
-                <?= form_error('nama_kerjasama','<small class="text-danger pl-3">','</small>')  ?>
-                <div class="form-group">
-              <label >Isi Kerjasama</label>
-              <textarea style="color:#ffffff;" type="text" name="isi" class="form-control" required></textarea>
-                <?= form_error('isi','<small class="text-danger pl-3">','</small>')  ?>
-                <div class="form-group">
-         <label>Berkas</label>
-         <input style="color:#ffffff;" type="file" name="file" class="form-control" required>
-            <?= form_error('berkas','<small class="text-danger pl-3">','</small>')  ?>
     
-              <label >Tanggal Mulai</label>
-              <input style="color:#ffffff;" type="date" name="tgl_mulai" class="form-control" required>
-                <?= form_error('tgl_mulai','<small class="text-danger pl-3">','</small>')  ?>
-                <div class="form-group">
-              <label >Tanggal Berakhir</label>
-              <input style="color:#ffffff;" type="date" name="tgl_akhir" class="form-control" required>
-                <?= form_error('tgl_akhir','<small class="text-danger pl-3">','</small>')  ?>
-          
-              </div>
-            </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Keluar</button>
-            <button  type="submit" class="btn btn-primary">Simpan perubahan</button>
-          </div>
-          </form>
-    
-            </div>
-            </div>
             
             </div>
             </div>
@@ -177,7 +122,7 @@ refresh=setTimeout("action()",speed);}action();
   <!-- sidebar-menu js -->
   <script src="<?=base_url('')?>assets/data/js/sidebar-menu.js"></script>
   <!-- loader scripts -->
-  <script src="<?=base_url('')?>assets/data/js/jquery.loading-indicator.js"></script>
+  <script src="<?=base_url('')?>assets/data/js/pace.min.js"></script>
   <!-- Custom scripts -->
   <script src="<?=base_url('')?>assets/data/js/app-script.js"></script>
   <!-- Chart js -->
