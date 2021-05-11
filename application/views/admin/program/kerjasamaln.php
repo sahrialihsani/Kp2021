@@ -16,7 +16,6 @@ refresh=setTimeout("action()",speed);}action();
 </script>
   <!-- loader-->
   <link href="<?=base_url('')?>assets/data/css/pace.min.css" rel="stylesheet"/>
-  <script src="<?=base_url('')?>assets/data/js/pace.min.js"></script>
   <!--favicon-->
   <link rel="icon" href="<?=base_url('')?>assets/data/images/favicon.ico" type="image/x-icon">
   <!-- simplebar CSS-->
@@ -142,6 +141,7 @@ refresh=setTimeout("action()",speed);}action();
             </div>
      </div>
 </body>
+<script src="<?=base_url('')?>assets/data/js/pace.min.js"></script>
 <script src="<?=base_url('')?>assets/data/js/jquery.min.js"></script>
   <script src="<?=base_url('')?>assets/data/js/popper.min.js"></script>
   <script src="<?=base_url('')?>assets/data/js/bootstrap.min.js"></script>
