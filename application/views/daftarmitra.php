@@ -18,7 +18,7 @@ refresh=setTimeout("action()",speed);}action();
   <meta content="" name="keywords">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Vendor CSS Files -->
   <link href="assets/dua/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/dua/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -50,14 +50,54 @@ refresh=setTimeout("action()",speed);}action();
       <br>
       <br>
       <br>
-
+      <?= $this->session->flashdata('message'); ?>
+      <h2 class="justify-content-center text-center" style=" font-weight: 700;
+  font-size: 30px;
+  color: #05579e;">Grafik Mitra Kerjasama</h2>
+      <canvas id="myChart"></canvas>
+        <?php
+    //Inisialisasi nilai variabel awal
+    $nama_negara= "";
+    $jumlah=0;
+    foreach ($hasil as $item)
+    {
+        $neg=$item->name;
+        $nama_negara .= "'$neg'". ", ";
+        $jum=$item->total;
+        $jumlah .= "$jum". ", ";
+    }
+    ?>
+    <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+        // The data for our dataset
+        data: {
+            labels: [<?php echo $nama_negara; ?>],
+            datasets: [{
+                label:'Mitra Kerjasama Universitas Bengkulu',
+                backgroundColor: ['rgb(255, 99, 132)', 'rgba(56, 86, 255, 0.87)', 'rgb(60, 179, 113)','rgb(175, 238, 239)'],
+                borderColor: ['rgb(255, 99, 132)'],
+                data: [<?php echo $jumlah; ?>]
+            }]
+        },
+        // Configuration options go here
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+</script>
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
   font-size: 30px;
   color: #05579e;">Daftar Menjadi Mitra</h2>
       <br>
-       
-      <?= $this->session->flashdata('message'); ?>
-
           <div class="justify-content-center">
 
           <form action="<?=base_url('daftarmitra/daftar')?>"  method="post"  enctype="multipart/form-data">
@@ -102,8 +142,6 @@ refresh=setTimeout("action()",speed);}action();
   <div id="preloader"></div>
 </main>
   <!-- ======= Footer ======= -->
-
-
   <script src="<?=base_url('')?>assets/dua/vendor3/jquery/jquery.min.js"></script>
   <script src="<?=base_url('')?>assets/dua/vendor3/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="<?=base_url('')?>assets/dua/vendor3/jquery.easing/jquery.easing.min.js"></script>

@@ -54,7 +54,7 @@ refresh=setTimeout("action()",speed);}action();
       <button style="border-radius:10px; margin-bottom:10px;margin-right:5px" class="btn btn-primary float-left " data-toggle="modal" data-target="#tambah_berita">Tambah Berita</button>
       <button onclick="window.location.href='<?=base_url('admin/berita/kategori')?>'" style="border-radius:10px; margin-bottom:10px" class="btn btn-primary"><i class="icofont-newspaper"></i> Kategori Berita</button>
            
-      <table id="example" class="table table-responsive justify-content-center table-striped table-bordered" style="width:100%">
+      <table id="example" class="table table-responsive justify-content-center table-striped table-flush table-borderless" style="width:100%">
         <thead>
             <tr>
                 <th>No</th>

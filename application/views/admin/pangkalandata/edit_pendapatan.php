@@ -53,7 +53,7 @@ refresh=setTimeout("action()",speed);}action();
         <!-- /.box-header -->
         <?php foreach($data_pendapatan as $pdp) { ?>
           <!-- form start -->
-          <form action="<?=base_url('admin/staf/ubah_staf');?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+          <form action="<?=base_url('admin/pendapatan/ubah_pendapatan');?>" method="post" enctype="multipart/form-data" class="form-horizontal">
             <div class="box-body">
               <div class="form-group">
                 <input type="hidden" name="id" value="<?= $pdp->id;?>">

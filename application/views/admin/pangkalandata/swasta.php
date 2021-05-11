@@ -58,7 +58,7 @@ color: #fff;">Kerjasama dengan Perusahaan</h2>
     
     <!-- <button onclick="window.location.href='<?=base_url('#')?>'" style="border-radius:10px; margin-bottom:10px" class="btn btn-primary"><i class="icofont-print"></i> Cetak Data</button> -->
          
-    <table id="example" class="table table-responsive table-striped table-bordered" style="width:100%">
+    <table id="example" class="table table-responsive table-striped table-flush table-borderless" style="width:100%">
       <thead>
           <tr>
               <th>No</th>

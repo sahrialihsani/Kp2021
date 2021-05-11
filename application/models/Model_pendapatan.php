@@ -5,7 +5,7 @@ class Model_pendapatan extends CI_Model{
             return $hasil;
 	}
 	public function tampil_data_all(){
-	$hasil=$this->db->query("SELECT tb_kerjasama.*, tb_pendapatan.* FROM tb_pendapatan  left join tb_kerjasama on tb_pendapatan.id_kerjasama=tb_kerjasama.id WHERE tb_kerjasama.mou_or_pks='PKS' ORDER BY tb_pendapatan.pendapatan DESC");
+	$hasil=$this->db->query("SELECT tb_kerjasama.*, tb_pendapatan.*  FROM tb_pendapatan inner join tb_kerjasama on tb_pendapatan.id_kerjasama=tb_kerjasama.id WHERE (DATEDIFF(tb_kerjasama.tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.mou_or_pks='PKS' ORDER BY tb_pendapatan.pendapatan DESC");
             return $hasil;
 	}
 	public function detail_pendapatan($id){

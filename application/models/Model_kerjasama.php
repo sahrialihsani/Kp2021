@@ -1,39 +1,39 @@
 <?php
 class Model_kerjasama extends CI_Model{
 	public function tampil_data_universitas_mou(){
-	$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Universitas' AND tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='MOU' ORDER BY tb_kerjasama.nama_kerjasama ASC");
+	$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.jenis='Universitas' AND tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='MOU' ORDER BY tb_kerjasama.nama_kerjasama ASC");
             return $hasil;
 	}
 	public function tampil_data_swasta_mou(){
-	$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Swasta' AND tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='MOU' ORDER BY tb_kerjasama.nama_kerjasama ASC");
+	$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.jenis='Swasta' AND tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='MOU' ORDER BY tb_kerjasama.nama_kerjasama ASC");
             return $hasil;
 	}
 	public function tampil_data_pemerintahan_mou(){
-		$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Pemerintahan' AND tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='MOU' ORDER BY tb_kerjasama.nama_kerjasama ASC");
+		$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) tb_kerjasama.jenis='Pemerintahan' AND tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='MOU' ORDER BY tb_kerjasama.nama_kerjasama ASC");
 				return $hasil;
 	}
 	public function tampil_data_universitas_pks(){
-		$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Universitas' AND tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='PKS' ORDER BY tb_kerjasama.nama_kerjasama ASC");
+		$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.jenis='Universitas' AND tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='PKS' ORDER BY tb_kerjasama.nama_kerjasama ASC");
 				return $hasil;
 	}
 		public function tampil_data_swasta_pks(){
-		$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Swasta' AND tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='PKS' ORDER BY tb_kerjasama.nama_kerjasama ASC");
+		$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) tb_kerjasama.jenis='Swasta' AND tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='PKS' ORDER BY tb_kerjasama.nama_kerjasama ASC");
 				return $hasil;
 	}
 		public function tampil_data_pemerintahan_pks(){
-			$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Pemerintahan' AND tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='PKS' ORDER BY tb_kerjasama.nama_kerjasama ASC");
+			$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) tb_kerjasama.jenis='Pemerintahan' AND tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='PKS' ORDER BY tb_kerjasama.nama_kerjasama ASC");
 					return $hasil;
 	}
 	public function tampil_data_universitas_all(){
-		$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Universitas' AND tb_kerjasama.status='Aktif'  ORDER BY tb_kerjasama.nama_kerjasama ASC");
+		$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.jenis='Universitas' AND tb_kerjasama.status='Aktif'  ORDER BY tb_kerjasama.nama_kerjasama ASC");
 				return $hasil;
 	}
 		public function tampil_data_swasta_all(){
-		$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Swasta' AND tb_kerjasama.status='Aktif' ORDER BY tb_kerjasama.nama_kerjasama ASC");
+		$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.jenis='Swasta' AND tb_kerjasama.status='Aktif' ORDER BY tb_kerjasama.nama_kerjasama ASC");
 				return $hasil;
 	}
 		public function tampil_data_pemerintahan_all(){
-			$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE tb_kerjasama.jenis='Pemerintahan' AND tb_kerjasama.status='Aktif'  ORDER BY tb_kerjasama.nama_kerjasama ASC");
+			$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.jenis='Pemerintahan' AND tb_kerjasama.status='Aktif'  ORDER BY tb_kerjasama.nama_kerjasama ASC");
 					return $hasil;
 	}
 	public function detail_kerjasama($id){
@@ -83,4 +83,8 @@ class Model_kerjasama extends CI_Model{
    if($query->num_rows() > 0)
 	   return $query->result();
    }
+   public function grafikNegara(){
+	$res=$this->db->query("SELECT tb_negara.name ,COUNT(*) as 'total' FROM tb_mitra join tb_negara on tb_mitra.id_negara=tb_negara.id WHERE status='Diterima' GROUP BY tb_negara.name");
+	return $res;
+}
 }

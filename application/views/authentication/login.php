@@ -22,7 +22,7 @@ refresh=setTimeout("action()",speed);}action();
 <script type='text/javascript'></script>
 </head>
 <body oncontextmenu='return false' class='snippet-body'>
-<div style="margin-top:50px" class="container d-flex justify-content-center">
+<div style="backround-color:#fff;margin-top:50px" class="container d-flex justify-content-center">
 
     <div class="d-flex flex-column justify-content-between">
 <a href="<?=base_url('')?>"><i class="fa fa-arrow-left"> Kembali ke beranda</i></a>

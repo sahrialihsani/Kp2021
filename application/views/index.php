@@ -99,27 +99,23 @@ refresh=setTimeout("action()",speed);}action();
     </div>
 </section>
 <main id="main">
-  <!-- ======= Clients Section ======= -->
   <?php if($total_mitra>=0){
+    echo'<section id="clients" class="clients">';
+    echo'<div class="container" data-aos="zoom-in">';
+    echo'<div class="owl-carousel clients-carousel">';
       foreach($data_mitra as $mtr){
-      echo'<section id="clients" class="clients">';
-      echo'<div class="container" data-aos="zoom-in">';
-        echo'<div class="owl-carousel clients-carousel">';
         echo '<div>';
         $image="$mtr[gambar]";
         $path= base_url("assets/dua/img/mitra/$image");
-        echo'<img style="object-fit: contain;" height="100px" src="'.$path.'" alt="">';
-        echo '<p style="margin-top:10px;background-color:rgba(3, 56, 102, 0.9);;opacity:0.3;font-size:16px;font-weight:700; color:#fff; padding-left:5px">'.$mtr['institusi'].'</p>';
-      echo'</div>';
-      echo'</div>';
-      echo'</div>';
-          }
-        }else{
-        }
-        ?>
-  
-
-    </section><!-- End Clients Section -->
+        echo'<img style="object-fit: contain; margin-left:30px" height="100px" src="'.$path.'" alt="">';
+        echo '<p align="center" style="margin-top:10px;background-color:rgba(3, 56, 102, 0.9);;opacity:0.3;font-size:16px;font-weight:700; color:#fff; padding-left:5px">'.$mtr['institusi'].'</p>';
+        echo'</div>';
+      }
+     echo'</div>';
+     echo'</div>';
+     echo'</section>';
+    }
+  ?>
     <!-- ======= Counts Section ======= -->
     <section class="counts">
       <div style="margin-bottom:20px" class="container-fluid justify-content-center">
