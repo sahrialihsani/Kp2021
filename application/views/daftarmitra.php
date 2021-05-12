@@ -51,10 +51,7 @@ refresh=setTimeout("action()",speed);}action();
       <br>
       <br>
       <?= $this->session->flashdata('message'); ?>
-      <h2 class="justify-content-center text-center" style=" font-weight: 700;
-  font-size: 30px;
-  color: #05579e;">Grafik Mitra Kerjasama</h2>
-      <canvas id="myChart"></canvas>
+      <canvas style="margin-top:5px" width="9%" height="4%"  id="myChart"></canvas>
         <?php
     //Inisialisasi nilai variabel awal
     $nama_negara= "";
@@ -76,7 +73,7 @@ refresh=setTimeout("action()",speed);}action();
         data: {
             labels: [<?php echo $nama_negara; ?>],
             datasets: [{
-                label:'Mitra Kerjasama Universitas Bengkulu',
+                label:'Negara Asal Mitra Universitas Bengkulu',
                 backgroundColor: ['rgb(255, 99, 132)', 'rgba(56, 86, 255, 0.87)', 'rgb(60, 179, 113)','rgb(175, 238, 239)'],
                 borderColor: ['rgb(255, 99, 132)'],
                 data: [<?php echo $jumlah; ?>]

@@ -26,13 +26,12 @@ refresh=setTimeout("action()",speed);}action();
 
     <div class="d-flex flex-column justify-content-between">
 <a href="<?=base_url('')?>"><i class="fa fa-arrow-left"> Kembali ke beranda</i></a>
-
-        <div class="card mt-2 p-5">
-            
-            <div class="logo mb-4"><img width="50px" src="<?= base_url('')?>assets/dua/img/unib.png"></div>
+<br>
+        <div class="card mt-1 p-5">
             <div>
-                <p class="mb-1">Kelola Pangkalan Data</p>
-                <h4 style="font-size:20px" class="mb-5 text-white">Login</h4>
+                <img style="margin-bottom:10px" width="50px" src="<?= base_url('')?>assets/dua/img/unib.png">
+                <p style="color:#fff;font-size:17px" >Kelola Pangkalan Data Universitas Bengkulu</p>
+                <h4 style="font-size:20px" class="mb-3 text-white">Admin Only</h4>
             </div>
         </div>
         <div class="card two bg-white px-5 py-4">
@@ -46,8 +45,9 @@ refresh=setTimeout("action()",speed);}action();
                        <?= form_error('email','<small class="text-danger pl-3">','</small>')  ?>
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control" id="password" 
-                      name="password" placeholder="Password">
+              <input type="password" class="form-control" id="password" 
+                      name="password" placeholder="Password">&nbsp;
+              <input type='checkbox' id='toggle' value='0' onchange='togglePassword(this);'>&nbsp; <span id='toggleText'>Show Password</span>
                        <?= form_error('password','<small class="text-danger pl-3">','</small>')  ?>
                     </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block">
@@ -58,4 +58,28 @@ refresh=setTimeout("action()",speed);}action();
     </div>
 </div>
     </body>
+    <script type="text/javascript">
+ 
+ function togglePassword(el){
+ 
+  // Checked State
+  var checked = el.checked;
+
+  if(checked){
+   // Changing type attribute
+   document.getElementById("password").type = 'text';
+
+   // Change the Text
+   document.getElementById("toggleText").textContent= "Hide Password";
+  }else{
+   // Changing type attribute
+   document.getElementById("password").type = 'password';
+
+   // Change the Text 
+   document.getElementById("toggleText").textContent= "Show Password";
+  }
+
+ }
+ 
+</script>
 </html>

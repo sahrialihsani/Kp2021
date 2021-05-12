@@ -70,7 +70,8 @@ refresh=setTimeout("action()",speed);}action();
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" name="password"  required id="password" value="<?=$profile['password']?>" />
+              <input type="password" class="form-control" name="password"  required id="password" value="<?=$profile['password']?>" >&nbsp;
+              <input type='checkbox' id='toggle' value='0' onchange='togglePassword(this);'>&nbsp; <span id='toggleText'>Show Password</span>
                 <?= form_error('password','<small class="text-danger pl-3">','</small>')  ?>
                 <div class="validate"></div>
               </div>
@@ -89,6 +90,30 @@ refresh=setTimeout("action()",speed);}action();
 	 </div>
 
 </body>
+<script type="text/javascript">
+ 
+ function togglePassword(el){
+ 
+  // Checked State
+  var checked = el.checked;
+
+  if(checked){
+   // Changing type attribute
+   document.getElementById("password").type = 'text';
+
+   // Change the Text
+   document.getElementById("toggleText").textContent= "Hide Password";
+  }else{
+   // Changing type attribute
+   document.getElementById("password").type = 'password';
+
+   // Change the Text
+   document.getElementById("toggleText").textContent= "Show Password";
+  }
+
+ }
+ 
+</script>
 <script src="<?=base_url('')?>assets/data/js/jquery.min.js"></script>
   <script src="<?=base_url('')?>assets/data/js/popper.min.js"></script>
   <script src="<?=base_url('')?>assets/data/js/bootstrap.min.js"></script>

@@ -75,7 +75,7 @@ refresh=setTimeout("action()",speed);}action();
             <td><?= $pgn->email?></td> 
             <td><?= $pgn->password?></td>  
             <td><?= $pgn->status?></td>   
-            <td align="center"> <img src="<?php echo base_url('assets/dua/img/profil/'.$pgn->foto)?> " width="200px" height="100px"></td>
+            <td align="center"> <img style="object-fit:contain" src="<?php echo base_url('assets/dua/img/profil/'.$pgn->foto)?> " width="200px" height="100px"></td>
 
 
                       <td>

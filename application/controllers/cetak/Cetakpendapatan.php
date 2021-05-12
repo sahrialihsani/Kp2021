@@ -37,7 +37,7 @@ class cetakpendapatan extends CI_Controller {
             $pdf->Cell(60,6,'Rp '.number_format($data->pendapatan),1,1,'C');
             $no++;
         }
-        $pdf->Cell(128,6,'Total',1,0,'C');
+        $pdf->Cell(128,6,'Total Pendapatan',1,0,'C');
         $pdf->Cell(60,6,$total,1,1,'C');
 
         $pdf->Output();
