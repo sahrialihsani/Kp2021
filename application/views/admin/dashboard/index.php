@@ -117,11 +117,11 @@ refresh=setTimeout("action()",speed);}action();
 				</select>
 				<div class="loader d-none"></div>
 			  <canvas id="canvasku"></canvas>
-			</div>
-		 </div>
-		   </div>
-		 </div>
-	 </div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+</div>
 </body>
 <script src="<?=base_url('')?>assets/data/js/jquery.min.js"></script>
   <script src="<?=base_url('')?>assets/data/js/popper.min.js"></script>
@@ -155,29 +155,29 @@ refresh=setTimeout("action()",speed);}action();
 						var value_pemerintahan = data.pemerintahan;
 						var ctx = document.getElementById('canvasku').getContext('2d');
 						var chart = new Chart(ctx, {
-								type: 'line',
+								type: 'bar',
 								data: {
 										labels: label,
 										datasets: [{
                     label: "Universitas",
                     data: value_universitas,
                     fill: false,
-                    backgroundColor: "black",
+                    backgroundColor: "#32E6E0",
                     borderDash: [5, 5],
-                    borderColor: "purple",
+                    borderColor: "white",
                 }, {
                     label: "Swasta",
                     data: value_swasta,
-                    borderColor: "blue",
+                    borderColor: "white",
                     fill: false,
-                    backgroundColor: "blue"
+                    backgroundColor: "#E65132"
 
                   }, {
                     label: "Pemerintahan",
                     data: value_pemerintahan,
-                    borderColor: "yellow",
+                    borderColor: "white",
                     fill: false,
-                    backgroundColor: "blue"
+                    backgroundColor: "#32E683"
 
                   }
                 ]

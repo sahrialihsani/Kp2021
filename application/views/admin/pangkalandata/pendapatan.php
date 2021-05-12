@@ -36,6 +36,29 @@ refresh=setTimeout("action()",speed);}action();
   <link href="<?= base_url('')?>assets/dua/vendor/icofont/icofont.min.css" rel="stylesheet">
   
 </head>
+<style>
+		.loader {
+            border: 10px solid #dfe1e2; /* Light grey */
+            border-top: 10px solid rgb(22, 22, 134);
+            border-bottom: 10px solid rgb(22, 22, 134);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+	</style>
 
 <body style="background-color:rgba(3, 56, 102, 0.9);">
 <div class="clearfix"></div>
@@ -47,6 +70,7 @@ refresh=setTimeout("action()",speed);}action();
 margin-bottom: 20px;
 font-size: 30px;
 color: #fff;">Pendapatan Kerjasama</h2>
+ 
 <button onclick="window.location.href='<?=base_url('cetak/cetakpendapatan')?>'"  class="btn btn-sm btn-primary float-left ml-2"><i class="icofont-print"></i>Cetak Data</button>
 <button class="btn btn-sm btn-primary float-left ml-2" data-toggle="modal" data-target="#tambah_pendapatan">Tambah Data</button>
 
@@ -92,7 +116,7 @@ color: #fff;">Pendapatan Kerjasama</h2>
               <?php } ?>
               <tr>
           <?php
-	$hasil=$this->db->query("SELECT tb_kerjasama.*, tb_pendapatan.id, tb_pendapatan.pendapatan,tb_pendapatan.id_kerjasama,SUM(tb_pendapatan.pendapatan) AS total FROM tb_pendapatan inner join tb_kerjasama on tb_pendapatan.id_kerjasama=tb_kerjasama.id WHERE tb_kerjasama.mou_or_pks='PKS' ORDER BY tb_pendapatan.pendapatan DESC")->result();
+	$hasil=$this->db->query("SELECT tb_kerjasama.*, tb_pendapatan.id, tb_pendapatan.pendapatan,tb_pendapatan.id_kerjasama,SUM(tb_pendapatan.pendapatan) AS total FROM tb_pendapatan inner join tb_kerjasama on tb_pendapatan.id_kerjasama=tb_kerjasama.id WHERE (DATEDIFF(tb_kerjasama.tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.status='Aktif' and tb_kerjasama.mou_or_pks='PKS' ORDER BY tb_pendapatan.pendapatan DESC")->result();
   foreach ($hasil as $tot) { ?>
      <td colspan="2">Total Pendapatan</td>
           <td><?php
@@ -101,7 +125,20 @@ color: #fff;">Pendapatan Kerjasama</h2>
 	 </tr>
           </tbody>
   </table>
-    
+  <div class="col-12 col-lg-8 col-xl-12">
+	    <div class="card">
+		 <div class="card-body">
+		 		<select name="tahun" id="tahun_kerja" class="form-control mb-3">
+					<option value="" selected disabled>Pilih Tahun Grafik</option>
+					<?php foreach($tahun_kerja as $thn){  ?>
+						<option value="<?= $thn->tahun ?>"><?= $thn->tahun ?></option>
+					<?php } ?>
+				</select>
+				<div class="loader d-none"></div>
+			  <canvas id="canvasku2"></canvas>
+		  </div>
+		</div>
+	  </div>
     </div>
     </div>
   </div>
@@ -143,6 +180,142 @@ color: #fff;">Pendapatan Kerjasama</h2>
             </div>
      </div>
 </body>
+<script>
+		function grafik(tahun){
+			$('.loader').removeClass('d-none');
+			$('#canvasku2').addClass('d-none');
+			$.ajax({
+					url: "<?php echo base_url() ?>admin/home_admin/load_data_pendapatan",
+					method: "GET",
+					data:{tahun:tahun},
+					success: function(data) {
+						var label = data.bulan;
+						var value_universitas = data.universitas;
+						var value_swasta = data.swasta;
+						var value_pemerintahan = data.pemerintahan;
+						var ctx = document.getElementById('canvasku2').getContext('2d');
+						var chart = new Chart(ctx, {
+								type: 'line',
+								data: {
+										labels: label,
+										datasets: [{
+                    label: "Universitas",
+                    data: value_universitas,
+                    fill: false,
+                    backgroundColor: "white",
+                    borderDash: [5, 5],
+                    borderColor: "#32E6E0",
+                }, {
+                    label: "Swasta",
+                    data: value_swasta,
+                    borderColor: "#E65132",
+                    fill: false,
+                    backgroundColor: "white"
+
+                  }, {
+                    label: "Pemerintahan",
+                    data: value_pemerintahan,
+                    borderColor: "#32E683",
+                    fill: false,
+                    backgroundColor: "white"
+
+                  }
+                ]
+								},
+								options: {
+                  plugins: {
+                   title: {
+                      display: true,
+                      text : 'Grafik Pendapatan Kerjasama PKS Tahun '+tahun,
+                      color:"white",
+											font: {
+                        size:20
+                      }
+                  }
+                },
+        
+									legend: {
+										labels: {
+                        font:{
+                          color:"white",
+                          size:14
+                        }
+										}
+								},
+										responsive: true,
+										tooltips: {
+												mode: 'label',
+												callbacks: {
+														// beforeTitle: function() {
+														//     return '...beforeTitle';
+														// },
+														// afterTitle: function() {
+														//     return '...afterTitle';
+														// },
+														// beforeBody: function() {
+														//     return '...beforeBody';
+														// },
+														// afterBody: function() {
+														//     return '...afterBody';
+														// },
+														// beforeFooter: function() {
+														//     return '...beforeFooter';
+														// },
+														// footer: function() {
+														//     return 'Footer';
+														// },
+														// afterFooter: function() {
+														//     return '...afterFooter';
+														// },
+												}
+										},
+										hover: {
+												mode: 'dataset'
+										},
+                    scales: {
+												xAxes: [{
+														display: true,
+														scaleLabel: {
+																show: true,
+																labelString: 'Month'
+														},
+														ticks: {
+                              font:{
+                                color: "white",
+														    size: 12
+                              }
+														
+												}
+												}],
+												yAxes: [{
+														display: true,
+														scaleLabel: {
+																show: true,
+																labelString: 'Value'
+														},
+														ticks: {
+														color: "white",
+														size: 12,
+														stepSize: 1
+												}
+												}]
+										}
+								}
+						});
+						$('#canvasku2').removeClass('d-none');
+						$('.loader').addClass('d-none');
+					}
+			});
+		}
+		
+		window.onload = function exampleFunction() {			
+			grafik(2021);
+		}
+		$('#tahun_kerja').change(function (e) { 
+				var tahun=$(this).val();
+				grafik(parseInt(tahun))
+			});
+	</script>
 <script src="<?=base_url('')?>assets/data/js/jquery.min.js"></script>
   <script src="<?=base_url('')?>assets/data/js/popper.min.js"></script>
   <script src="<?=base_url('')?>assets/data/js/bootstrap.min.js"></script>
@@ -155,7 +328,8 @@ color: #fff;">Pendapatan Kerjasama</h2>
   <script src="<?=base_url('')?>assets/data/js/app-script.js"></script>
   <!-- Chart js -->
   
-  <script src="<?=base_url('')?>assets/data/plugins/Chart.js/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <script>
 $(document).ready(function() {
     $('#example').DataTable();
