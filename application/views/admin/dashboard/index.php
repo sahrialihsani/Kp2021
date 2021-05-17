@@ -110,7 +110,7 @@ refresh=setTimeout("action()",speed);}action();
 	    <div class="card">
 		 <div class="card-body">
 		 		<select name="tahun" id="tahun_kerja" class="form-control mb-3">
-					<option value="" selected disabled>Pilih Tahun Grafik</option>
+					<option value="" selected disabled>Pilih Tahun</option>
 					<?php foreach($tahun_kerja as $thn){  ?>
 						<option value="<?= $thn->tahun ?>"><?= $thn->tahun ?></option>
 					<?php } ?>
@@ -192,7 +192,7 @@ refresh=setTimeout("action()",speed);}action();
 										responsive: true,
 										title:{
 												display:true,
-												text:'Rekapitulasi Kerja Sama Tahun '+tahun,
+												text:'Grafik Jumlah Kerja Sama Tahun '+tahun,
 												fontColor:'white',
 												fontSize: 20
 

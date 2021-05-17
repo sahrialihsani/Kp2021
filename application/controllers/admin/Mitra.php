@@ -115,9 +115,8 @@ $data=array(
 	'status'=>"Menunggu",
 	'gambar'=>$gambar,
 	'berkas'=>$berkas);
-$this->Model_mitra->tambah_mitra($data,'tb_mitra');
+	$this->db->insert('tb_mitra',$data);
 	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan mitra</div>');
-
 	redirect(base_url('admin/mitra'));
 	}
   }
@@ -132,8 +131,6 @@ $data['data_mitra']=$this->Model_mitra->edit_mitra($where,'tb_mitra')->result();
 
 	}
 	public function ubah_mitra(){
-			$data['data_mitra']= $this->db->get_where('tb_mitra')->row_array();
-
 		$id=$this->input->post('id');
 		$email =$this->input->post('email');
 		$institusi =$this->input->post('institusi');

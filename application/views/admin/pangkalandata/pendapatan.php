@@ -129,7 +129,7 @@ color: #fff;">Pendapatan Kerjasama</h2>
 	    <div class="card">
 		 <div class="card-body">
 		 		<select name="tahun" id="tahun_kerja" class="form-control mb-3">
-					<option value="" selected disabled>Pilih Tahun Grafik</option>
+					<option value="" selected disabled>Pilih Tahun</option>
 					<?php foreach($tahun_kerja as $thn){  ?>
 						<option value="<?= $thn->tahun ?>"><?= $thn->tahun ?></option>
 					<?php } ?>
@@ -185,7 +185,7 @@ color: #fff;">Pendapatan Kerjasama</h2>
 			$('.loader').removeClass('d-none');
 			$('#canvasku2').addClass('d-none');
 			$.ajax({
-					url: "<?php echo base_url() ?>admin/home_admin/load_data_pendapatan",
+					url: "<?php echo base_url() ?>admin/pendapatan/load_data_pendapatan",
 					method: "GET",
 					data:{tahun:tahun},
 					success: function(data) {
@@ -246,27 +246,6 @@ color: #fff;">Pendapatan Kerjasama</h2>
 										tooltips: {
 												mode: 'label',
 												callbacks: {
-														// beforeTitle: function() {
-														//     return '...beforeTitle';
-														// },
-														// afterTitle: function() {
-														//     return '...afterTitle';
-														// },
-														// beforeBody: function() {
-														//     return '...beforeBody';
-														// },
-														// afterBody: function() {
-														//     return '...afterBody';
-														// },
-														// beforeFooter: function() {
-														//     return '...beforeFooter';
-														// },
-														// footer: function() {
-														//     return 'Footer';
-														// },
-														// afterFooter: function() {
-														//     return '...afterFooter';
-														// },
 												}
 										},
 										hover: {
@@ -316,6 +295,8 @@ color: #fff;">Pendapatan Kerjasama</h2>
 				grafik(parseInt(tahun))
 			});
 	</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script src="<?=base_url('')?>assets/data/js/jquery.min.js"></script>
   <script src="<?=base_url('')?>assets/data/js/popper.min.js"></script>
   <script src="<?=base_url('')?>assets/data/js/bootstrap.min.js"></script>
@@ -327,8 +308,6 @@ color: #fff;">Pendapatan Kerjasama</h2>
   <!-- loader scripts -->
   <script src="<?=base_url('')?>assets/data/js/app-script.js"></script>
   <!-- Chart js -->
-  
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script>
 $(document).ready(function() {

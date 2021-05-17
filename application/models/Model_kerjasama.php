@@ -39,7 +39,8 @@ class Model_kerjasama extends CI_Model{
 	public function detail_kerjasama($id){
 		 $this->db->select('*');
     $this->db->from('tb_kerjasama');
-    $this->db->where('id', $id);  // Also mention table name here
+    $this->db->where('id', $id); 
+	 // Also mention table name here
     $query = $this->db->get();    
     if($query->num_rows() > 0)
         return $query->result();
@@ -60,19 +61,19 @@ class Model_kerjasama extends CI_Model{
 	 $this->db->delete($table);
 	}
 	public function total_data_swasta(){
-	$hasil=$this->db->query("SELECT * FROM tb_kerjasama WHERE tb_kerjasama.jenis='Swasta' AND tb_kerjasama.status='Aktif'");
+	$hasil=$this->db->query("SELECT * FROM tb_kerjasama WHERE tb_kerjasama.jenis='Swasta' AND tb_kerjasama.status='Aktif' AND (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0)");
             return $hasil;
 	}
 	public function total_data_universitas(){
-		$hasil=$this->db->query("SELECT * FROM tb_kerjasama WHERE tb_kerjasama.jenis='Universitas' AND tb_kerjasama.status='Aktif'");
+		$hasil=$this->db->query("SELECT * FROM tb_kerjasama WHERE tb_kerjasama.jenis='Universitas' AND tb_kerjasama.status='Aktif' AND (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0)");
 				return $hasil;
 	}
 	public function total_data_pemerintahan(){
-		$hasil=$this->db->query("SELECT * FROM tb_kerjasama WHERE tb_kerjasama.jenis='Pemerintahan' AND tb_kerjasama.status='Aktif'");
+		$hasil=$this->db->query("SELECT * FROM tb_kerjasama WHERE tb_kerjasama.jenis='Pemerintahan' AND tb_kerjasama.status='Aktif' AND (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0)");
 				return $hasil;
 		}
 	public function total_data_keseluruhan(){
-		$hasil=$this->db->query("SELECT * FROM tb_kerjasama WHERE status='Aktif'");
+		$hasil=$this->db->query("SELECT * FROM tb_kerjasama WHERE status='Aktif' AND (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0)");
 				return $hasil;
 	}
 	public function detail_berkas($id){

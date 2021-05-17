@@ -57,6 +57,7 @@ refresh=setTimeout("action()",speed);}action();
             <div class="box-body">
              <div class="form-group">
                 <label class="col-sm-2 control-label">Email</label>
+                <input type="hidden" name="id" value="<?= $mtra->id;?>">
                 <div class="col-sm-12">
                   <input type="email" rows="5" class="form-control" name="email" value="<?= $mtra->email;?>"required></input>
                 </div>
