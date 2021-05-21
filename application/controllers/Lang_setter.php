@@ -21,7 +21,7 @@
 				array(
 					'name' => 'lang_is',
 					'value'	=> $lang,
-					'expire' 	=> '8650',
+					'expire' 	=> 8650,
 					'prefix' 	=> ''
 				)
 			);

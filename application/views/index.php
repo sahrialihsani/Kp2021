@@ -54,7 +54,7 @@ refresh=setTimeout("action()",speed);}action();
         <div class="carousel-item active" style="background-image: url(assets/dua/img/slide/slide-1.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Welcome to  <span>Upt KSLI Universitas Bengkulu</span></h2>
+              <h2 class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
               <p class="animate__animated animate__fadeInUp">UPT Kerja Sama dan Layanan Internasional (UPT KSLi) merupakan Unit Pelaksana Teknis yang bertanggung jawab atas hubungan kerja sama UNIB dengan Instansi/Universitas lokal dan luar negeri.</p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
