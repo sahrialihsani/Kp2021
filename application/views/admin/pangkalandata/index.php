@@ -47,7 +47,7 @@ refresh=setTimeout("action()",speed);}action();
     <section class="counts">
 <h2 class="justify-content-center text-center" style=" font-weight: 700;
   font-size: 30px;
-  color: #fff;">Pangkalan Data Kerjasama</h2>
+  color: #fff;">Pangkalan Data Kerja Sama</h2>
       <div style="margin-bottom:20px" class="container-fluid justify-content-center">
 
         <div class="row">
@@ -89,7 +89,7 @@ refresh=setTimeout("action()",speed);}action();
         </div>
         <h2 class="justify-content-center text-center" style=" font-weight: 700;
   font-size: 20px;
-  color: #fff;">Tambah Data Kerjasama</h2>
+  color: #fff;">Tambah Data Kerja Sama</h2>
         <form action="<?=base_url('admin/pangkalandata/tambahKerjasama')?>"  method="post"  enctype="multipart/form-data">
               <div class="form-group">
                 <select name="mitra" required class="form-control">

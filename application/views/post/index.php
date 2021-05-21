@@ -46,13 +46,9 @@ refresh=setTimeout("action()",speed);}action();
 </head>
 <body>
   <main id="main">
-    <br>
-    <br>
-
-    <br>
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-        <h2>Berita</h2>
+        <h2><?=$berita?></h2>
 
       </div>
     </section><!-- End Breadcrumbs -->

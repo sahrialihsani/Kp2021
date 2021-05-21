@@ -226,7 +226,7 @@ color: #fff;">Pendapatan Kerjasama</h2>
                   plugins: {
                    title: {
                       display: true,
-                      text : 'Grafik Pendapatan Kerjasama PKS Tahun '+tahun,
+                      text : 'Grafik Pendapatan Kerja Sama Tahun '+tahun,
                       color:"white",
 											font: {
                         size:20

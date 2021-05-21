@@ -8,7 +8,17 @@ class daftarmitra extends CI_Controller {
 	}
 	public function index(){
 		$data['hasil']=$this->Model_kerjasama->grafikNegara()->result();
-		$this->load->view('template/headerlayanan');
+		$data['menu_beranda'] = "Home";
+		$data['menu_tkami'] = "About Us";
+		$data['menu_berita'] = "News";
+		$data['menu_layanan'] = "Programs";
+		$data['menu_hubungi'] = "Contact Us";
+		$data['menu_bahasa'] = "Language";
+		$data['beasiswa'] = "Scholarship & Global Opportunity";
+		$data['pangkalan'] = "Cooperation Programs";
+		$data['jaringan'] = "Networking";
+		$data['perjalanan'] = "Overseas Travel";
+		$this->load->view('template/headerlayanan', $data);
 		$this->load->view('daftarmitra',$data);
 		$this->load->view('template/footer');
 

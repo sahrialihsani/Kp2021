@@ -43,7 +43,6 @@ refresh=setTimeout("action()",speed);}action();
 </head>
 <body>
   <!-- ======= Hero Section ======= -->
-  
   <section id="hero">
     <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
 

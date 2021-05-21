@@ -49,7 +49,7 @@ refresh=setTimeout("action()",speed);}action();
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 5px;
   font-size: 30px;
-  color: #05579e;">Jaringan</h2>
+  color: #05579e;"><?=$jaringan?></h2>
   <br>
   <p class="float-left ml-2">Universitas Bengkulu aktif dalam keanggotaan berikut: </p>
        <br>

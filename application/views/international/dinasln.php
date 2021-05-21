@@ -40,7 +40,7 @@ refresh=setTimeout("action()",speed);}action();
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 5px;
   font-size: 30px;
-  color: #05579e;">Perjalanan Dinas Luar Negeri</h2>
+  color: #05579e;"><?=$perjalanan?></h2>
   <br>
   <p style="text-align: justify;
   text-justify: inter-word;" class="float-left ml-2">

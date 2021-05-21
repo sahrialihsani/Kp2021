@@ -44,16 +44,13 @@ refresh=setTimeout("action()",speed);}action();
 </head>
 <body>
   <main id="main">
-  <br>
-    <br>
-    <br>
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
 
         <ol>
-          <li><a href="<?=base_url('')?>">Beranda</a></li>
-          <li><a href="<?=base_url('Post')?>">Berita</a></li>
+          <li><a href="<?=base_url('')?>"><?=$beranda?></a></li>
+          <li><a href="<?=base_url('Post')?>"><?=$berita?></a></li>
         </ol>
         <?php foreach($detail_post as $post): ?>
         <h2><?=$post->judul?></h2>

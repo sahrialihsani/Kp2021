@@ -50,7 +50,7 @@
 <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 20px;
   font-size: 30px;
-  color: #05579e;">Kerjasama dengan Universitas</h2>
+  color: #05579e;"><?=$universitas?></h2>
       <button onclick="window.location.href='<?=base_url('program/partners')?>'" style="margin-left:15px;border-radius:10px; margin-bottom:10px" class="btn btn-primary">Kembali</button>
       <div style="margin-bottom:20px" class="container-fluid justify-content-center">           
       <table id="example" class="table  table-striped table-flush table-borderless" style="width:100%">
@@ -58,7 +58,7 @@
           <tr>
               <th>No</th>
               <th>Nama Mitra</th>
-              <th>Nama Kerjasama</th>
+              <th>Nama Kerja Sama</th>
               <th>MOU</th>
               <th>Berkas</th>
               <th>Tanggal Mulai</th>

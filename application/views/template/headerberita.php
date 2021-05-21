@@ -36,33 +36,37 @@
   <header style="background: rgba(3, 56, 102, 0.9);" id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
     <img style="object-fit:contain" src="<?=base_url('assets/dua/img/unib.png')?>" alt="Logo Unib" width="50px" height="50px">
-    <h2 style="padding-top:5px; padding-left:5px" class="logo mr-auto"><a href="#header" class="scrollto"><a href="<?=base_url('')?>">OFFICE OF PARTNERSHIP AND INTERNATIONAL AFFAIRS</a></h4>
+    <h4 style="padding-top:5px; padding-left:10px" class="logo mr-auto"><a href="#header" class="scrollto"><a href="<?=base_url('')?>">OFFICE OF PARTNERSHIP AND <br> INTERNATIONAL AFFAIRS</a></h4>
 
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="#header" class="logo mr-auto scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-        <li><a href="<?php echo base_url('')?>">Beranda</a></li>
-        <li><a href="<?php echo base_url('#about')?>">Tentang Kami</a></li>
-        <li class="active"><a href="<?= base_url('post')?>">Berita Terkini</a></li>
-        <li class="drop-down"><a href="#">Layanan & Kerjasama</a>
+        <li class="active"><a href="<?php echo base_url('')?>"><?=$menu_beranda?></a></li>
+        <li><a href="<?php echo base_url('#about')?>"><?=$menu_tkami?></a></li>
+        <li><a href="<?= base_url('post')?>"><?=$menu_berita?></a></li>
+        <li class="drop-down"><a href="#"><?=$menu_layanan?></a>
                 <ul>
-                  <li><a href="<?=base_url('program')?>">Beasiswa dan Peluang Global</a></li>
-                  <li><a href="<?=base_url('program/partners')?>">Pangkalan Data Kerjasama</a></li>
-                  <li><a href="<?=base_url('program/networking')?>">Jaringan</a></li>
-                  <li><a href="<?=base_url('program/travelservice')?>">Perjalanan Dinas Luar Negeri</a></li>
+                <li><a href="<?=base_url('program')?>"><?=$beasiswa?></a></li>
+                  <li><a href="<?=base_url('program/partners')?>"><?=$pangkalan?></a></li>
+                  <li><a href="<?=base_url('program/networking')?>"><?=$jaringan?></a></li>
+                  <li><a href="<?=base_url('program/travelservice')?>"><?=$perjalanan?></a></li>
                   <!-- <li><a href="<?=base_url('downloaddata')?>">Unduh Data</a></li> -->
+                </ul>
+        </li>
+        <li><a  href="<?= base_url('#contact')?>"><?=$menu_hubungi?></a></li>
 
-                </ul>
-        </li>
-        <li><a href="<?= base_url('#contact')?>">Hubungi Kami</a></li>
-        <li class="drop-down"><a href="#">Bahasa</a>
+        <!-- <li class="drop-down"><a href="#"><?=$menu_bahasa?></a>
                 <ul>
-                  <li><a href="#">Indonesia</a></li>
-                  <li><a href="#">Inggris</a></li>
+                <?php if(get_cookie('lang_is') === 'en'){ ?>
+                  <li><a href="<?php echo site_url('lang_setter/set_to/indonesia');?>">Inggris</a></li>
+                 
+                  <?php }else{ ?>
+                  <li><a href="<?php echo site_url('lang_setter/set_to/english');?>">Indonesia</a></li>
+                  <?php } ?>
                 </ul>
-        </li>
+        </li> -->
         </ul>
       </nav><!-- .nav-menu -->
 

@@ -49,7 +49,7 @@ refresh=setTimeout("action()",speed);}action();
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 5px;
   font-size: 30px;
-  color: #05579e;">Daftar Program Kerjasama</h2>
+  color: #05579e;"><?=$list?></h2>
        <br>
        <?php foreach($data_program as $prg):?>
 
@@ -73,7 +73,7 @@ refresh=setTimeout("action()",speed);}action();
       <div class="container section-title">
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
   font-size: 30px;
-  color: #05579e;">Program Mobility</h2>
+  color: #05579e;"><?=$mobility?></h2>
       <br>
        
       <?= $this->session->flashdata('message'); ?>

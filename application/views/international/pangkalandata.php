@@ -47,7 +47,7 @@ refresh=setTimeout("action()",speed);}action();
 <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 20px;
   font-size: 30px;
-  color: #05579e;">Pangkalan Data Kerjasama</h2>
+  color: #05579e;"><?=$datakerjasama?></h2>
       <button onclick="window.location.href='<?=base_url('daftarmitra')?>'" style="margin-left:15px;border-radius:10px; margin-bottom:10px" class="btn btn-primary">Daftar Menjadi Mitra Kami</button>
       <br>
       <br>
@@ -59,7 +59,7 @@ refresh=setTimeout("action()",speed);}action();
             <div style="border-radius:20px;background-color:#ffffff" class="count-box">
             <i class="icofont-university" style="color: #91daff;"></i>
               <span data-toggle="counter-up"><?=$total_universitas?></span>
-              <p>Perguruan Tinggi</p>
+              <p><?=$universitas?></p>
         <button onclick="window.location.href='<?=base_url('program/university')?>'" style="border-radius:10px;margin-top:10px" class="btn btn-primary">Lihat Data</button>
 
             </div>
@@ -71,7 +71,7 @@ refresh=setTimeout("action()",speed);}action();
           <i class="icofont-institution" style="color: #91daff;"></i>
 
               <span data-toggle="counter-up"><?=$total_pemerintahan?></span>
-              <p>Instansi Pemerintahan</p>
+              <p><?=$pemerintahan?></p>
               <button onclick="window.location.href='<?=base_url('program/goverment')?>'" style="border-radius:10px;margin-top:10px" class="btn btn-primary">Lihat Data</button>
 
             </div>
@@ -83,7 +83,7 @@ refresh=setTimeout("action()",speed);}action();
           <i class="icofont-building" style="color: #91daff;"></i>
 
               <span data-toggle="counter-up"><?=$total_swasta?></span>
-              <p>Perusahaan/Swasta</p>
+              <p><?=$swasta?></p>
               <button onclick="window.location.href='<?=base_url('program/institution')?>'" style="border-radius:10px;margin-top:10px" class="btn btn-primary">Lihat Data</button>
 
             </div>
