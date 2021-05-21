@@ -12,16 +12,16 @@
 		}
 
 		public function set_to($language) {
-			if(strtolower($language) === 'english') {
+			if(strtolower($language) === 'en') {
 				$lang = 'en';
 			} else {
-				$lang = 'in';
+				$lang = 'id';
 			}
 			set_cookie(
 				array(
 					'name' => 'lang_is',
 					'value'	=> $lang,
-					'expire' 	=> '8650',
+					'expire' 	=> 8650,
 					'prefix' 	=> ''
 				)
 			);
@@ -31,4 +31,3 @@
 			}
 		}
 	}
-?>

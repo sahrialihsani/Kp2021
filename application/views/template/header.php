@@ -29,6 +29,12 @@
       <div class="cta">
         <a href="<?=base_url('Login')?>" class="scrollto">Login Area</a>
       </div>
+			<div class="cta ml-1">
+        <a href="<?=base_url('lang_setter/set_to/id')?>" class="scrollto active">ID</a>
+      </div>
+			<div class="cta ml-1">
+        <a href="<?=site_url('lang_setter/set_to/en')?>" class="scrollto">EN</a>
+      </div>
     </div>
   </div>
 
