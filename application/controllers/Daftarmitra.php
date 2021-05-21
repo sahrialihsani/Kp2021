@@ -16,11 +16,11 @@ class daftarmitra extends CI_Controller {
 		$data['menu_bahasa'] = "Language";
 		$data['beasiswa'] = "Scholarship & Global Opportunity";
 		$data['pangkalan'] = "Cooperation Programs";
-		$data['jaringan'] = "Networking";
+		$data['jaringan'] = "Networks";
 		$data['perjalanan'] = "Overseas Travel";
 		$this->load->view('template/headerlayanan', $data);
 		$this->load->view('daftarmitra',$data);
-		$this->load->view('template/footer');
+		$this->load->view('template/footer',$data);
 
 	}
 	public function daftar(){

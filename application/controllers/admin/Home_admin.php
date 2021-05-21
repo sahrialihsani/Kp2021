@@ -15,7 +15,7 @@ class home_admin extends CI_Controller {
 		$data['total_kerjasama'] = $this->Model_kerjasama->total_data_keseluruhan()->num_rows();
 		$data['total_mitra'] = $this->Model_mitra->total_data()->num_rows();
 		$data['total_organisasi'] = $this->Model_organisasi->total_data()->num_rows();
-		$data['tahun_kerja']=$this->db->query('select year(tgl_mulai) as tahun from tb_kerjasama GROUP BY YEAR(tgl_mulai)')->result();
+		$data['tahun_kerja']=$this->db->query('select year(tgl_mulai) as tahun from tb_kerjasama WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) GROUP BY YEAR(tgl_mulai)')->result();
 		$this->load->view('admin/template/header');
 		$this->load->view('admin/template/sidebar');
 		$this->load->view('admin/dashboard/index',$data);
@@ -24,9 +24,9 @@ class home_admin extends CI_Controller {
 
 	public function load_data(){
 		$tahun=$this->input->get('tahun');
-		$swasta=$this->db->query("SELECT COUNT(*) as jumlah,MONTH(tgl_mulai) AS bulan FROM tb_kerjasama WHERE YEAR(tgl_mulai)=$tahun and jenis='Swasta' GROUP BY MONTH(tgl_mulai)")->result_array();
-		$pemerintahan=$this->db->query("SELECT COUNT(*) as jumlah,MONTH(tgl_mulai) AS bulan FROM tb_kerjasama WHERE YEAR(tgl_mulai)=$tahun and jenis='Pemerintahan' GROUP BY MONTH(tgl_mulai)")->result_array();
-		$universitas=$this->db->query("SELECT COUNT(*) as jumlah,MONTH(tgl_mulai) AS bulan FROM tb_kerjasama WHERE YEAR(tgl_mulai)=$tahun and jenis='Universitas' GROUP BY MONTH(tgl_mulai)")->result_array();
+		$swasta=$this->db->query("SELECT COUNT(*) as jumlah,MONTH(tgl_mulai) AS bulan FROM tb_kerjasama WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) AND YEAR(tgl_mulai)=$tahun and jenis='Swasta' GROUP BY MONTH(tgl_mulai)")->result_array();
+		$pemerintahan=$this->db->query("SELECT COUNT(*) as jumlah,MONTH(tgl_mulai) AS bulan FROM tb_kerjasama WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) AND YEAR(tgl_mulai)=$tahun and jenis='Pemerintahan' GROUP BY MONTH(tgl_mulai)")->result_array();
+		$universitas=$this->db->query("SELECT COUNT(*) as jumlah,MONTH(tgl_mulai) AS bulan FROM tb_kerjasama WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) AND YEAR(tgl_mulai)=$tahun and jenis='Universitas' GROUP BY MONTH(tgl_mulai)")->result_array();
 		$data['bulan']=array('Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
 		$data['swasta']=[0,0,0,0,0,0,0,0,0,0,0,0];
 		$data['pemerintahan']=[0,0,0,0,0,0,0,0,0,0,0,0];

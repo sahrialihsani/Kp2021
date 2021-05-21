@@ -18,13 +18,17 @@ class program extends CI_Controller {
 		$data['menu_bahasa'] = "Language";
 		$data['beasiswa'] = "Scholarship & Global Opportunity";
 		$data['pangkalan'] = "Cooperation Programs";
-		$data['jaringan'] = "Networking";
+		$data['jaringan'] = "Networks";
 		$data['perjalanan'] = "Overseas Travel";
-		$data['list'] = "List of Cooperation Programs";
+		$data['keterangan'] = "Office of Partnership and International Affair is responsible for unib cooperation relationships with local and foreign agencies/universities.";
+		$data['contact_us'] = "Kandang Limun, Muara Bangka Hulu, Bengkulu City, Bengkulu 38119";
+		$data['phone'] = "(0736) 21170, 21884, Ext (190)";
+		$data['email'] = "international@unib.ac.id";
+		$data['list'] = "List of Cooperation Data";
 		$data['mobility'] = "Mobility Program";
 		$this->load->view('template/headerlayanan',$data);
 		$this->load->view('international/index',$data);
-		$this->load->view('template/footer');
+		$this->load->view('template/footer',$data);
 	}
 	public function detailOportunity()
 	{
@@ -36,11 +40,15 @@ class program extends CI_Controller {
 		$data['menu_bahasa'] = "Language";
 		$data['beasiswa'] = "Scholarship & Global Opportunity";
 		$data['pangkalan'] = "Cooperation Programs";
-		$data['jaringan'] = "Networking";
+		$data['jaringan'] = "Networks";
 		$data['perjalanan'] = "Overseas Travel";
+		$data['keterangan'] = "Office of Partnership and International Affair is responsible for unib cooperation relationships with local and foreign agencies/universities.";
+		$data['contact_us'] = "Kandang Limun, Muara Bangka Hulu, Bengkulu City, Bengkulu 38119";
+		$data['phone'] = "(0736) 21170, 21884, Ext (190)";
+		$data['email'] = "international@unib.ac.id";
 		$this->load->view('template/headerlayanan',$data);
 		$this->load->view('international/detailinternational');
-		$this->load->view('template/footer');
+		$this->load->view('template/footer',$data);
 }
 public function networking()
 	{
@@ -52,12 +60,16 @@ public function networking()
 		$data['menu_bahasa'] = "Language";
 		$data['beasiswa'] = "Scholarship & Global Opportunity";
 		$data['pangkalan'] = "Cooperation Programs";
-		$data['jaringan'] = "Networking";
+		$data['jaringan'] = "Networks";
 		$data['perjalanan'] = "Overseas Travel";
+		$data['keterangan'] = "Office of Partnership and International Affair is responsible for unib cooperation relationships with local and foreign agencies/universities.";
+		$data['contact_us'] = "Kandang Limun, Muara Bangka Hulu, Bengkulu City, Bengkulu 38119";
+		$data['phone'] = "(0736) 21170, 21884, Ext (190)";
+		$data['email'] = "international@unib.ac.id";
 		$data['data_organisasi'] = $this->Model_organisasi->tampil_data_all()->result();
 		$this->load->view('template/headerlayanan',$data);
 		$this->load->view('international/jaringan',$data);
-		$this->load->view('template/footer');
+		$this->load->view('template/footer',$data);
 }
 public function travelservice()
 	{
@@ -69,11 +81,15 @@ public function travelservice()
 		$data['menu_bahasa'] = "Language";
 		$data['beasiswa'] = "Scholarship & Global Opportunity";
 		$data['pangkalan'] = "Cooperation Programs";
-		$data['jaringan'] = "Networking";
+		$data['jaringan'] = "Networks";
 		$data['perjalanan'] = "Overseas Travel";
+		$data['keterangan'] = "Office of Partnership and International Affair is responsible for unib cooperation relationships with local and foreign agencies/universities.";
+		$data['contact_us'] = "Kandang Limun, Muara Bangka Hulu, Bengkulu City, Bengkulu 38119";
+		$data['phone'] = "(0736) 21170, 21884, Ext (190)";
+		$data['email'] = "international@unib.ac.id";
 		$this->load->view('template/headerlayanan',$data);
 		$this->load->view('international/dinasln');
-		$this->load->view('template/footer');
+		$this->load->view('template/footer',$data);
 }
 public function partners()
 	{
@@ -85,8 +101,12 @@ public function partners()
 		$data['menu_bahasa'] = "Language";
 		$data['beasiswa'] = "Scholarship & Global Opportunity";
 		$data['pangkalan'] = "Cooperation Programs";
-		$data['jaringan'] = "Networking";
+		$data['jaringan'] = "Networks";
 		$data['perjalanan'] = "Overseas Travel";
+		$data['keterangan'] = "Office of Partnership and International Affair is responsible for unib cooperation relationships with local and foreign agencies/universities.";
+		$data['contact_us'] = "Kandang Limun, Muara Bangka Hulu, Bengkulu City, Bengkulu 38119";
+		$data['phone'] = "(0736) 21170, 21884, Ext (190)";
+		$data['email'] = "international@unib.ac.id";
 		$data['datakerjasama'] = "Cooperation Data";
 		$data['universitas'] = "University";
 		$data['swasta'] = "Company";
@@ -96,7 +116,7 @@ public function partners()
 		$data['total_swasta'] = $this->Model_kerjasama->total_data_swasta()->num_rows();
 		$this->load->view('template/headerlayanan',$data);
 		$this->load->view('international/pangkalandata',$data);
-		$this->load->view('template/footer');
+		$this->load->view('template/footer',$data);
 }
 public function university()
 	{
@@ -108,13 +128,17 @@ public function university()
 		$data['menu_bahasa'] = "Language";
 		$data['beasiswa'] = "Scholarship & Global Opportunity";
 		$data['pangkalan'] = "Cooperation Programs";
-		$data['jaringan'] = "Networking";
+		$data['jaringan'] = "Networks";
 		$data['perjalanan'] = "Overseas Travel";
+		$data['keterangan'] = "Office of Partnership and International Affair is responsible for unib cooperation relationships with local and foreign agencies/universities.";
+		$data['contact_us'] = "Kandang Limun, Muara Bangka Hulu, Bengkulu City, Bengkulu 38119";
+		$data['phone'] = "(0736) 21170, 21884, Ext (190)";
+		$data['email'] = "international@unib.ac.id";
 		$data['universitas'] = "Cooperation with Universities";
 		$data['data_universitas'] = $this->Model_kerjasama->tampil_data_universitas_mou()->result();
 		$this->load->view('template/headerlayanan',$data);
 		$this->load->view('international/universitas',$data);
-		$this->load->view('template/footer');
+		$this->load->view('template/footer',$data);
 }
 public function goverment()
 	{
@@ -126,13 +150,17 @@ public function goverment()
 		$data['menu_bahasa'] = "Language";
 		$data['beasiswa'] = "Scholarship & Global Opportunity";
 		$data['pangkalan'] = "Cooperation Programs";
-		$data['jaringan'] = "Networking";
+		$data['jaringan'] = "Networks";
 		$data['perjalanan'] = "Overseas Travel";
+		$data['keterangan'] = "Office of Partnership and International Affair is responsible for unib cooperation relationships with local and foreign agencies/universities.";
+		$data['contact_us'] = "Kandang Limun, Muara Bangka Hulu, Bengkulu City, Bengkulu 38119";
+		$data['phone'] = "(0736) 21170, 21884, Ext (190)";
+		$data['email'] = "international@unib.ac.id";
 		$data['pemerintahan'] = "Cooperation with Goverment";
 		$data['data_pemerintahan'] = $this->Model_kerjasama->tampil_data_pemerintahan_mou()->result();
 		$this->load->view('template/headerlayanan',$data);
 		$this->load->view('international/pemerintahan',$data);
-		$this->load->view('template/footer');
+		$this->load->view('template/footer',$data);
 }
 public function institution()
 	{
@@ -144,13 +172,17 @@ public function institution()
 		$data['menu_bahasa'] = "Language";
 		$data['beasiswa'] = "Scholarship & Global Opportunity";
 		$data['pangkalan'] = "Cooperation Programs";
-		$data['jaringan'] = "Networking";
+		$data['jaringan'] = "Networks";
 		$data['perjalanan'] = "Overseas Travel";
+		$data['keterangan'] = "Office of Partnership and International Affair is responsible for unib cooperation relationships with local and foreign agencies/universities.";
+		$data['contact_us'] = "Kandang Limun, Muara Bangka Hulu, Bengkulu City, Bengkulu 38119";
+		$data['phone'] = "(0736) 21170, 21884, Ext (190)";
+		$data['email'] = "international@unib.ac.id";
 		$data['swasta'] = "Cooperation with Companies";
 		$data['data_swasta'] = $this->Model_kerjasama->tampil_data_swasta_mou()->result();
 		$this->load->view('template/headerlayanan',$data);
 		$this->load->view('international/swasta',$data);
-		$this->load->view('template/footer');
+		$this->load->view('template/footer',$data);
 }
 public function uploadBerkas(){
 	$nama =$this->input->post('nama');

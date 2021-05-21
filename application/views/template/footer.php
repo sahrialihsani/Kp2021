@@ -2,40 +2,39 @@
 <div class="footer-top">
   <div class="container">
     <div class="row">
-
       <div class="col-lg-3 col-md-6 footer-links">
         <h4>Menu</h4>
         <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('')?>">Beranda</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('/#about')?>">Tentang Kami</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('program')?>">Layanan dan Kerjasama</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('post')?>">Post</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('')?>"><?=$menu_beranda?></a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('/#about')?>"><?=$menu_tkami?></a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('program')?>"><?=$menu_layanan?></a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('post')?>"><?=$menu_berita?></a></li>
         </ul>
       </div>
 
       <div class="col-lg-3 col-md-6 footer-links">
-        <h4>Layanan dan Program</h4>
+        <h4><?=$menu_layanan?></h4>
         <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('program')?>">Beasiswa dan Peluang Global</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('program/partners')?>">Pangkalan data Kerjasama</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('program/networking')?>">Jaringan</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('program/travelservice')?>">Perjalanan Dinas Luar Negeri</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('program')?>"><?=$beasiswa?></a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('program/partners')?>"><?=$pangkalan?></a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('program/networking')?>"><?=$jaringan?></a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=base_url('program/travelservice')?>"><?=$perjalanan?></a></li>
         </ul>
       </div>
 
       <div class="col-lg-3 col-md-6 footer-contact">
-        <h4>Hubungi Kami</h4>
+        <h4><?=$menu_hubungi?></h4>
         <p>
-        Kandang Limun, Muara Bangka Hulu, Bengkulu City, Bengkulu 38119<br><br>
-          <strong>Phone:</strong> +62872312121<br>
-          <strong>Email:</strong> uptksliunib@gmail.com<br>
+        <?=$contact_us?><br><br>
+          <strong>Phone:</strong> <?=$phone?><br>
+          <strong>Email:</strong> <?=$email?><br>
         </p>
 
       </div>
 
       <div class="col-lg-3 col-md-6 footer-info">
-        <h3>About UPT kSLI Universitas Bengkulu</h3>
-        <p>UPT Kerja Sama dan Layanan Internasional (UPT KSLi) merupakan Unit Pelaksana Teknis yang bertanggung jawab atas hubungan kerja sama UNIB dengan Instansi/Universitas lokal dan luar negeri.</p>
+        <h3><?=$menu_tkami?></h3>
+        <p><?=$keterangan?></p>
         <div class="social-links mt-3">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>

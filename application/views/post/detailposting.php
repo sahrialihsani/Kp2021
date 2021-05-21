@@ -118,7 +118,7 @@ refresh=setTimeout("action()",speed);}action();
 
             <div class="sidebar">
 
-              <h3 class="sidebar-title">Categories</h3>
+              <h3 class="sidebar-title"><?=$category?></h3>
               <div class="sidebar-item categories">
                 <ul>
                 <?php 
@@ -131,7 +131,7 @@ refresh=setTimeout("action()",speed);}action();
 
               </div><!-- End sidebar categories-->
 
-              <h3 class="sidebar-title">Recent Posts</h3>
+              <h3 class="sidebar-title"><?=$recent?></h3>
               <div class="sidebar-item recent-posts">
               <?php foreach($data_berita_terbaru as $pbaru): ?>
                 <div class="post-item clearfix">

@@ -13,7 +13,7 @@ class pendapatan extends CI_Controller {
 	{
 		$data['data_pendapatan'] = $this->Model_pendapatan->tampil_data_all()->result();
 		$data['user']= $this->db->get_where('tb_admin',['email'=> $this->session->userdata('email')])->row_array();
-		$data['tahun_kerja']=$this->db->query('select year(tgl_mulai) as tahun from tb_kerjasama GROUP BY YEAR(tgl_mulai)')->result();
+		$data['tahun_kerja']=$this->db->query('select year(tgl_mulai) as tahun from tb_kerjasama WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) GROUP BY YEAR(tgl_mulai)')->result();
 		$this->load->view('admin/template/header');
 		$this->load->view('admin/template/sidebar');
 		$this->load->view('admin/pangkalandata/pendapatan',$data);

@@ -49,13 +49,12 @@ refresh=setTimeout("action()",speed);}action();
       <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
       <div class="carousel-inner" role="listbox">
-
         <!-- Slide 1 -->
         <div class="carousel-item active" style="background-image: url(assets/dua/img/slide/slide-1.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Welcome to  <span>Upt KSLI Universitas Bengkulu</span></h2>
-              <p class="animate__animated animate__fadeInUp">UPT Kerja Sama dan Layanan Internasional (UPT KSLi) merupakan Unit Pelaksana Teknis yang bertanggung jawab atas hubungan kerja sama UNIB dengan Instansi/Universitas lokal dan luar negeri.</p>
+              <h2 class="animate__animated animate__fadeInDown"><?=$hero1_judul?></h2>
+              <p class="animate__animated animate__fadeInUp"><?=$hero1_keterangan?></p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
           </div>
@@ -65,8 +64,8 @@ refresh=setTimeout("action()",speed);}action();
         <div class="carousel-item" style="background-image: url(assets/dua/img/slide/slide-2.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              <h2 class="animate__animated animate__fadeInDown"><?=$hero2_judul?></h2>
+              <p class="animate__animated animate__fadeInUp"><?=$hero2_keterangan?></p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
           </div>
@@ -76,8 +75,8 @@ refresh=setTimeout("action()",speed);}action();
         <div class="carousel-item" style="background-image: url(assets/dua/img/slide/slide-3.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              <h2 class="animate__animated animate__fadeInDown"><?=$hero3_judul?></h2>
+              <p class="animate__animated animate__fadeInUp"><?=$hero3_keterangan?></p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
             </div>
           </div>
@@ -125,7 +124,7 @@ refresh=setTimeout("action()",speed);}action();
             <div style="border-radius:20px" class="count-box">
               <i class="icofont-group-students" style="color: #20b38e;"></i>
               <span data-toggle="counter-up">278</span>
-              <p>Pertukaran Mahasiswa ke Luar Negeri</p>
+              <p><?=$exchange_mhs?></p>
             </div>
           </div>
 
@@ -133,15 +132,15 @@ refresh=setTimeout("action()",speed);}action();
             <div style="border-radius:20px" class="count-box">
               <i class="icofont-teacher" style="color: #c042ff;"></i>
               <span data-toggle="counter-up">265</span>
-              <p>Pertukaran Dosen ke Luar Negeri</p>
+              <p><?=$exchange_dsn?></p>
             </div>
-          </div>
+          </div>	
 
           <div class="col-lg-3 text-center" data-aos="fade-up" data-aos-delay="400">
             <div style="border-radius:20px" class="count-box">
               <i class="icofont-users-alt-5" style="color: #46d1ff;"></i>
               <span data-toggle="counter-up">84</span>
-              <p>Mahasiswa Asing</p>
+              <p><?=$foreign_mhs?></p>
             </div>
           </div>
 
@@ -149,7 +148,7 @@ refresh=setTimeout("action()",speed);}action();
             <div style="border-radius:20px" class="count-box">
               <i class="icofont-tasks" style="color: #ffb459;"></i>
               <span data-toggle="counter-up">477</span>
-              <p>Kerjasama Lokal dan Internasional</p>
+              <p><?=$cooperation?></p>
             </div>
           </div>
 
@@ -168,39 +167,39 @@ refresh=setTimeout("action()",speed);}action();
           </div>
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch" data-aos="fade-left">
             <div class="content">
-              <h3>UPT KSLI <strong>Universitas Bengkulu</strong></h3>
-              <p>UPT KSLI merupakan Unit Pelaksana Teknis yang bertanggung jawab atas hubungan kerja sama UNIB dengan Instansi/Universitas lokal dan luar negeri.
-              </p>
+              <h3><?=$upt?> <br><strong><?=$unib?></strong></h3>
+              <p><?=$keterangan?></p>
             </div>
 
             <div class="accordion-list">
               <ul>
                 <li data-aos="fade-up" data-aos-delay="100">
-                  <a data-toggle="collapse" class="collapse" href="#accordion-list-1"><span>Berita Terkini</span>  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <a data-toggle="collapse" class="collapse" href="#accordion-list-1"><span><?=$news?></span>  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-1" class="collapse show" data-parent=".accordion-list">
                     <p>
-                    UPT KSLI Selalu Mengupadate Informasi-informasi terkini, Silahkan klik tombol dibawah ini untuk mengunjungi berita terkini
+                    <?=$news_keterangan?>      
                     </p>
-                    <button onclick="window.location.href='<?=base_url('post')?>'" style="background-color:#0880e8" class="btn btn-info mt-2">Selengkapnya</button>
+                    <button onclick="window.location.href='<?=base_url('post')?>'" style="background-color:#0880e8" class="btn btn-info mt-2">More</button>
                   </div>
                 </li>
 
                 <li data-aos="fade-up" data-aos-delay="200">
-                  <a data-toggle="collapse" href="#accordion-list-2" class="collapsed"><span>Program Kami</span>  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <a data-toggle="collapse" href="#accordion-list-2" class="collapsed"><span> <?=$our_programs?></span>  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-2" class="collapse" data-parent=".accordion-list">
                     <p>
-                    Sesuai dengan visi Universitas Bengkulu yaitu Menjadi Universitas kelas Dunia pada tahun 2025, UPT KSLI telah memiliki program-program internasional. 
+                    <?=$programs_keterangan?>
                     </p>
-                    <button onclick="window.location.href='<?=base_url('program')?>'" style="background-color:#0880e8" class="btn btn-info mt-2">Selengkapnya</button>
+                    <button onclick="window.location.href='<?=base_url('program')?>'" style="background-color:#0880e8" class="btn btn-info mt-2">More</button>
                   </div>
                 </li>
 
                 <li data-aos="fade-up" data-aos-delay="300">
-                  <a data-toggle="collapse" href="#accordion-list-3" class="collapsed"><span>Daftar Kerjasama</span> <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <a data-toggle="collapse" href="#accordion-list-3" class="collapsed"><span><?=$cooperation?></span> <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-3" class="collapse" data-parent=".accordion-list">
                     <p>
-                    Universitas Bengkulu mempunyai jaringan yang luas dengan bekerja sama dengan berbagai instansi dan universitas baik lokal maupun luar negeri.   </p>
-                    <button onclick="window.location.href='<?=base_url('program/partners')?>'" style="background-color:#0880e8" class="btn btn-info mt-2">Selengkapnya</button>
+                    <?=$cooperation_keterangan?>
+                   </p>
+                    <button onclick="window.location.href='<?=base_url('program/partners')?>'" style="background-color:#0880e8" class="btn btn-info mt-2">More</button>
 
                   </div>
                 </li>
@@ -225,9 +224,7 @@ refresh=setTimeout("action()",speed);}action();
   margin-bottom: 5px;
   font-size: 30px;
   color: #05579e;">Our Teams</h2>
-          <p>Pegawai di UPT KSLI Universitas Bengkulu</p>
         </div>
-
         <div class="row">
         <?php foreach($data_staf as $stf):?>
 
