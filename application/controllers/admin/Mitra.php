@@ -95,18 +95,7 @@ redirect(base_url('admin/mitra'));
 		
 				}
 			}
-		if($berkas=''){
-		}else{
-				$config['upload_path']='./assets/dua/berkas/mitra/';
-				$config['allowed_types']='pdf|jpeg|png';
-				$this->load->library('upload',$config);
-				if($this->upload->do_upload('berkas')){
-					$berkas=$this->upload->data('file_name');
-		
-				}else{
-			$this->session->set_flashdata('message', '<div class="alert alert-success alert-message alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>File gagal diupload, masukan ekstensi pdf,doc,docx</div>');
-				}
-			}
+		  
 $data=array(
 	'email'=>$email,
 	'institusi'=>$institusi,
@@ -120,7 +109,7 @@ $data=array(
 	redirect(base_url('admin/mitra'));
 	}
   }
-  public function editMitra($id){
+  public function editMitra($id){  
 	$data['user']= $this->db->get_where('tb_admin',['email'=> $this->session->userdata('email')])->row_array();
 	$where = array('id'=>$id);
 	

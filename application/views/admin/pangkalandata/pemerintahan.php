@@ -49,7 +49,7 @@ refresh=setTimeout("action()",speed);}action();
 <h2 class="justify-content-center text-center" style=" font-weight: 700;
 margin-bottom: 20px;
 font-size: 30px;
-color: #fff;">Kerjasama dengan Pemerintahan</h2>
+color: #fff;">Kerja Sama dengan Pemerintahan</h2>
 <button onclick="window.location.href='<?=base_url('cetak/cetakpemerintahan')?>'" class="btn btn-sm btn-primary float-left ml-2"><i class="icofont-print"></i>Cetak Data</button>
   <br>
   <br>
@@ -62,7 +62,7 @@ color: #fff;">Kerjasama dengan Pemerintahan</h2>
           <tr>
               <th>No</th>
               <th>Nama Mitra</th>
-              <th>Nama Kerjasama</th>
+              <th>Nama Kerja Sama</th>
               <th>MOU/PKS</th>
               <th>Berkas</th>
               <th>Tanggal Mulai</th>
