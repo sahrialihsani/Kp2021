@@ -50,6 +50,20 @@ class program extends CI_Controller {
 		$this->load->view('international/detailinternational');
 		$this->load->view('template/footer',$data);
 }
+public function detailProgram($id)
+	{
+		$data['data_program'] = $this->Model_program->detail_program($id);
+		$this->load->view('template/headerlayanan');
+		$this->load->view('international/detailProgram',$data);
+		$this->load->view('template/footer');
+}
+public function detailNetworks($id)
+	{
+		$data['data_organisasi'] = $this->Model_organisasi->detail_organisasi($id);
+		$this->load->view('template/headerlayanan');
+		$this->load->view('international/detailOrganisasi',$data);
+		$this->load->view('template/footer');
+}
 public function networking()
 	{
 		$data['menu_beranda'] = "Home";
@@ -245,6 +259,12 @@ $this->load->view('international/detail_berkas_ins', $data);
 public function syarat()
 	{
 		$this->load->view('international/syarat');
-	}	
+	}
+	
+public function detailBerkas($id){
+		$data['detail_berkas'] = $this->Model_program->detail_berkas($id);
+		$this->load->view('international/detail_berkas', $data);
+	
+}		
 }
 

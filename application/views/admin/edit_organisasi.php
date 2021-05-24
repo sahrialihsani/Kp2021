@@ -69,6 +69,18 @@ refresh=setTimeout("action()",speed);}action();
                 </div>
               </div>
               <div class="form-group">
+                <label class="col-sm-2 control-label">Keterangan</label>
+                <div class="col-sm-12">
+                  <textarea type="text" class="form-control" name="keterangan" required><?= $orgns->keterangan;?></textarea>
+                </div>
+                <div class="form-group">
+                <label class="col-sm-2 control-label">Gambar</label>
+                <div class="col-sm-12">
+                <img style="object-fit: contain;" src="<?php echo base_url('assets/dua/img/organisasi/'.$orgns->gambar)?> " width="400px" height="300px">
+                  <input type="file" class="form-control" name="gambar" required value="<?= $orgns->gambar;?>">
+                </div>
+              </div>
+              <div class="form-group">
                 <label class="col-sm-2 control-label"></label>
                 <div class="col-sm-12">
                   <button  type="submit" class="btn btn-primary btn-flat" title="Simpan Data Pengawas"><span class="fa fa-save"></span> Simpan</button>

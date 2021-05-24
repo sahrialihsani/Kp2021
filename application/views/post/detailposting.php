@@ -49,8 +49,8 @@ refresh=setTimeout("action()",speed);}action();
       <div class="container">
 
         <ol>
-          <li><a href="<?=base_url('')?>"><?=$beranda?></a></li>
-          <li><a href="<?=base_url('Post')?>"><?=$berita?></a></li>
+          <li><a href="<?=base_url('')?>"><?php echo __e('beranda'); ?></a></li>
+          <li><a href="<?=base_url('Post')?>"><?php echo __e('berita'); ?></a></li>
         </ol>
         <?php foreach($detail_post as $post): ?>
         <h2><?=$post->judul?></h2>
@@ -118,7 +118,7 @@ refresh=setTimeout("action()",speed);}action();
 
             <div class="sidebar">
 
-              <h3 class="sidebar-title"><?=$category?></h3>
+              <h3 class="sidebar-title"><?php echo __e('category'); ?></h3>
               <div class="sidebar-item categories">
                 <ul>
                 <?php 
@@ -131,7 +131,7 @@ refresh=setTimeout("action()",speed);}action();
 
               </div><!-- End sidebar categories-->
 
-              <h3 class="sidebar-title"><?=$recent?></h3>
+              <h3 class="sidebar-title"><?php echo __e('recent'); ?></h3>
               <div class="sidebar-item recent-posts">
               <?php foreach($data_berita_terbaru as $pbaru): ?>
                 <div class="post-item clearfix">

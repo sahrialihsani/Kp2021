@@ -53,25 +53,19 @@ refresh=setTimeout("action()",speed);}action();
         <div class="carousel-item active" style="background-image: url(assets/dua/img/slide/slide-1.jpg)">
           <div class="carousel-container">
             <div class="container">
-<<<<<<< HEAD
-              <h2 class="animate__animated animate__fadeInDown"><?=$hero1_judul?></h2>
-              <p class="animate__animated animate__fadeInUp"><?=$hero1_keterangan?></p>
-=======
-              <h2 class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
-              <p class="animate__animated animate__fadeInUp">UPT Kerja Sama dan Layanan Internasional (UPT KSLi) merupakan Unit Pelaksana Teknis yang bertanggung jawab atas hubungan kerja sama UNIB dengan Instansi/Universitas lokal dan luar negeri.</p>
->>>>>>> 0bcd19b759be6ad90bbd1528808559601752980d
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            <h2 class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
+            <p class="animate__animated animate__fadeInUp"><?php echo __e('hero1_keterangan'); ?></p>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto"><?php echo __e('more'); ?></a>
             </div>
           </div>
         </div>
-
         <!-- Slide 2 -->
         <div class="carousel-item" style="background-image: url(assets/dua/img/slide/slide-2.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown"><?=$hero2_judul?></h2>
-              <p class="animate__animated animate__fadeInUp"><?=$hero2_keterangan?></p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              <h2 class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
+              <p class="animate__animated animate__fadeInUp"><?php echo __e('hero1_keterangan'); ?></p>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto"><?php echo __e('more'); ?></a>
             </div>
           </div>
         </div>
@@ -80,9 +74,9 @@ refresh=setTimeout("action()",speed);}action();
         <div class="carousel-item" style="background-image: url(assets/dua/img/slide/slide-3.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown"><?=$hero3_judul?></h2>
-              <p class="animate__animated animate__fadeInUp"><?=$hero3_keterangan?></p>
-              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              <h2 class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
+              <p class="animate__animated animate__fadeInUp"><?php echo __e('hero1_keterangan'); ?></p>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto"><?php echo __e('more'); ?></a>
             </div>
           </div>
         </div>
@@ -129,7 +123,7 @@ refresh=setTimeout("action()",speed);}action();
             <div style="border-radius:20px" class="count-box">
               <i class="icofont-group-students" style="color: #20b38e;"></i>
               <span data-toggle="counter-up">278</span>
-              <p><?=$exchange_mhs?></p>
+              <p><?php echo __e('exchange_mhs'); ?></p>
             </div>
           </div>
 
@@ -137,7 +131,9 @@ refresh=setTimeout("action()",speed);}action();
             <div style="border-radius:20px" class="count-box">
               <i class="icofont-teacher" style="color: #c042ff;"></i>
               <span data-toggle="counter-up">265</span>
-              <p><?=$exchange_dsn?></p>
+              <p>
+              <?php echo __e('exchange_dsn'); ?>
+              </p>
             </div>
           </div>	
 
@@ -145,7 +141,9 @@ refresh=setTimeout("action()",speed);}action();
             <div style="border-radius:20px" class="count-box">
               <i class="icofont-users-alt-5" style="color: #46d1ff;"></i>
               <span data-toggle="counter-up">84</span>
-              <p><?=$foreign_mhs?></p>
+              <p>
+              <?php echo __e('foreign_mhs'); ?>
+              </p>
             </div>
           </div>
 
@@ -153,7 +151,9 @@ refresh=setTimeout("action()",speed);}action();
             <div style="border-radius:20px" class="count-box">
               <i class="icofont-tasks" style="color: #ffb459;"></i>
               <span data-toggle="counter-up">477</span>
-              <p><?=$cooperation?></p>
+              <p>
+              <?php echo __e('cooperation'); ?>
+              </p>
             </div>
           </div>
 
@@ -172,63 +172,54 @@ refresh=setTimeout("action()",speed);}action();
           </div>
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch" data-aos="fade-left">
             <div class="content">
-              <h3><?=$upt?> <br><strong><?=$unib?></strong></h3>
-              <p><?=$keterangan?></p>
+              <h3><?php echo __e('upt'); ?><br><strong><?php echo __e('unib'); ?></strong></h3>
+              <p><?php echo __e('keterangan'); ?></p>
             </div>
-
             <div class="accordion-list">
               <ul>
                 <li data-aos="fade-up" data-aos-delay="100">
-                  <a data-toggle="collapse" class="collapse" href="#accordion-list-1"><span><?=$news?></span>  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <a data-toggle="collapse" class="collapse" href="#accordion-list-1"><span><?php echo __e('news'); ?></span>  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-1" class="collapse show" data-parent=".accordion-list">
                     <p>
-                    <?=$news_keterangan?>      
+                    <?php echo __e('news_keterangan'); ?>  
                     </p>
-                    <button onclick="window.location.href='<?=base_url('post')?>'" style="background-color:#0880e8" class="btn btn-info mt-2">More</button>
+                    <button onclick="window.location.href='<?=base_url('post')?>'" style="background-color:#0880e8" class="btn btn-info mt-2"><?php echo __e('more'); ?></button>
                   </div>
                 </li>
-
                 <li data-aos="fade-up" data-aos-delay="200">
-                  <a data-toggle="collapse" href="#accordion-list-2" class="collapsed"><span> <?=$our_programs?></span>  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <a data-toggle="collapse" href="#accordion-list-2" class="collapsed"><span> <?php echo __e('our_programs'); ?></span>  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-2" class="collapse" data-parent=".accordion-list">
                     <p>
-                    <?=$programs_keterangan?>
+                    <?php echo __e('programs_keterangan'); ?>  
                     </p>
-                    <button onclick="window.location.href='<?=base_url('program')?>'" style="background-color:#0880e8" class="btn btn-info mt-2">More</button>
+                    <button onclick="window.location.href='<?=base_url('program')?>'" style="background-color:#0880e8" class="btn btn-info mt-2"><?php echo __e('more'); ?></button>
                   </div>
                 </li>
 
                 <li data-aos="fade-up" data-aos-delay="300">
-                  <a data-toggle="collapse" href="#accordion-list-3" class="collapsed"><span><?=$cooperation?></span> <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <a data-toggle="collapse" href="#accordion-list-3" class="collapsed"><span><?php echo __e('cooperation'); ?></span> <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-3" class="collapse" data-parent=".accordion-list">
                     <p>
-                    <?=$cooperation_keterangan?>
+                    <?php echo __e('cooperation_keterangan'); ?>
                    </p>
-                    <button onclick="window.location.href='<?=base_url('program/partners')?>'" style="background-color:#0880e8" class="btn btn-info mt-2">More</button>
-
+                    <button onclick="window.location.href='<?=base_url('program/partners')?>'" style="background-color:#0880e8" class="btn btn-info mt-2"><?php echo __e('more'); ?></button>
                   </div>
                 </li>
-
               </ul>
             </div>
-
           </div>
-
         </div>
-
       </div>
     </section>
     <!-- End Why Us Section -->
    <!-- ======= Team Section ======= -->
    <section id="team" class="team">
       <div class="container" data-aos="fade-up">
-
-
         <div class="section-title">
           <h2 style="font-weight: 700;
   margin-bottom: 5px;
   font-size: 30px;
-  color: #05579e;">Our Teams</h2>
+  color: #05579e;"><?php echo __e('team'); ?></h2>
         </div>
         <div class="row">
         <?php foreach($data_staf as $stf):?>
@@ -258,7 +249,7 @@ refresh=setTimeout("action()",speed);}action();
           <h2 style="font-weight: 700;
   margin-bottom: 5px;
   font-size: 30px;
-  color: #05579e;">Frequently Asked Questions</h2>
+  color: #05579e;"><?php echo __e('faq'); ?></h2>
         </div>
 
         <div class="faq-list">
@@ -320,7 +311,7 @@ refresh=setTimeout("action()",speed);}action();
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 5px;
   font-size: 30px;
-  color: #05579e;">Latest News</h2>
+  color: #05579e;"><?php echo __e('berita'); ?></h2>
       <br>
         <div class="row">
         <?php foreach($data_berita as $berita):?>
@@ -348,7 +339,7 @@ refresh=setTimeout("action()",speed);}action();
                  <?php echo word_limiter("$berita->isi",30);?>
                 </p>
                 <div class="read-more">
-                  <a href="<?= base_url('post/detailberita/').$berita->id?>">Read More</a>
+                  <a href="<?= base_url('post/detailberita/').$berita->id?>"><?php echo __e('more'); ?></a>
                 </div>
               </div>
 
@@ -367,7 +358,7 @@ refresh=setTimeout("action()",speed);}action();
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 5px;
   font-size: 30px;
-  color: #05579e;">Contact Us</h2>
+  color: #05579e;"><?php echo __e('menu_hubungi'); ?></h2>
       <br>
         <div>
           <iframe style="border:0; width: 100%; height: 270px;" src="https://maps.google.com/maps?q=UPT%20KSLI%20Universitas%20Bengkulu&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen></iframe>
@@ -379,19 +370,19 @@ refresh=setTimeout("action()",speed);}action();
             <div style="background-color:tranparent" class="info">
               <div style="background-color:tranparent" class="address">
                 <i class="icofont-google-map"></i>
-                <h4>Location:</h4>
-                <p>Kandang Limun, Muara Bangka Hulu, Bengkulu City, Bengkulu 38119</p>
+                <h4><?php echo __e('lokasi'); ?>:</h4>
+                <p><?php echo __e('contact_us'); ?></p>
               </div>
 
               <div class="email">
                 <i class="icofont-envelope"></i>
-                <h4>Email Adress:</h4>
-                <p>uptksliunib@gmail.com</p>
+                <h4><?php echo __e('al_email'); ?>:</h4>
+                <p>international_unib@gmail.com</p>
               </div>
 
               <div class="phone">
                 <i class="icofont-phone"></i>
-                <h4>Phone:</h4>
+                <h4><?php echo __e('telpon'); ?>:</h4>
                 <p>+1 5589 55488 55s</p>
               </div>
 
@@ -403,23 +394,23 @@ refresh=setTimeout("action()",speed);}action();
           <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 5px;
   font-size: 25px;
-  color: #05579e;">Wanna ask?</h2>
+  color: #05579e;"><?php echo __e('ask'); ?></h2>
             <form action="<?=base_url('sendconnection')?>"  method="post"  enctype="multipart/form-data">
               <div class="form-row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="nama" class="form-control" required id="nama" placeholder="Your Name" data-rule="minlen:4" data-msg="Please fill out your name" />
+                  <input type="text" name="nama" class="form-control" required id="nama" placeholder="<?php echo __e('name'); ?>" data-rule="minlen:4" data-msg="Please fill out your name" />
                 </div>
                 <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" required id="email" placeholder="Email Anda" data-rule="email" data-msg="Please fill out your email" />
+                  <input type="email" class="form-control" name="email" required id="email" placeholder="<?php echo __e('al_email'); ?>" data-rule="email" data-msg="Please fill out your email" />
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="institusi" required id="institusi" placeholder="Institution" data-rule="minlen:4" data-msg="Please fill out your name" />
+                <input type="text" class="form-control" name="institusi" required id="institusi" placeholder="<?php echo __e('institution'); ?>" data-rule="minlen:4" data-msg="Please fill out your name" />
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="pesan" rows="5" required data-rule="required" data-msg="Please fill out your message to us" placeholder="Your Message"></textarea>
+                <textarea class="form-control" name="pesan" rows="5" required data-rule="required" placeholder="<?php echo __e('msg'); ?>"></textarea>
               </div>
-              <div class="text-center"><button style="border-radius:10px;" class="btn-primary"  type="submit">Send your question</button></div>
+              <div class="text-center"><button style="border-radius:10px;" class="btn-primary"  type="submit"><?php echo __e('send'); ?></button></div>
           </div>
 
         </div>

@@ -57,12 +57,14 @@ refresh=setTimeout("action()",speed);}action();
       
       <!-- <button onclick="window.location.href='<?=base_url('#')?>'" style="border-radius:10px; margin-bottom:10px" class="btn btn-primary"><i class="icofont-print"></i> Cetak Data</button> -->
            
-      <table id="example" class="table table-striped table-flush table-borderless" style="width:100%">
+      <table id="example" class="table table-responsive table-striped table-flush table-borderless" style="width:100%">
         <thead>
             <tr>
                 <th>No</th>
                 <th>Nama Organisasi</th>
+                <th>Keterangan</th>
                 <th>Tahun Bergabung</th>
+                <th>Gambar</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -73,9 +75,9 @@ refresh=setTimeout("action()",speed);}action();
                 <tr>
         <td><?=$no++ ?></td>
         <td><?=$ogns->nama; ?></td>
+        <td><?=$ogns->keterangan; ?></td>
         <td><?=$ogns->tahun; ?></td>
-
-
+        <td align="center"> <img style="object-fit: contain;" src="<?php echo base_url('assets/dua/img/organisasi/'.$ogns->gambar)?>" width="400px" height="200"></td>
                   <td>
                     <div  class="btn-group">
                     <button type="button" class="btn btn-warning btn-flat btn-xs">Aksi</button>
@@ -115,9 +117,19 @@ refresh=setTimeout("action()",speed);}action();
             <?= form_error('nama','<small class="text-danger pl-3">','</small>')  ?>
         </div>
         <div class="form-group">
+          <label >Keterangan</label>
+          <textarea style="color:#ffffff;" type="text" name="keterangan" class="form-control" required></textarea>
+            <?= form_error('keterangan','<small class="text-danger pl-3">','</small>')  ?>
+        </div>
+        <div class="form-group">
           <label >Tahun Masuk</label>
           <input style="color:#ffffff;" type="number" name="tahun" class="form-control" required>
             <?= form_error('tahun','<small class="text-danger pl-3">','</small>')  ?>
+        </div>
+        <div class="form-group">
+          <label >Gambar</label>
+          <input style="color:#ffffff;" type="file" name="gambar" class="form-control" required>
+            <?= form_error('gambar','<small class="text-danger pl-3">','</small>')  ?>
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Keluar</button>

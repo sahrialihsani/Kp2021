@@ -60,12 +60,12 @@ class pendapatan extends CI_Controller {
 	public function tambahPendapatan(){
 		$id_kerjasama =$this->input->post('id_kerjasama');
 		$pendapatan =$this->input->post('pendapatan');
-		$sql = $this->db->query("SELECT * FROM tb_kerjasama where id='$id_kerjasama'");
-$cek_pendapatan= $sql->num_rows();
-if ($cek_pendapatan> 0) {
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Kerjasama ini sudah ditambahkan</div>');
-redirect(base_url('admin/pendapatan'));
-		}else{
+// 		$sql = $this->db->query("SELECT * FROM tb_pendapatan where id='$id_kerjasama'");
+// $cek_pendapatan= $sql->num_rows();
+// if ($cek_pendapatan> 0) {
+// 	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Kerjasama ini sudah ditambahkan</div>');
+// redirect(base_url('admin/pendapatan'));
+// 		}else{
 	$data['data_pendapatan']= $this->db->get_where('tb_pendapatan')->row_array();
 $data=array(
 		'id_kerjasama'=>$id_kerjasama,
@@ -73,7 +73,7 @@ $data=array(
 $this->Model_pendapatan->tambah_pendapatan($data,'tb_pendapatan');
 	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil menambahkan data</div>');
 	redirect(base_url('admin/pendapatan'));
-	}
+	// }
 }
 	public function editPendapatan($id){
 		$data['user']= $this->db->get_where('tb_admin',['email'=> $this->session->userdata('email')])->row_array();

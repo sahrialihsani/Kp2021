@@ -7,7 +7,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <script language='JavaScript'>
-var txt="UPT KSLI UNIB | JARINGAN ";
+var txt="UPT KSLI UNIB | DETAIL PROGRAM ";
 var speed=300;
 var refresh=null;
 function action() { document.title=txt;
@@ -18,7 +18,6 @@ refresh=setTimeout("action()",speed);}action();
   <meta content="" name="keywords">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
   <!-- Vendor CSS Files -->
   <link href="<?= base_url('')?>assets/dua/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= base_url('')?>assets/dua/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -46,27 +45,20 @@ refresh=setTimeout("action()",speed);}action();
 <main id="main">
 <section style="background-color:#e3f7ff; margin-top:100px" id="oportunity" class="oportunity">
       <div class="container section-title">
+      <?php foreach($data_organisasi as $org):?>
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 5px;
   font-size: 30px;
-  color: #05579e;"><?php echo __e('jaringan');?></h2>
+  color: #05579e;"><?=$org->nama?></h2>
   <br>
-  <p class="float-left ml-2">Universitas Bengkulu aktif dalam keanggotaan berikut: </p>
-       <br>
-       <br>
-       <?php foreach($data_organisasi as $org):?>
-       <div class="col-lg-12 mt-1 justify-content-center" style="background-color:#fcfcfc;width:100%;height:60px;border-radius: 10px;">
-        
-        <p class=" float-left" style=" font-weight: 500;
-          font-size: 14px;
-          color: #05579e;"><?=$org->tahun?></p>
-          <br>
-          <a class="float-left mt-2" href="<?=base_url('program/detailNetworks/').$org->id?>"><?=$org->nama?></a>
-        </div>
-      <br>
-<?php endforeach?>
+  <p style=" text-align: justify; text-justify: inter-word;"><strong><?=$org->tahun?></strong></p>
+  <p style=" text-align: justify; text-justify: inter-word;"><?=$org->keterangan?></p>
+  <br>
+  <img style="object-fit: contain; float:left" src="<?php echo base_url('assets/dua/img/organisasi/'.$org->gambar)?>" width="600px" height="400px">
+  <!-- <i style="color:#03a5fc; padding-top:4px; padding-right:5px" class="icofont-file-pdf float-left"></i><a class="float-left" href="<?=base_url('program/detailBerkas/').$org->id?>">Lihat Berkas</a> -->
+  
 
-        </div>
+  <?php endforeach?>
       </div>
     </section><!-- End Contact Section -->
 

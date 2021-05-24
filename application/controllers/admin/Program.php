@@ -116,7 +116,6 @@ $this->Model_program->tambah_program($data,'tb_program');
 		
 			$data['detail_berkas'] = $this->Model_program->detail_berkas($id);
 			$this->load->view('admin/program/detail_berkas', $data);
-	
 			}	
 }
 

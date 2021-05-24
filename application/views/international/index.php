@@ -49,7 +49,7 @@ refresh=setTimeout("action()",speed);}action();
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 5px;
   font-size: 30px;
-  color: #05579e;"><?=$list?></h2>
+  color: #05579e;"><?php echo __e('list');?></h2>
        <br>
        <?php foreach($data_program as $prg):?>
 
@@ -59,7 +59,7 @@ refresh=setTimeout("action()",speed);}action();
           font-size: 14px;
           color: #05579e;"><?=$prg->tahun?></p>
           <br>
-          <a class="float-left mt-2" href=""><?=$prg->nama?></a>      
+          <a class="float-left mt-2" href="<?=base_url('program/detailProgram/').$prg->id?>"><?=$prg->nama?></a>      
         </div>
       <br>
 
@@ -73,7 +73,7 @@ refresh=setTimeout("action()",speed);}action();
       <div class="container section-title">
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
   font-size: 30px;
-  color: #05579e;"><?=$mobility?></h2>
+  color: #05579e;"><?php echo __e('mobility');?></h2>
       <br>
        
       <?= $this->session->flashdata('message'); ?>

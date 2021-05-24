@@ -48,7 +48,7 @@ refresh=setTimeout("action()",speed);}action();
   <main id="main">
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-        <h3><?=$berita_terkait?></h3>
+        <h3><?php echo __e('berita_terkait');?></h3>
 
       </div>
     </section><!-- End Breadcrumbs -->
@@ -84,7 +84,7 @@ refresh=setTimeout("action()",speed);}action();
        <?php echo word_limiter("$berita->isi",30);?>
       </p>
       <div class="read-more">
-        <a href="<?= base_url('post/detailberita/').$berita->id?>">Read More</a>
+        <a href="<?= base_url('post/detailberita/').$berita->id?>"><?php echo __e('more'); ?></a>
       </div>
     </div>
 
