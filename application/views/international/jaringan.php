@@ -44,7 +44,7 @@ refresh=setTimeout("action()",speed);}action();
 </head>
 <body>
 <main id="main">
-<section style="background-color:#e3f7ff; margin-top:100px" id="oportunity" class="oportunity">
+<section style="background-color:#fff; margin-top:100px" id="oportunity" class="oportunity">
       <div class="container section-title">
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 5px;
@@ -55,7 +55,7 @@ refresh=setTimeout("action()",speed);}action();
        <br>
        <br>
        <?php foreach($data_organisasi as $org):?>
-       <div class="col-lg-12 mt-1 justify-content-center" style="background-color:#fcfcfc;width:100%;height:60px;border-radius: 10px;">
+       <div class="col-lg-12 mt-1 justify-content-center" style="background-color:#e4e4e4;width:100%;height:120px;border-radius: 10px;">
         
         <p class=" float-left" style=" font-weight: 500;
           font-size: 14px;

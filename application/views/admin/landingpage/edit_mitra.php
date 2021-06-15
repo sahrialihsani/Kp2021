@@ -77,7 +77,7 @@ refresh=setTimeout("action()",speed);}action();
             <?php 
             $result = $this->db->query("SELECT * FROM tb_negara")->result();
             foreach($result  as $rsl) : ?>
-                <option value="<?php echo $rsl->id ?>">(<?php echo $rsl->iso?>) <?php echo $rsl->name?></option>
+                <option value="<?php echo $rsl->id ?>"><?php echo $rsl->name?></option>
                 <?php endforeach; ?>
                 </select>
                 </div>
@@ -101,7 +101,7 @@ refresh=setTimeout("action()",speed);}action();
               <div class="form-group">
                 <label class="col-sm-2 control-label">Gambar</label>
                 <div class="col-sm-12">
-                <img style="object-fit: contain;" src="<?php echo base_url('assets/dua/img/mitra/'.$mtra->gambar)?> " width="400px" height="300px">
+                <img style="object-fit: contain;" src="<?php echo base_url('assets/dua/img/mitra/Gambar/'.$mtra->gambar)?> " width="400px" height="300px">
                   <input type="file" class="form-control" name="gambar"  required>
                 </div>
               </div>

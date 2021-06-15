@@ -43,7 +43,7 @@ refresh=setTimeout("action()",speed);}action();
 </head>
 <body>
 <main id="main">
-<section style="background-color:#e3f7ff; margin-top:100px" id="oportunity" class="oportunity">
+<section style="background-color:#fff; margin-top:100px" id="oportunity" class="oportunity">
       <div class="container section-title">
       <?php foreach($data_organisasi as $org):?>
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
@@ -52,7 +52,7 @@ refresh=setTimeout("action()",speed);}action();
   color: #05579e;"><?=$org->nama?></h2>
   <br>
   <p style=" text-align: justify; text-justify: inter-word;"><strong><?=$org->tahun?></strong></p>
-  <p style=" text-align: justify; text-justify: inter-word;"><?=$org->keterangan?></p>
+  <p style=" text-align: justify; text-justify: inter-word;"><?php echo $this->typography->nl2br_except_pre($org->keterangan);?></p>
   <br>
   <img style="object-fit: contain; float:left" src="<?php echo base_url('assets/dua/img/organisasi/'.$org->gambar)?>" width="600px" height="400px">
   <!-- <i style="color:#03a5fc; padding-top:4px; padding-right:5px" class="icofont-file-pdf float-left"></i><a class="float-left" href="<?=base_url('program/detailBerkas/').$org->id?>">Lihat Berkas</a> -->

@@ -44,7 +44,8 @@ refresh=setTimeout("action()",speed);}action();
 </head>
 <body>
 <main id="main">
-<section style="background-color:#e3f7ff; margin-top:100px" id="oportunity" class="oportunity">
+<section style="background-color:#fff; margin-top:100px" id="oportunity" class="oportunity">
+   
       <div class="container section-title">
       <?php foreach($data_program as $prg):?>
       <h2 class="justify-content-center text-center" style=" font-weight: 700;
@@ -53,12 +54,17 @@ refresh=setTimeout("action()",speed);}action();
   color: #05579e;"><?=$prg->nama?></h2>
   <br>
   <p style=" text-align: justify; text-justify: inter-word;"><strong><?=$prg->tahun?></strong></p>
-  <p style=" text-align: justify; text-justify: inter-word;"><?=$prg->keterangan?></p>
+  <p style=" text-align: justify; text-justify: inter-word;"><?php echo $this->typography->nl2br_except_pre($prg->keterangan);?></p>
   <br>
-  <i style="color:#03a5fc; padding-top:4px; padding-right:5px" class="icofont-file-pdf float-left"></i><a class="float-left" href="<?=base_url('program/detailBerkas/').$prg->id?>">Lihat Berkas</a>
-
+  <i style="color:#03a5fc; padding-top:4px; padding-right:5px" class="icofont-file-pdf float-left"></i>
+  <a class="float-left" href="<?=base_url('program/detailBerkas/').$prg->id?>">Lihat Berkas</a>
   <?php endforeach?>
-      </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+     </div>
     </section><!-- End Contact Section -->
 
   <div id="preloader"></div>

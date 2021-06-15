@@ -125,7 +125,7 @@ refresh=setTimeout("action()",speed);}action();
                 <?= form_error('tahun','<small class="text-danger pl-3">','</small>')  ?>
             <div class="form-group">
          <label>Berkas</label>
-         <input style="color:#ffffff;" type="file" name="berkas" class="form-control" required>
+         <input style="color:#ffffff;" type="file" name="berkas" class="form-control">
             <?= form_error('berkas','<small class="text-danger pl-3">','</small>')  ?>
     
               </div>

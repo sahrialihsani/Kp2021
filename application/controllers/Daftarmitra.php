@@ -23,48 +23,104 @@ class daftarmitra extends CI_Controller {
 		$this->load->view('template/footer',$data);
 
 	}
+	
 	public function daftar(){
-		$email =$this->input->post('email');
-		$institusi =$this->input->post('institusi');
-		$negara =$this->input->post('negara');
-		$pesan =$this->input->post('pesan');
-		$gambar =$this->input->post('gambar');
-		$berkas =$this->input->post('berkas');
+$this->_rules();
+		// if($this->form_validation->run()==FALSE){
+		// 	$this->tambah();
+		// }else{
 
-$sql = $this->db->query("SELECT institusi FROM tb_mitra where institusi='$institusi'");
-$cek_mitra = $sql->num_rows();
-if ($cek_mitra > 0) {
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>There are the same institution with yours in our database</div>');
-redirect(base_url('daftarmitra'));
-		}else{
-			$config['upload_path']='./assets/dua/img/mitra/';
-			$config['allowed_types']='jpg|jpeg|png';
-			$this->load->library('upload',$config);
-				if($this->upload->do_upload('gambar')){
-					$gambar=$this->upload->data('file_name');
-				}else{
-					$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>gambar gagal diupload, masukan ekstensi jpg,jpeg,png</div>');
-				}
-				$config['upload_path']='./assets/dua/berkas/mitra/';
-				$config['allowed_types']='pdf|doc|docx';
+            $email 		    = $this->input->post('email');
+            $institusi 		= $this->input->post('institusi');
+			$negara 		= $this->input->post('negara');
+			$pesan 			= $this->input->post('pesan');
+			// $file 				= $_FILES['file'];
+			$gambar='';
+			$berkas='';
+			
+			if (empty($_FILES['gambar']['name'])) {
+			  // code...
+			  $gambar='-';
+			}
+			else{
+				$gambar = $_FILES['gambar'];
+				$config['upload_path'] = './assets/dua/img/mitra/Gambar';
+				$config['allowed_types']  = 'jpeg|jpg|png';
+				$config['file_name'] = "Mitra_".$institusi;
 				$this->load->library('upload',$config);
-				if($this->upload->do_upload('berkas')){
-					$berkas=$this->upload->data('file_name');
-				}else{
-					$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>file gagal diupload, masukan ekstensi pdf,doc,docx</div>');
+				
+				if($this->upload->do_upload('gambar')){
+				  $gambar=$this->upload->data('file_name');
+				}else
+				{
+					$error = array('error' => $this->upload->display_errors());
+					var_dump($error);
+					die();
+	  
 				}
-	$data['data_mitra']= $this->db->get_where('tb_mitra')->row_array();
-$data=array(
-		'email'=>$email,
-	'institusi'=>$institusi,
-	'id_negara'=>$negara,
-	'pesan'=>$pesan,
-	'status'=>"Menunggu",
-	'gambar'=>$gambar,
-	'berkas'=>$berkas);
-$this->Model_mitra->tambah_mitra($data,'tb_mitra');
-	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Success, please wait and check your email, until our staff check your data</div>');
-	redirect(base_url('daftarmitra'));
+	  }
+	  if (empty($_FILES['berkas']['name'])){
+		// code...
+		$berkas='-';
+	  }
+	  else {
+	  
+	  
+			$berkas = $_FILES['berkas'];
+				$config2['upload_path'] = './assets/dua/img/mitra/File';
+				$config2['allowed_types']  = 'doc|docx|pdf';
+				$config2['file_name'] = "Mitra_".$institusi;
+				$this->upload->initialize($config2);
+	  
+				$this->load->library('upload',$config2);
+				if(!$this->upload->do_upload('berkas')){
+				  	echo "Upload Berkas Gagal";
+					$error = array('error' => $this->upload->display_errors());
+					var_dump($error);
+					die();
+				}else{
+				  $berkas=$this->upload->data('file_name');
+				}
+	  }
+
+
+			 $sql = $this->db->query("SELECT count(institusi) as surat FROM tb_mitra where institusi='$institusi'")->result();
+			 $cek_surat='';
+			 foreach($sql as $ss){
+				 $cek_surat = $ss->surat;
+			 }
+			 
+			if ($cek_surat > 0) {
+ 
+			$this->session->set_flashdata('message', '<div class="alert alert-success alert-message alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>File gagal diupload, masukan ekstensi jpg,jpeg,png</div>');
+			 redirect('daftarmitra');
+			 }
+
+
+			else {
+
+ 			$data = array(
+
+                'email' 		    => $email,
+                'institusi' 	    => $institusi,
+				'id_negara' 		=> $negara,
+				'pesan' 			=> $pesan,
+                'gambar'       	=> $gambar,
+				'berkas' 	=> $berkas,
+ 			);
+			$this->db->insert('tb_mitra', $data);
+
+			$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Success, please wait and check your email, until our staff check your data</div>');
+			redirect('daftarmitra');
 	}
   }
+  	public function _rules()
+	{
+		
+		$this->form_validation->set_rules('email','email','required',['required' => 'Email wajib di isi!']);
+		$this->form_validation->set_rules('institusi','institusi','required',['required' => 'Institusi wajib di isi!']);
+		$this->form_validation->set_rules('negara','negara','required',['required' => 'Negara di isi!']);
+		$this->form_validation->set_rules('pesan','pesan','required',['required' => 'Pesan wajib di isi!']);
+		
+	}
   }

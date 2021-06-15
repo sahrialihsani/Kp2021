@@ -70,11 +70,16 @@ refresh=setTimeout("action()",speed);}action();
 
             <article class="entry entry-single">
 
-              <div class="entry-img">
-                <img src="<?=base_url('assets/dua/img/berita/').$post->gambar?>" alt="" class="img-fluid">
+            <div class="entry-img">
+              <img style="width:100%" src="<?=base_url('assets/dua/img/berita/').$post->gambar?>" class="img-fluid" alt="">
+              </div>
+              <div class="portfolio-info">
+                <div class="portfolio-links float-right">
+                  <a href="<?=base_url('assets/dua/img/berita/').$post->gambar?>" data-gall="portfolioGallery" class="venobox" title="<?=$post->judul?>"><i class="bx bx-expand-alt"></i></a>
+                </div>
               </div>
 
-              <h2 class="entry-title">
+              <h2 style="margin-top:50px" class="entry-title">
                 <a><?=$post->judul?></a>
               </h2>
 
@@ -92,14 +97,13 @@ refresh=setTimeout("action()",speed);}action();
 
               </div>
               <?php endforeach;?>
-
+              
               <div class="entry-footer clearfix">
               <div class="float-left">
                   <ul class="tags">
                      <?php foreach($detail_post as $post): ?>
-                    <li><a href="<?php echo base_url('post/tampilKategori/').$post->kategori?>"><?=$post->kategori?></a></li>
+                    <li><a href="<?php echo base_url('post/tampilKategori/').urlencode($post->kategori)?>"><?=$post->kategori?></a></li>
                      <?php endforeach;?>
-                     
                   </ul>
                 </div>
                 <div class="float-right share">
@@ -116,7 +120,7 @@ refresh=setTimeout("action()",speed);}action();
 
           <div class="col-lg-4">
 
-            <div class="sidebar">
+            <div style="margin-right:20px" class="sidebar">
 
               <h3 class="sidebar-title"><?php echo __e('category'); ?></h3>
               <div class="sidebar-item categories">
@@ -124,7 +128,7 @@ refresh=setTimeout("action()",speed);}action();
                 <?php 
                 foreach($data_kategori as $ktg): ?>
 
-        <li><a href="<?php echo base_url('post/tampilKategori/').$ktg->kategori?>"><?=$ktg->kategori?> </a></li>
+        <li><a href="<?php echo base_url('post/tampilKategori/').urlencode($ktg->kategori)?>"><?=$ktg->kategori?> </a></li>
               <?php endforeach;?>
 
                 </ul>

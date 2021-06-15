@@ -85,9 +85,11 @@ refresh=setTimeout("action()",speed);}action();
               <span data-toggle="counter-up"><?=$total_swasta?></span>
               <p><?php echo __e('dtswasta');?></p>
               <button onclick="window.location.href='<?=base_url('program/institution')?>'" style="border-radius:10px;margin-top:10px" class="btn btn-primary"><?php echo __e('seedata');?></button>
-
+            <br>
+            <br>
+            
             </div>
-
+            
           </div>
         </div>
       </div>

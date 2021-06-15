@@ -1,4 +1,15 @@
-<footer id="footer">
+<footer style="
+background: #05579e;
+  padding: 0 0 30px 0;
+  color: #fff;
+  font-size: 14px;
+  width: 100%;
+  height: auto;
+  height:400px;
+  margin-top:70px;
+  position: absolute;
+ 
+" id="footer">
 <div class="footer-top">
   <div class="container">
     <div class="row">
@@ -46,20 +57,8 @@
 
     </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="copyright">
-    &copy; Copyright <strong><span>UPT KSLI UNIB 2021</span></strong>. All Rights Reserved
-  </div>
-  <div class="credits">
-    <!-- All the links in the footer should remain intact. -->
-    <!-- You can delete the links only if you purchased the pro version. -->
-    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/anyar-free-multipurpose-one-page-bootstrap-theme/ -->
-    <!-- Designed by <a style="color:#d0f4ff;" href="https://bootstrapmade.com/">BootstrapMade</a> -->
-  </div>
-</div>
+
 </footer><!-- End Footer -->
 
 <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>

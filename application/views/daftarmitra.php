@@ -114,7 +114,7 @@ refresh=setTimeout("action()",speed);}action();
             <?php 
             $result = $this->db->query("SELECT * FROM tb_negara")->result();
             foreach($result  as $rsl) : ?>
-                <option value="<?php echo $rsl->id ?>">(<?php echo $rsl->iso?>) <?php echo $rsl->name?></option>
+                <option value="<?php echo $rsl->id ?>"><?php echo $rsl->name?></option>
                 <?php endforeach; ?>
                 </select>
                 </div>

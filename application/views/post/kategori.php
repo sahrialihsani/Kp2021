@@ -59,16 +59,19 @@ refresh=setTimeout("action()",speed);}action();
 
         <div class="row">
 
-        <?php foreach($data_select_kategori as $berita):?>
+        <?php foreach($beritaku as $berita):?>
 
 <div class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
   <article class="entry">
-
-    <div class="entry-img">
-      <img src="<?=base_url('assets/dua/img/berita/').$berita->gambar?>" alt="" class="img-fluid">
-    </div>
-
-    <h2 class="entry-title">
+            <div class="entry-img">
+              <img style="width:100%" src="<?=base_url('assets/dua/img/berita/').$berita->gambar?>" class="img-fluid" alt="">
+              </div>
+              <div class="portfolio-info">
+                <div class="portfolio-links float-right">
+                  <a href="<?=base_url('assets/dua/img/berita/').$berita->gambar?>" data-gall="portfolioGallery" class="venobox" title="<?=$berita->judul?>"><i class="bx bx-expand-alt"></i></a>
+                </div>
+              </div>
+    <h2 style="margin-top:50px" class="entry-title">
       <a><?=$berita->judul?></a>
     </h2>
 
@@ -95,6 +98,9 @@ refresh=setTimeout("action()",speed);}action();
 
       </div>
     </section><!-- End Blog Section -->
+     <?php
+	echo $this->pagination->create_links();
+	?>
   <div id="preloader"></div>
 </main>
   <script src="<?=base_url('')?>assets/dua/vendor/jquery/jquery.min.js"></script>

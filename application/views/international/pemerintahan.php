@@ -54,7 +54,7 @@
       <button onclick="window.location.href='<?=base_url('program/partners')?>'" style="margin-left:15px;border-radius:10px; margin-bottom:10px" class="btn btn-primary">Kembali</button>
 
       <div style="margin-bottom:20px" class="container-fluid justify-content-center">
-      <table id="example" class="table table-striped table-flush table-borderless" style="width:100%">
+      <table id="example" class="table table-responsive table-striped table-flush table-borderless" style="width:100%">
       <thead>
           <tr>
               <th>No</th>

@@ -29,20 +29,15 @@
       <div class="cta">
         <a href="<?=base_url('Login')?>" class="scrollto">Login Area</a>
       </div>
-			<div class="cta ml-1">
-        <a href="<?=base_url('lang_setter/set_to/id')?>" class="scrollto active">ID</a>
-      </div>
-			<div class="cta ml-1">
-        <a href="<?=site_url('lang_setter/set_to/en')?>" class="scrollto">EN</a>
-      </div>
+		
     </div>
   </div>
 
   <!-- ======= Header ======= -->
-  <header style="background: rgba(3, 56, 102, 0.9);" id="header" class="fixed-top ">
+  <header style="background: rgba(3, 56, 102, 0.9)" id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
     <img style="object-fit:contain" src="<?=base_url('assets/dua/img/unib.png')?>" alt="Logo Unib" width="50px" height="50px">
-    <h4 style="padding-top:5px; padding-left:10px" class="logo mr-auto"><a href="#header" class="scrollto"><a href="<?=base_url('')?>"><?php echo __e('upt'); ?></a></h4>
+    <h6 style="padding-top:5px; padding-left:10px; font-size:15px;padding-right:20px" class="logo mr-auto"><a href="#header" class="scrollto"><a href="<?=base_url('')?>"><?php echo __e('upt'); ?></a></h6>
 
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="#header" class="logo mr-auto scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -61,17 +56,15 @@
                 </ul>
         </li>
         <li><a  href="<?= base_url('#contact')?>"><?php echo __e('menu_hubungi'); ?></a></li>
-<!-- 
-        <li class="drop-down"><a href="#"><?=$menu_bahasa?></a>
+
+        <li class="drop-down"><a href="#"><?php echo __e('menu_bahasa'); ?></a>
                 <ul>
-                <?php if(get_cookie('lang_is') === 'in'){ ?>
-                  <li><a href="<?php echo site_url('lang_setter/set_to/english');?>">Inggris</a></li>
-                 
-                  <?php }else{ ?>
-                  <li><a href="<?php echo site_url('lang_setter/set_to/indonesia');?>">Indonesia</a></li>
-                  <?php } ?>
+                  <li> <a href="<?=base_url('lang_setter/set_to/id')?>" class="scrollto active">Indonesia</a></li>
+              
+                  <li>  <a href="<?=site_url('lang_setter/set_to/en')?>" class="scrollto">English</a></li>
+                
                 </ul>
-        </li> -->
+        </li> 
         </ul>
       </nav><!-- .nav-menu -->
 

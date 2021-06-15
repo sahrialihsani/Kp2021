@@ -84,8 +84,8 @@ refresh=setTimeout("action()",speed);}action();
         <td><?php echo wordwrap(word_limiter("$mtra->pesan",30),50,"<br>\n");?></td>   
         <td><?=$mtra->status; ?></td>   
         <td align="center">
-        <img style="object-fit: cover;" src="<?php echo base_url('assets/dua/img/mitra/'.$mtra->gambar)?> " width="200px" height="150px">
-        <td><a style="color:#fc9b3f" href="<?=base_url('admin/mitra/detailBerkas/').$mtra->id?>"><?=$mtra->berkas?></a></td>   
+        <img style="object-fit: cover;" src="<?php echo base_url('assets/dua/img/mitra/Gambar/'.$mtra->gambar)?> " width="200px" height="150px">
+        <td><a style="color:#fc9b3f" href="<?=base_url('assets/dua/img/mitra/File/').$mtra->id?>"><?=$mtra->berkas?></a></td>   
           
           </td>
                   <td>
@@ -134,7 +134,7 @@ refresh=setTimeout("action()",speed);}action();
         </button>
       </div>
       <div style="background-color:#3f80ba" class="modal-body">
-      <form action="<?= base_url('admin/mitra/tambahMitra');?>" method="post" enctype="multipart/form-data">
+      <?php echo form_open_multipart('admin/mitra/tambahMitra	');?>
          <div class="form-group">
           <label> Email</label>
           <input style="color:#ffffff;" type="email" name="email" class="form-control" required >
@@ -145,15 +145,14 @@ refresh=setTimeout("action()",speed);}action();
         <?= form_error('institusi','<small class="text-danger pl-3">','</small>')  ?>
         <div class="form-group">
           <label>Negara</label>
-                <select name="negara" required class="form-control">
-                <option selected="true" disabled="disabled">Pilih Negara Asal</option>
-                <?php $result= mysqli_query("Select")?>
-            <?php 
-            $result = $this->db->query("SELECT * FROM tb_negara")->result();
-            foreach($result  as $rsl) : ?>
-                <option value="<?php echo $rsl->id ?>">(<?php echo $rsl->iso?>) <?php echo $rsl->name?></option>
-                <?php endforeach; ?>
-                </select>
+          <select name="negara" class="form-control" required oninvalid="this.setCustomValidity('Silahkan Pilih Negara Asal Anda')" oninput="setCustomValidity('')">
+                                    <option value="" selected disabled>-- Pilih Negara --</option>
+                                    <?php 
+                                    $negara = $this->db->query("Select * from tb_negara")->result();
+                                    foreach($negara as $js) : ?>
+                                        <option value="<?php echo $js->id ?>"><?php echo $js->nicename;?></option>
+                                        <?php endforeach; ?>
+                                    </select>      
      <div class="form-group">
           <label> Pesan</label>
           <textarea style="color:#000;" type="text" name="pesan" class="form-control" ></textarea>

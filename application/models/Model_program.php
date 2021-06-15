@@ -1,11 +1,11 @@
 <?php
 class Model_program extends CI_Model{
 	public function tampil_data(){
-	$hasil=$this->db->query("SELECT * FROM tb_program ORDER BY nama ASC LIMIT 0,3");
+	$hasil=$this->db->query("SELECT * FROM tb_program ORDER BY tahun ASC LIMIT 0,3");
             return $hasil;
 	}
 	public function tampil_data_all(){
-	$hasil=$this->db->query("SELECT * FROM tb_program ORDER BY nama ASC");
+	$hasil=$this->db->query("SELECT * FROM tb_program ORDER BY tahun ASC");
             return $hasil;
 	}
 	public function detail_program($id){

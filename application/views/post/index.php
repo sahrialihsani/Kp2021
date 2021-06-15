@@ -18,6 +18,7 @@ refresh=setTimeout("action()",speed);}action();
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
+  <link href="<?=base_url('')?>assets/dua/berkas/css/style.css" rel="stylesheet">
   <link href="<?= base_url('')?>assets/dua/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= base_url('')?>assets/dua/vendor/icofont/icofont.min.css" rel="stylesheet">
   <link href="<?= base_url('')?>assets/dua/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -29,7 +30,6 @@ refresh=setTimeout("action()",speed);}action();
 
   <!-- Template Main CSS File -->
   <link href="<?=base_url('')?>assets/dua/css/footer.css" rel="stylesheet">
-  <link href="<?=base_url('')?>assets/dua/css/style.css" rel="stylesheet">
   <link href="<?=base_url('')?>assets/dua/css/preloader.css" rel="stylesheet">
 <link href="<?=base_url('assets/dua/css/footer.css')?>" rel="stylesheet">
 <link href="<?=base_url('')?>assets/dua/css/header.css" rel="stylesheet">
@@ -48,7 +48,7 @@ refresh=setTimeout("action()",speed);}action();
   <main id="main">
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-        <h2><?php echo __e('berita'); ?></h2>
+        <h2 style="margin-top:40px"><?php echo __e('berita'); ?></h2>
       </div>
     </section><!-- End Breadcrumbs -->
 
@@ -58,19 +58,21 @@ refresh=setTimeout("action()",speed);}action();
 
         <div class="row">
 
-        <?php foreach($data_berita as $berita):?>
+        <?php foreach($beritaku as $berita):?>
 
 <div class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
   <article class="entry">
-
-    <div class="entry-img">
-      <img src="<?=base_url('assets/dua/img/berita/').$berita->gambar?>" alt="" class="img-fluid">
-    </div>
-
-    <h2 class="entry-title">
+            <div class="entry-img">
+              <img style="width:100%" src="<?=base_url('assets/dua/img/berita/').$berita->gambar?>" class="img-fluid" alt="">
+              </div>
+              <div class="portfolio-info">
+                <div class="portfolio-links float-right">
+                  <a href="<?=base_url('assets/dua/img/berita/').$berita->gambar?>" data-gall="portfolioGallery" class="venobox" title="<?=$berita->judul?>"><i class="bx bx-expand-alt"></i></a>
+                </div>
+              </div>
+    <h2 style="margin-top:50px" class="entry-title">
       <a><?=$berita->judul?></a>
     </h2>
-
     <div class="entry-meta">
       <ul>
         <li class="d-flex align-items-center"><i class="icofont-user"></i> <a>Admin KSlI</a></li>
@@ -86,14 +88,18 @@ refresh=setTimeout("action()",speed);}action();
         <a href="<?= base_url('post/detailberita/').$berita->id?>"><?php echo __e('more'); ?></a>
       </div>
     </div>
-
+    
   </article><!-- End blog entry -->
 </div>
+
 <?php endforeach?>
         </div>
 
       </div>
     </section><!-- End Blog Section -->
+    <?php
+	echo $this->pagination->create_links();
+	?>
   <div id="preloader"></div>
 </main>
   <script src="<?=base_url('')?>assets/dua/vendor/jquery/jquery.min.js"></script>

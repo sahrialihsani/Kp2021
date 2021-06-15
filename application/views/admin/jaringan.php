@@ -75,7 +75,7 @@ refresh=setTimeout("action()",speed);}action();
                 <tr>
         <td><?=$no++ ?></td>
         <td><?=$ogns->nama; ?></td>
-        <td><?=$ogns->keterangan; ?></td>
+        <td><?php echo wordwrap(word_limiter("$ogns->keterangan",30),50,"<br>\n");?></td>
         <td><?=$ogns->tahun; ?></td>
         <td align="center"> <img style="object-fit: contain;" src="<?php echo base_url('assets/dua/img/organisasi/'.$ogns->gambar)?>" width="400px" height="200"></td>
                   <td>

@@ -53,8 +53,8 @@ refresh=setTimeout("action()",speed);}action();
         <div class="carousel-item active" style="background-image: url(assets/dua/img/slide/slide-1.jpg)">
           <div class="carousel-container">
             <div class="container">
-            <h2 class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
-            <p class="animate__animated animate__fadeInUp"><?php echo __e('hero1_keterangan'); ?></p>
+            <h2 style="font-size:25px" class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
+            <p style="font-size:15px" class="animate__animated animate__fadeInUp"><?php echo __e('hero1_keterangan'); ?></p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto"><?php echo __e('more'); ?></a>
             </div>
           </div>
@@ -63,8 +63,8 @@ refresh=setTimeout("action()",speed);}action();
         <div class="carousel-item" style="background-image: url(assets/dua/img/slide/slide-2.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
-              <p class="animate__animated animate__fadeInUp"><?php echo __e('hero1_keterangan'); ?></p>
+              <h2 style="font-size:25px" class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
+              <p style="font-size:15px" class="animate__animated animate__fadeInUp"><?php echo __e('hero1_keterangan'); ?></p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto"><?php echo __e('more'); ?></a>
             </div>
           </div>
@@ -74,8 +74,8 @@ refresh=setTimeout("action()",speed);}action();
         <div class="carousel-item" style="background-image: url(assets/dua/img/slide/slide-3.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
-              <p class="animate__animated animate__fadeInUp"><?php echo __e('hero1_keterangan'); ?></p>
+              <h2 style="font-size:25px" class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
+              <p style="font-size:15px" class="animate__animated animate__fadeInUp"><?php echo __e('hero1_keterangan'); ?></p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto"><?php echo __e('more'); ?></a>
             </div>
           </div>
@@ -84,12 +84,12 @@ refresh=setTimeout("action()",speed);}action();
       </div>
 
       <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
+        <span style="margin-left:25px" class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
 
       <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
+        <span style="margin-right:25px" class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
 

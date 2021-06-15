@@ -49,4 +49,23 @@ class Model_berita extends CI_Model{
 	$hasil=$this->db->query("SELECT * FROM tb_berita ");
             return $hasil;
 	}
+	function jumlah_data($kategori = null){
+    if($kategori != null):
+      $this->db->where($kategori);
+    endif;
+         $this->db->order_by('id','DESC');
+		return $this->db->get('berita_filter')->num_rows();
+	}
+	function data($number,$offset,$kategori = null){
+      if($kategori != null):
+        $this->db->where($kategori);
+      endif;
+        $this->db->order_by('id','DESC');
+		return $query = $this->db->get('berita_filter',$number,$offset)->result();
+	}
+	 function get_berita_list($limit, $start){
+        $this->db->order_by('id','DESC');
+        $query = $this->db->get('berita_filter', $limit, $start);
+        return $query;
+    }
 }
