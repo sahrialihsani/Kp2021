@@ -264,7 +264,6 @@ public function syarat()
 public function detailBerkas($id){
 		$data['detail_berkas'] = $this->Model_program->detail_berkas($id);
 		$this->load->view('international/detail_berkas', $data);
-	
-}		
+	}		
 }
 

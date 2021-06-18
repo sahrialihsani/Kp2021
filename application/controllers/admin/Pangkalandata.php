@@ -39,7 +39,7 @@ redirect(base_url('admin/pangkalandata/index'));
 			if($file=''){
 		
 		}else{
-				$config['upload_path']='./assets/dua/berkas/kerjasama/pemerintahan/';
+				$config['upload_path']='./assets/dua/berkas/kerjasama/';
 				$config['allowed_types']='pdf|doc|docx';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('file')){
@@ -203,7 +203,7 @@ $this->Model_kerjasama->tambah_kerjasama($data,'tb_kerjasama');
 		if($file=''){
 		
 		}else{
-				$config['upload_path']='./assets/dua/berkas/kerjasama/universitas/';
+				$config['upload_path']='./assets/dua/berkas/kerjasama/';
 				$config['allowed_types']='pdf|doc|docx';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('file')){
@@ -272,7 +272,7 @@ $data['data_pemerintahan']=$this->Model_kerjasama->edit_kerjasama($where,'tb_ker
 		if($file=''){
 		
 		}else{
-				$config['upload_path']='./assets/dua/berkas/kerjasama/pemerintahan/';
+				$config['upload_path']='./assets/dua/berkas/kerjasama/';
 				$config['allowed_types']='pdf|doc|docx';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('file')){
@@ -340,7 +340,7 @@ $data['data_swasta']=$this->Model_kerjasama->edit_kerjasama($where,'tb_kerjasama
 		if($file=''){
 		
 		}else{
-				$config['upload_path']='./assets/dua/berkas/kerjasama/swasta/';
+				$config['upload_path']='./assets/dua/berkas/kerjasama/';
 				$config['allowed_types']='pdf|doc|docx';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('file')){

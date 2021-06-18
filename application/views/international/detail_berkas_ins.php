@@ -16,7 +16,7 @@ refresh=setTimeout("action()",speed);}action();
         <a href="#" class="fa fa-times"></a>
     </div>
   <?php foreach($detail_berkas_sws as $berkas): ?>
-  <embed type="application/pdf" src="<?=base_url('assets/dua/berkas/kerjasama/swasta/').$berkas->file?>" width="100%" height="100%"></embed>
+  <embed type="application/pdf" src="<?=base_url('assets/dua/berkas/kerjasama/').$berkas->file?>" width="100%" height="100%"></embed>
   <?php endforeach;?>
         </div>
     </div>

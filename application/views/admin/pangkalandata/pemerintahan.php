@@ -32,7 +32,6 @@ refresh=setTimeout("action()",speed);}action();
   <!-- Custom Style-->
   <link href="<?=base_url('')?>assets/data/css/app-style.css" rel="stylesheet"/>
   <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-
   <link href="<?= base_url('')?>assets/dua/vendor/icofont/icofont.min.css" rel="stylesheet">
   
 </head>
@@ -124,13 +123,13 @@ color: #fff;">Kerja Sama dengan Pemerintahan</h2>
   <script src="<?=base_url('')?>assets/data/plugins/Chart.js/Chart.min.js"></script>
   <script>
 $(document).ready(function() {
-    $('#example').DataTable();
+    $('#example').DataTable( {
+    } );
 } );
+
 </script>
   <!-- Index js -->
   <script src="<?=base_url('')?>assets/data/js/index.js"></script>
   <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-
-
 </html>

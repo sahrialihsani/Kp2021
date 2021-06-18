@@ -33,9 +33,13 @@ class Model_kerjasama extends CI_Model{
 				return $hasil;
 	}
 		public function tampil_data_pemerintahan_all(){
-			$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.jenis='Pemerintahan' AND tb_kerjasama.status='Aktif'  ORDER BY tb_kerjasama.nama_kerjasama ASC");
+			$hasil=$this->db->query("SELECT tb_kerjasama.id, tb_kerjasama.nama_kerjasama,tb_mitra.institusi,tb_mitra.status, tb_kerjasama.mou_or_pks, tb_kerjasama.file,tb_kerjasama.tgl_mulai,tb_kerjasama.tgl_akhir FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id  WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.jenis='Pemerintahan' AND tb_kerjasama.status='Aktif'  ORDER BY tb_kerjasama.nama_kerjasama ASC");
 					return $hasil;
 	}
+	public function tampil_data_pks_all(){
+		$pendapatan = $this->db->query("SELECT tb_kerjasama.*, tb_pendapatan.* FROM tb_pendapatan inner join tb_kerjasama on tb_pendapatan.id_kerjasama=tb_kerjasama.id WHERE (DATEDIFF(tb_kerjasama.tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.mou_or_pks='PKS' AND tb_kerjasama.status='Aktif' ORDER BY tb_pendapatan.pendapatan DESC");
+				return $pendapatan;
+}
 	public function detail_kerjasama($id){
 		 $this->db->select('*');
     $this->db->from('tb_kerjasama');

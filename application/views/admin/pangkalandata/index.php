@@ -97,7 +97,7 @@ refresh=setTimeout("action()",speed);}action();
 
                 <?php $result= mysqli_query("Select")?>
             <?php 
-            $result = $this->db->query("SELECT * FROM tb_mitra WHERE status='Diterima'")->result();
+            $result = $this->db->query("SELECT * FROM tb_mitra WHERE status='Diterima' ORDER BY institusi")->result();
             foreach($result  as $rsl) : ?>
                 <option value="<?php echo $rsl->id ?>"><?php echo $rsl->institusi?></option>
                 <?php endforeach; ?>
