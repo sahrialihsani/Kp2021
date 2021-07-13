@@ -46,6 +46,7 @@ $this->_rules();
 				$gambar = $_FILES['gambar'];
 				$config['upload_path'] = './assets/dua/img/mitra/Gambar';
 				$config['allowed_types']  = 'jpeg|jpg|png';
+				$config['max_size']  = '2000';
 				$config['file_name'] = "Mitra_".$institusi;
 				$this->load->library('upload',$config);
 				
@@ -69,6 +70,7 @@ $this->_rules();
 			$berkas = $_FILES['berkas'];
 				$config2['upload_path'] = './assets/dua/img/mitra/File';
 				$config2['allowed_types']  = 'doc|docx|pdf';
+				$config['max_size']  = '2000';
 				$config2['file_name'] = "Mitra_".$institusi;
 				$this->upload->initialize($config2);
 	  

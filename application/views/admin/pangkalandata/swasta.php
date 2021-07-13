@@ -80,9 +80,27 @@ color: #fff;">Kerja Sama dengan Perusahaan</h2>
       <td><?=$sws->institusi; ?></td>
       <td><?=$sws->nama_kerjasama; ?></td>
       <td><?=$sws->mou_or_pks; ?></td>
-      <td><a style="color:#fc9b3f" href="<?=base_url('admin/pangkalandata/detailBerkasIns/').$sws->id?>"><?=$sws->file?></a></td>
+      <td>
+      <?php 
+            if($sws->file==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }else{
+            $id_file=$sws->id;
+            $path= base_url("admin/pangkalandata/detailBerkasIns/$id_file");
+            echo '<a style="color:#fc9b3f" href="'.$path.'">'.$sws->file.'</a>';
+            }
+      ?>
+      </td>
       <td><?=date('d F Y', strtotime($sws->tgl_mulai)); ?></td> 
-      <td><?=date('d F Y', strtotime($sws->tgl_akhir)); ?></td>  
+      <td>
+      <?php 
+      if($sws->tgl_akhir=='0000-00-00'){
+        echo'Kesepakatan';
+      }
+      else{
+        echo date('d F Y', strtotime($sws->tgl_akhir));
+      }
+      ?></td>   
                 <td>
                   <div  class="btn-group">
                   <button type="button" class="btn btn-warning btn-flat btn-xs">Aksi</button>

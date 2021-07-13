@@ -74,9 +74,31 @@
       <td><?=$unv->institusi; ?></td>
       <td><?=$unv->nama_kerjasama; ?></td>
       <td><?=$unv->mou_or_pks; ?></td>
-      <td><a style="color:#fc9b3f" href="<?=base_url('program/detailBerkasUniv/').$unv->id?>"><?=$unv->file?></a></td>
+      <td>
+      <?php 
+            if($unv->file==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }
+            if($unv->mou_or_pks=='MOU'){
+            $id_file=$unv->id;
+            $path= base_url("program/detailBerkasUniv/$id_file");
+            echo '<a style="color:#fc9b3f" href="'.$path.'">'.$unv->file.'</a>';
+            }
+            if($unv->mou_or_pks!='MOU'){
+            echo'File selain MOU tidak dapat dibuka';  
+            }
+      ?>
+      </td>
       <td><?=date('d F Y', strtotime($unv->tgl_mulai)); ?></td> 
-      <td><?=date('d F Y', strtotime($unv->tgl_akhir)); ?></td>  
+      <td>
+      <?php 
+      if($unv->tgl_akhir=='0000-00-00'){
+        echo'Kesepakatan';
+      }
+      else{
+        echo date('d F Y', strtotime($unv->tgl_akhir));
+      }
+      ?></td>    
               </tr>
             <?php } ?>
           </tbody>

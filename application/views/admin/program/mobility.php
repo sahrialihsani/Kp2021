@@ -41,6 +41,7 @@ refresh=setTimeout("action()",speed);}action();
 	
   <div class="content-wrapper">
     <div class="container-fluid">
+    <?= $this->session->flashdata('message'); ?>
       <button onclick="window.location.href='<?=base_url('admin/programdanbea')?>'" style="border-radius:10px; margin-bottom:10px" class="btn btn-primary"><i class="icofont-arrow-left"></i> Kembali</button>
 
     <h2 class="justify-content-center text-center" style=" font-weight: 700;
@@ -60,6 +61,7 @@ refresh=setTimeout("action()",speed);}action();
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>Nama Program</th>
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Status</th>
@@ -74,9 +76,20 @@ refresh=setTimeout("action()",speed);}action();
                     <tr>
             <td><?=$no++ ?></td>
             <td><?=$stmb->nama; ?></td>
+            <td><?=$stmb->nama_lengkap; ?></td>
             <td><?= $stmb->email?></td>  
             <td><?= $stmb->status?></td>   
-            <td><a style="color:#fc9b3f" href="<?=base_url('admin/mobility/detailBerkas/').$stmb->id?>"><?=$stmb->berkas?></a></td>
+            <td>
+            <?php 
+            if($stmb->berkas==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }else{
+            $id_berkas=$stmb->id;
+            $path= base_url("assets/dua/berkas/mobility/$id_berkas");
+            echo '<a style="color:#fc9b3f" href="'.$path.'">'.$stmb->berkas.'</a>';
+            }
+      ?>
+            </td>
 
                       <td>
                         <div  class="btn-group">
@@ -114,8 +127,20 @@ refresh=setTimeout("action()",speed);}action();
           <form action="<?= base_url('admin/mobility/tambahStudentmob');?>" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label >Nama</label>
-              <input style="color:#ffffff;" type="text" name="nama" class="form-control" required>
-                <?= form_error('nama','<small class="text-danger pl-3">','</small>')  ?>
+              <input style="color:#ffffff;" type="text" name="nama_lengkap" class="form-control" required>
+                <?= form_error('nama_lengkap','<small class="text-danger pl-3">','</small>')  ?>
+                <div class="form-group">
+                <label >Nama Program</label>
+                <select name="program" required class="form-control">
+                <option selected="true" disabled="disabled">Pilih Program</option>
+
+                <?php $result= mysqli_query("Select")?>
+            <?php 
+            $result = $this->db->query("SELECT * FROM tb_program")->result();
+            foreach($result  as $rsl) : ?>
+                <option value="<?php echo $rsl->id ?>"><?php echo $rsl->nama?></option>
+                <?php endforeach; ?>
+                </select>
                 <div class="form-group">
               <label> Email</label>
               <input style="color:#ffffff;" type="email" name="email" class="form-control" required>
@@ -127,13 +152,12 @@ refresh=setTimeout("action()",speed);}action();
                 <option>Dosen</option>
                 <option>Tendik</option>
                 <option>Mahasiswa</option>
-
                 </select>
             <div class="form-group">
          <label>Berkas</label>
          <input style="color:#ffffff;" type="file" name="berkas" class="form-control">
             <?= form_error('berkas','<small class="text-danger pl-3">','</small>')  ?>
-    
+     
               </div>
             </div>
           <div class="modal-footer">

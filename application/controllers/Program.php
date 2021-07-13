@@ -30,6 +30,13 @@ class program extends CI_Controller {
 		$this->load->view('international/index',$data);
 		$this->load->view('template/footer',$data);
 	}
+	public function daftar_program()
+	{
+		$data['data_program'] = $this->Model_program->tampil_data_all()->result();
+		$this->load->view('template/headerlayanan',$data);
+		$this->load->view('international/daftar_program',$data);
+		$this->load->view('template/footer',$data);
+	}
 	public function detailOportunity()
 	{
 		$data['menu_beranda'] = "Home";
@@ -199,7 +206,8 @@ public function institution()
 		$this->load->view('template/footer',$data);
 }
 public function uploadBerkas(){
-	$nama =$this->input->post('nama');
+	$id_program =$this->input->post('program');
+	$nama_lengkap =$this->input->post('nama_lengkap');
 	$email =$this->input->post('email');
 	$status =$this->input->post('status');
 	$berkas =$this->input->post('berkas');
@@ -207,7 +215,7 @@ public function uploadBerkas(){
 $cek_Studentmob = $sql->num_rows();
 if ($cek_Studentmob > 0) {
 $this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Data ini sudah ada</div>');
-redirect(base_url('program'));
+redirect(base_url('program/daftar_program'));
 	}else{
 		
 		if($berkas=''){
@@ -215,6 +223,7 @@ redirect(base_url('program'));
 	}else{
 			$config['upload_path']='./assets/dua/berkas/mobility/';
 			$config['allowed_types']='pdf|doc|docx';
+			$config['max_size']  = '2000';
 			$this->load->library('upload',$config);
 			if($this->upload->do_upload('berkas')){
 				$berkas=$this->upload->data('file_name');
@@ -227,14 +236,15 @@ redirect(base_url('program'));
 		}
 $data['data_mobility']= $this->db->get_where('tb_mobility')->row_array();
 $data=array(
-	'nama'=>$nama,
+	'id_program'=>$id_program,
+	'nama_lengkap'=>$nama_lengkap,
 	'email'=> $email,
 	'status'=> $status,
 'berkas'=>$berkas);
 $this->Model_mobility->tambah_mobility($data,'tb_mobility');
 $this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Berhasil upload berkas program mobility</div>');
 
-redirect(base_url('program'));
+redirect(base_url('program/daftar_program'));
 }
 }
 public function detailBerkasUniv($id){

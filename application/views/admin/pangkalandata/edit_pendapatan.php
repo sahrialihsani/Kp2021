@@ -62,7 +62,7 @@ refresh=setTimeout("action()",speed);}action();
                 <option selected="true" disabled="disabled">Pilih Kerjasama</option>
                 <?php $result= mysqli_query("Select")?>
             <?php 
-            // $result = $this->db->query("SELECT tb_kerjasama.*, tb_mitra.* FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id WHERE tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='PKS'")->result();
+            // $result = $this->db->query("SELECT tb_kerjasama.*, tb_mitra.* FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id WHERE tb_kerjasama.status='Aktif' OR tb_kerjasama.status='Kesepakatan' AND tb_kerjasama.mou_or_pks='PKS'")->result();
            $result=$this->db->query("SELECT * FROM tb_kerjasama WHERE status='Aktif' AND mou_or_pks='PKS'")->result();
            foreach($result  as $rsl) : ?>
                 <option value="<?php echo $rsl->id ?>"><?php echo word_limiter($rsl->nama_kerjasama,20) ?></option>

@@ -27,6 +27,7 @@
 							<thead align="center" style="background-color:#D3D3D3">
 								<tr>
 									<th width="1%">No</th>
+									<th>Nama Program</th>
 		                            <th>Nama</th>                            
 		                          	<th>Email</th>                           
 		                            <th>Status</th>                            
@@ -39,7 +40,8 @@
 								?>
 								<tr align="center">
 									<td><?php echo $no++; ?></td>                              
-	                                <td><?php echo $d->nama; ?></td>                                
+	                                <td><?php echo $d->nama; ?></td>
+									<td><?php echo $d->nama_lengkap?></td>                                
 	                                <td><?php echo $d->email; ?></td>                                
 	                                <td><?php echo $d->status; ?></td>                                
 								</tr>

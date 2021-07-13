@@ -11,6 +11,8 @@ class home extends CI_Controller {
 	{
 		$data['data_mitra'] = $this->Model_mitra->tampil_data()->result_array();
 		$data['total_mitra'] = $this->Model_mitra->tampil_data()->num_rows();
+		$data['total_berita'] = $this->Model_berita->tampil_data()->num_rows();
+		$data['total_mitra'] = $this->Model_mitra->tampil_data()->num_rows();
 		$data['data_staf'] = $this->Model_staf->tampil_data()->result_array();
 		$data['data_berita'] = $this->Model_berita->tampil_data()->result();
 		$data['menu_beranda'] = "Home";

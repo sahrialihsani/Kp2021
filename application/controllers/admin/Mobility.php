@@ -19,11 +19,12 @@ class mobility extends CI_Controller {
 		
 	}
 	public function tambahStudentmob(){
-		$nama =$this->input->post('nama');
+		$id_program =$this->input->post('program');
+		$nama_lengkap =$this->input->post('nama_lengkap');
 		$email =$this->input->post('email');
 		$status =$this->input->post('status');
 		$berkas =$this->input->post('berkas');
-		$sql = $this->db->query("SELECT nama FROM tb_mobility where nama='$nama'");
+		$sql = $this->db->query("SELECT nama_lengkap FROM tb_mobility where nama_lengkap='$nama'");
 $cek_Studentmob = $sql->num_rows();
 if ($cek_Studentmob > 0) {
 	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Data ini sudah ada</div>');
@@ -36,6 +37,7 @@ redirect(base_url('admin/mobility'));
 		}else{
 				$config['upload_path']='./assets/dua/berkas/mobility/';
 				$config['allowed_types']='pdf|doc|docx';
+				$config['max_size']  = '2000';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('berkas')){
 					$berkas=$this->upload->data('file_name');
@@ -48,7 +50,8 @@ redirect(base_url('admin/mobility'));
 			}
 	$data['data_mobility']= $this->db->get_where('tb_mobility')->row_array();
 $data=array(
-		'nama'=>$nama,
+		'id_program'=>$id_program,
+		'nama_lengkap'=>$nama_lengkap,
 		'email'=> $email,
 		'status'=> $status,
 	'berkas'=>$berkas);
@@ -69,18 +72,19 @@ $this->Model_mobility->tambah_mobility($data,'tb_mobility');
 	
 		}
 		public function ubah_mobility(){
-				$data['data_mobility']= $this->db->get_where('tb_mobility')->row_array();
-	
+			$data['data_mobility']= $this->db->get_where('tb_mobility')->row_array();
 			$id=$this->input->post('id');
-			$nama =$this->input->post('nama');
+			$id_program =$this->input->post('program');
+			$nama_lengkap =$this->input->post('nama_lengkap');
 			$email =$this->input->post('email');
 			$status =$this->input->post('status');
 			$berkas =$this->input->post('berkas');
 			if($berkas=''){
-			
+				
 			}else{
 					$config['upload_path']='./assets/dua/berkas/mobility/';
 					$config['allowed_types']='pdf|doc|docx';
+					$config['max_size']  = '2000';
 					$this->load->library('upload',$config);
 					if($this->upload->do_upload('berkas')){
 						$berkas=$this->upload->data('file_name');
@@ -92,7 +96,8 @@ $this->Model_mobility->tambah_mobility($data,'tb_mobility');
 			
 				}
 		$data=array(
-			'nama'=>$nama,
+			'id_program'=>$id_program,
+			'nama_lengkap'=>$nama_lengkap,
 			'email'=> $email,
 			'status'=> $status,
 		'berkas'=>$berkas);

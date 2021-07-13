@@ -80,7 +80,15 @@ refresh=setTimeout("action()",speed);}action();
               <div class="form-group">
                 <label class="col-sm-2 control-label">Berkas</label>
                 <div class="col-sm-12">
-                  <a style="color:#fc9b3f" href="<?=base_url('admin/program/detailBerkas/').$prg->id?>">File : <?=$prg->berkas?></a>
+                <?php 
+            if($prg->berkas==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }else{
+            $id_berkas=$prg->id;
+            $path= base_url("admin/program/detailBerkas/$id_berkas");
+            echo '<a style="color:#fc9b3f" href="'.$path.'">'.$prg->berkas.'</a>';
+            }
+      ?>
                   <input type="file" class="form-control" name="berkas" value="<?= $prg->berkas;?>" required>
                 </div>
               </div>

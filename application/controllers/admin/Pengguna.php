@@ -37,6 +37,7 @@ redirect(base_url('admin/pengguna'));
 		}else{
 				$config['upload_path']='./assets/dua/img/profil/';
 				$config['allowed_types']='png|jpg|jpeg';
+				$config['max_size']  = '2000';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('foto')){
 					$foto=$this->upload->data('file_name');
@@ -85,6 +86,7 @@ $this->Model_pengguna->tambah_pengguna($data,'tb_admin');
 			}else{
 					$config['upload_path']='./assets/dua/img/profil/';
 					$config['allowed_types']='png|jpg|jpeg';
+					$config['max_size']  = '2000';
 					$this->load->library('upload',$config);
 					if($this->upload->do_upload('foto')){
 						$foto=$this->upload->data('file_name');

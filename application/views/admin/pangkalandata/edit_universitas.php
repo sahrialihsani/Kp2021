@@ -76,6 +76,14 @@ refresh=setTimeout("action()",speed);}action();
                   <input type="text" class="form-control" name="nama_kerjasama" value="<?= $unv->nama_kerjasama;?>"required></input>
                 </div>
               </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Nomor Kerjasama</label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" name="no_kerjasama" required value="<?= $unv->no_kerjasama;?>"></input>
+                </div>
+              </div>
+
               <div class="form-group">
                 <label class="col-sm-2 control-label">Isi Kerjasama</label>
                 <div class="col-sm-12">
@@ -83,12 +91,13 @@ refresh=setTimeout("action()",speed);}action();
                 </div>
               </div>
 
-              <div class="form-group">
+<div class="form-group">
                 <label class="col-sm-2 control-label">Status Kerjasama</label>
                 <div class="col-sm-12">
                 <select name="status" class="form-control" required>
                 <option>Aktif</option>
                 <option>Tidak Aktif</option>
+               <option>Kesepakatan</option>
                 </select>
                 </div>
               </div>
@@ -99,6 +108,8 @@ refresh=setTimeout("action()",speed);}action();
                 <select name="mou_or_pks" class="form-control" required>
                 <option>MOU</option>
                 <option>PKS</option>
+                <option>LOI</option>
+                <option>COC</option>
                 </select>
                 </div>
               </div>
@@ -106,7 +117,15 @@ refresh=setTimeout("action()",speed);}action();
               <div class="form-group">
                 <label class="col-sm-2 con\trol-label">File Kerjasama</label>
                 <div class="col-sm-12">
-                <a style="color:#fc9b3f" href="">File : <?=$unv->file?></a>
+      <?php 
+            if($unv->file==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }else{
+            $id_file=$unv->id;
+            $path= base_url("admin/pangkalandata/detailBerkasUniv/$id_file");
+            echo '<a style="color:#fc9b3f" href="'.$path.'">'.$unv->file.'</a>';
+            }
+      ?>
                   <input type="file" class="form-control" name="file" value="<?= $unv->file;?>"required></input>
                 </div>
               </div>

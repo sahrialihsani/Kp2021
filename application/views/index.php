@@ -50,7 +50,7 @@ refresh=setTimeout("action()",speed);}action();
 
       <div class="carousel-inner" role="listbox">
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url(assets/dua/img/slide/slide-1.jpg)">
+        <div class="carousel-item active" style="background-image: url(assets/dua/img/slide/ksli1.jpg)">
           <div class="carousel-container">
             <div class="container">
             <h2 style="font-size:25px" class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
@@ -60,22 +60,22 @@ refresh=setTimeout("action()",speed);}action();
           </div>
         </div>
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url(assets/dua/img/slide/slide-2.jpg)">
+        <div class="carousel-item" style="background-image: url(assets/dua/img/slide/ksli2.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 style="font-size:25px" class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
-              <p style="font-size:15px" class="animate__animated animate__fadeInUp"><?php echo __e('hero1_keterangan'); ?></p>
+              <h2 style="font-size:25px" class="animate__animated animate__fadeInDown"><?php echo __e('welcome2'); ?></h2>
+              <p style="font-size:15px" class="animate__animated animate__fadeInUp"><?php echo __e('hero2_keterangan'); ?></p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto"><?php echo __e('more'); ?></a>
             </div>
           </div>
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url(assets/dua/img/slide/slide-3.jpg)">
+        <div class="carousel-item" style="background-image: url(assets/dua/img/slide/ksli3.jpg)">
           <div class="carousel-container">
             <div class="container">
-              <h2 style="font-size:25px" class="animate__animated animate__fadeInDown"><?php echo __e('welcome'); ?></h2>
-              <p style="font-size:15px" class="animate__animated animate__fadeInUp"><?php echo __e('hero1_keterangan'); ?></p>
+              <h2 style="font-size:25px" class="animate__animated animate__fadeInDown"><?php echo __e('welcome3'); ?></h2>
+              <p style="font-size:15px" class="animate__animated animate__fadeInUp"><?php echo __e('hero3_keterangan'); ?></p>
               <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto"><?php echo __e('more'); ?></a>
             </div>
           </div>
@@ -103,7 +103,7 @@ refresh=setTimeout("action()",speed);}action();
       foreach($data_mitra as $mtr){
         echo '<div>';
         $image="$mtr[gambar]";
-        $path= base_url("assets/dua/img/mitra/$image");
+        $path= base_url("assets/dua/img/mitra/Gambar/$image");
         echo'<img style="object-fit: contain; margin-left:30px" height="100px" src="'.$path.'" alt="">';
         echo '<p align="center" style="margin-top:10px;background-color:rgba(3, 56, 102, 0.9);;opacity:0.3;font-size:16px;font-weight:700; color:#fff; padding-left:5px">'.$mtr['institusi'].'</p>';
         echo'</div>';
@@ -240,9 +240,10 @@ refresh=setTimeout("action()",speed);}action();
           <?php endforeach?>
         </div>
       </div>
+      
     </section><!-- End Team Section -->
     <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq">
+    <!-- <section id="faq" class="faq">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -304,7 +305,8 @@ refresh=setTimeout("action()",speed);}action();
         </div>
 
       </div>
-    </section><!-- End Frequently Asked Questions Section -->
+    </section> -->
+    <!-- End Frequently Asked Questions Section -->
   <!-- ======= Blog Section ======= -->
   <section id="blog" class="blog">
       <div class="container">

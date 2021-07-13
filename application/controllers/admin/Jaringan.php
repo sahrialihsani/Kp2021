@@ -35,6 +35,7 @@ redirect(base_url('admin/jaringan'));
 			}else{
 					$config['upload_path']='./assets/dua/img/organisasi/';
 					$config['allowed_types']='jpg|jpeg|png';
+					$config['max_size']  = '2000';
 					$this->load->library('upload',$config);
 					if($this->upload->do_upload('gambar')){
 						$gambar=$this->upload->data('file_name');
@@ -72,6 +73,7 @@ redirect(base_url('admin/jaringan'));
 			}else{
 					$config['upload_path']='./assets/dua/img/organisasi/';
 					$config['allowed_types']='jpg|jpeg|png';
+					$config['max_size']  = '2000';
 					$this->load->library('upload',$config);
 					if($this->upload->do_upload('gambar')){
 						$gambar=$this->upload->data('file_name');

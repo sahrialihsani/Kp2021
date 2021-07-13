@@ -101,7 +101,15 @@ refresh=setTimeout("action()",speed);}action();
               <div class="form-group">
                 <label class="col-sm-2 control-label">Gambar</label>
                 <div class="col-sm-12">
-                <img style="object-fit: contain;" src="<?php echo base_url('assets/dua/img/mitra/Gambar/'.$mtra->gambar)?> " width="400px" height="300px">
+        <?php 
+            if($mtra->gambar==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }else{
+            $gbr=$mtra->gambar;
+            $path= base_url("assets/dua/img/mitra/Gambar/$gbr");
+            echo'<img style="object-fit: contain;" src="'.$path.'" alt=""  width="400px" height="300px">';
+            }
+        ?>
                   <input type="file" class="form-control" name="gambar"  required>
                 </div>
               </div>

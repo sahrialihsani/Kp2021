@@ -37,6 +37,7 @@ redirect(base_url('admin/berita'));
 			}else{
 					$config['upload_path']='./assets/dua/img/berita/';
 					$config['allowed_types']='jpg|jpeg|png';
+					$config['max_size']  = '2000';
 					$this->load->library('upload',$config);
 					if($this->upload->do_upload('gambar')){
 						$gambar=$this->upload->data('file_name');
@@ -80,6 +81,7 @@ $this->Model_berita->tambah_berita($data,'tb_berita');
 			}else{
 					$config['upload_path']='./assets/dua/img/berita/';
 					$config['allowed_types']='jpg|jpeg|png';
+					$config['max_size']  = '2000';
 					$this->load->library('upload',$config);
 					if($this->upload->do_upload('gambar')){
 						$gambar=$this->upload->data('file_name');

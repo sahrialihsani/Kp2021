@@ -1,5 +1,5 @@
 <!-- ======= Top Bar ======= -->
-  <link href="<?= base_url('')?>assets/dua/img/unib.png" rel="icon">
+<link href="<?= base_url('')?>assets/dua/img/unib.png" rel="icon">
   <link href="<?= base_url('')?>assets/dua/img/unib.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -27,9 +27,10 @@
         </ul>
       </div>
       <div class="cta">
-        <a href="<?=base_url('Login')?>" class="scrollto">Login Area</a>
+        <a  href="<?=base_url('Login')?>" class="scrollto">Login Area</a>
       </div>
-		
+      <a style="margin-left:10px" href="<?=base_url('lang_setter/set_to/id')?>" ><img src="<?=base_url('assets/dua/img/indonesia.png')?>" alt="Indonesia" width="30px" height="30px"></a>
+      <a style="margin-left:10px" href="<?=base_url('lang_setter/set_to/en')?>" ><img src="<?=base_url('assets/dua/img/united-kingdom.png')?>" alt="English" width="30px" height="30px"></a>
     </div>
   </div>
 
@@ -46,25 +47,21 @@
         <li class="active"><a href="<?php echo base_url('')?>"><?php echo __e('menu_beranda'); ?></a></li>
         <li><a href="<?php echo base_url('#about')?>"><?php echo __e('menu_tkami'); ?></a></li>
         <li><a href="<?= base_url('post')?>"><?php echo __e('menu_berita'); ?></a></li>
+        <li class="drop-down"><a href="#"><?php echo __e('menu_program'); ?></a>
+                <ul>
+                  <li><a href="<?=base_url('program')?>"><?php echo __e('beasiswa'); ?></a></li>
+                  <li><a href="<?=base_url('program/partners')?>"><?php echo __e('pangkalan'); ?></a></li>
+                  <!-- <li><a href="<?=base_url('downloaddata')?>">Unduh Data</a></li> -->
+                </ul>
+        </li>
         <li class="drop-down"><a href="#"><?php echo __e('menu_layanan'); ?></a>
                 <ul>
-                <li><a href="<?=base_url('program')?>"><?php echo __e('beasiswa'); ?></a></li>
-                  <li><a href="<?=base_url('program/partners')?>"><?php echo __e('pangkalan'); ?></a></li>
                   <li><a href="<?=base_url('program/networking')?>"><?php echo __e('jaringan'); ?></a></li>
                   <li><a href="<?=base_url('program/travelservice')?>"><?php echo __e('perjalanan'); ?></a></li>
                   <!-- <li><a href="<?=base_url('downloaddata')?>">Unduh Data</a></li> -->
                 </ul>
         </li>
         <li><a  href="<?= base_url('#contact')?>"><?php echo __e('menu_hubungi'); ?></a></li>
-
-        <li class="drop-down"><a href="#"><?php echo __e('menu_bahasa'); ?></a>
-                <ul>
-                  <li> <a href="<?=base_url('lang_setter/set_to/id')?>" class="scrollto active">Indonesia</a></li>
-              
-                  <li>  <a href="<?=site_url('lang_setter/set_to/en')?>" class="scrollto">English</a></li>
-                
-                </ul>
-        </li> 
         </ul>
       </nav><!-- .nav-menu -->
 

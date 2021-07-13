@@ -8,11 +8,14 @@
  * 
  * tag HTML diizinkan
  */
-$lang['welcome'] = 'Welcome to <span>UPT KSLI Universitas Bengkulu</span>';
+$lang['welcome'] = 'Welcome to <span>Office of Partnership and International Affair UNIB</span>';
+$lang['welcome2'] = 'Our Duty in <span>Office of Partnership and International Affair UNIB</span>';
+$lang['welcome3'] = 'Our Vision in <span>Office of Partnership and International Affair UNIB</span>';
 $lang['menu_beranda'] = "Home";
 $lang['menu_tkami'] = "About Us";
 $lang['menu_berita'] = "News";
-$lang['menu_layanan'] = "Programs";
+$lang['menu_layanan'] = "Services";
+$lang['menu_program'] = "Programs";
 $lang['menu_hubungi'] = "Contact Us";
 $lang['menu_bahasa'] = "Language";
 $lang['beasiswa'] = "Scholarship & Global Opportunity";
@@ -24,8 +27,8 @@ $lang['contact_us'] = "Kandang Limun, Muara Bangka Hulu, Bengkulu City, Bengkulu
 $lang['phone'] = "(0736) 21170, 21884, Ext (190)";
 $lang['email'] = "international@unib.ac.id";
 $lang['hero1_keterangan'] = "Office of Partnership and International Affair is responsible for unib cooperation relationships with local and foreign agencies/universities.";
-$lang['hero2_keterangan'] = "Office of Partnership and International Affair is responsible for unib cooperation relationships with local and foreign agencies/universities.";
-$lang['hero3_keterangan'] = "Office of Partnership and International Affair is responsible for unib cooperation relationships with local and foreign agencies/universities.";
+$lang['hero2_keterangan'] = "Carrying out the development of cooperation, student services, educators, and foreign education personnel, as well as international promotion of UNIB.";
+$lang['hero3_keterangan'] = "Supporting the achievement of the ideals of The University of Bengkulu to become a world-class university through improving good governance related to the development of cooperation of the University of Bengkulu at the national and international level.";
 $lang['exchange_mhs']="Student Exchange Abroad";
 $lang['exchange_dsn']="Lecturer Exchange abroad";
 $lang['foreign_mhs']="Foreign Students";

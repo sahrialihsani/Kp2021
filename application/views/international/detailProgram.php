@@ -61,6 +61,7 @@ refresh=setTimeout("action()",speed);}action();
   <?php endforeach?>
   <br>
   <br>
+  <button onclick="window.location.href='<?=base_url('program/daftar_program')?>'" style="font-size:15px" class="btn btn-warning btn-flat btn-xs float-left">Daftar Program</button>
   <br>
   <br>
   <br>

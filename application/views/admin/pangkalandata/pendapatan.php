@@ -116,7 +116,7 @@ color: #fff;">Pendapatan Kerjasama</h2>
               <?php } ?>
               <tr>
           <?php
-	$hasil=$this->db->query("SELECT tb_kerjasama.*, tb_pendapatan.id, tb_pendapatan.pendapatan,tb_pendapatan.id_kerjasama,SUM(tb_pendapatan.pendapatan) AS total FROM tb_pendapatan inner join tb_kerjasama on tb_pendapatan.id_kerjasama=tb_kerjasama.id WHERE (DATEDIFF(tb_kerjasama.tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.status='Aktif' and tb_kerjasama.mou_or_pks='PKS' ORDER BY tb_pendapatan.pendapatan DESC")->result();
+	$hasil=$this->db->query("SELECT tb_kerjasama.*, tb_pendapatan.id, tb_pendapatan.pendapatan,tb_pendapatan.id_kerjasama,SUM(tb_pendapatan.pendapatan) AS total FROM tb_pendapatan inner join tb_kerjasama on tb_pendapatan.id_kerjasama=tb_kerjasama.id WHERE (DATEDIFF(tb_kerjasama.tgl_akhir,CURRENT_DATE())>=0) AND tb_kerjasama.status='Aktif' OR tb_kerjasama.status='Kesepakatan' and tb_kerjasama.mou_or_pks='PKS' ORDER BY tb_pendapatan.pendapatan DESC")->result();
   foreach ($hasil as $tot) { ?>
      <td colspan="2">Total Pendapatan</td>
           <td><?php
@@ -158,7 +158,7 @@ color: #fff;">Pendapatan Kerjasama</h2>
                 <option selected="true" disabled="disabled">Pilih Kerjasama</option>
                 <?php $result= mysqli_query("Select")?>
             <?php 
-            // $result = $this->db->query("SELECT tb_kerjasama.*, tb_mitra.* FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id WHERE tb_kerjasama.status='Aktif' AND tb_kerjasama.mou_or_pks='PKS'")->result();
+            // $result = $this->db->query("SELECT tb_kerjasama.*, tb_mitra.* FROM tb_kerjasama  join tb_mitra on tb_kerjasama.id_mitra=tb_mitra.id WHERE tb_kerjasama.status='Aktif' OR tb_kerjasama.status='Kesepakatan' AND tb_kerjasama.mou_or_pks='PKS'")->result();
            $result=$this->db->query("SELECT * FROM tb_kerjasama WHERE (DATEDIFF(tgl_akhir,CURRENT_DATE())>=0) AND status='Aktif' AND mou_or_pks='PKS'")->result();
            foreach($result  as $rsl) : ?>
                 <option value="<?php echo $rsl->id ?>"><?php echo word_limiter($rsl->nama_kerjasama,20) ?></option>

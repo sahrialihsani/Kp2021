@@ -35,7 +35,7 @@ class profil extends CI_Controller {
 $upload_image=$_FILES['foto']['name'];
 			if($upload_image){
 				$config['allowed_types']='gif|jpg|png|jpeg';
-				$config['max_size']='10000';
+				$config['max_size']='2000';
 				$config['upload_path']='./assets/dua/img/profil/';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('foto')){

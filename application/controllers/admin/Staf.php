@@ -37,6 +37,7 @@ redirect(base_url('admin/staf'));
 		}else{
 				$config['upload_path']='./assets/dua/img/staf/';
 				$config['allowed_types']='jpg|jpeg|png';
+				$config['max_size']  = '2000';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('foto')){
 					$foto=$this->upload->data('file_name');
@@ -82,6 +83,7 @@ $data['data_staf']=$this->Model_staf->edit_staf($where,'tb_staf')->result();
 		}else{
 				$config['upload_path']='./assets/dua/img/staf/';
 				$config['allowed_types']='jpg|jpeg|png';
+				$config['max_size']  = '2000';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('foto')){
 					$foto=$this->upload->data('file_name');

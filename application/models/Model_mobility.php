@@ -1,11 +1,11 @@
 <?php
 class Model_mobility extends CI_Model{
 	public function tampil_data(){
-	$hasil=$this->db->query("SELECT * FROM tb_mobility ORDER BY nama ASC LIMIT 0,3");
+	$hasil=$this->db->query("SELECT tb_mobility.*, tb_program.* FROM tb_mobility JOIN tb_program ON tb_mobility.id_program=tb_program.id ORDER BY tb_mobility.nama_lengkap ASC LIMIT 0,3");
             return $hasil;
 	}
 	public function tampil_data_all(){
-	$hasil=$this->db->query("SELECT * FROM tb_mobility ORDER BY nama ASC");
+	$hasil=$this->db->query("SELECT tb_mobility.*, tb_program.* FROM tb_mobility JOIN tb_program ON tb_mobility.id_program=tb_program.id ORDER BY tb_mobility.nama_lengkap ASC");
             return $hasil;
 	}
 	public function detail_mobility($id){

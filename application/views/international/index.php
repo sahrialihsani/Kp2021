@@ -64,53 +64,7 @@ refresh=setTimeout("action()",speed);}action();
       <br>
 
 <?php endforeach?>
-  
-      
         </div>
-      </div>
-    </section><!-- End Contact Section -->
-<section style="background-color:#fff;" id="oportunity" class="oportunity">
-      <div class="container section-title">
-      <h2 class="justify-content-center text-center" style=" font-weight: 700;
-  font-size: 30px;
-  color: #05579e;"><?php echo __e('mobility');?></h2>
-      <br>
-       
-      <?= $this->session->flashdata('message'); ?>
-
-          <div class="col-lg-12 mt-5 mt-lg-0 justify-content-center">
-
-          <form action="<?=base_url('program/uploadBerkas');?>" method="post" enctype="multipart/form-data" class="form-horizontal" >
-              <div class="form-row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Anda" required/>
-                </div>
-                <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Email Anda" required/>
-                </div>
-              </div>
-              <div class="form-group">
-                 <select name="status" class="form-control" required>
-                 <option selected="true" disabled="disabled">Pilih Salah Satu</option>
-                <option>Dosen</option>
-                <option>Tendik</option>
-                <option>Mahasiswa</option>
-                </select>
-              </div>
-              <div class="form-group">
-              <p class="float-left">Masukan berkas anda: </p>
-              <input type="file" class="form-control" name="berkas" id="berkas" required/>
-              </div>
-              <div class="form-group">
-              <i style="color:#03a5fc; padding-top:4px; padding-right:5px" class="icofont-file-pdf float-left"></i><a class="float-left" href="<?=base_url('program/syarat')?>">Lihat Syarat</a>
-              </div>     
-              <br>         
-              <div class="text-center"><button style="border-radius:10px;height:40px; width:100px" class="btn-primary" type="submit">Daftar</button></div>
-          </div>
-        </form>
-
-        </div>
-
       </div>
     </section><!-- End Contact Section -->
   <div id="preloader"></div>

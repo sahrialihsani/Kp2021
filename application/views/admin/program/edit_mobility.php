@@ -59,7 +59,22 @@ refresh=setTimeout("action()",speed);}action();
                 <label class="col-sm-2 control-label">Nama</label>
                 <input type="hidden" name="id" value="<?= $stmb->id;?>">
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" name="nama" value="<?= $stmb->nama;?>" required>
+                  <input type="text" class="form-control" name="nama_lengkap" value="<?= $stmb->nama_lengkap;?>" required>
+                </div>
+              </div>
+                <div class="form-group">
+                <label class="col-sm-2 control-label">Status</label>
+                <div class="col-sm-12">
+                <select name="program" required class="form-control">
+                <option selected="true" disabled="disabled">Pilih Program</option>
+
+                <?php $result= mysqli_query("Select")?>
+            <?php 
+            $result = $this->db->query("SELECT * FROM tb_program")->result();
+            foreach($result  as $rsl) : ?>
+                <option value="<?php echo $rsl->id ?>"><?php echo $rsl->nama?></option>
+                <?php endforeach; ?>
+                </select>
                 </div>
               </div>
               <div class="form-group">
@@ -83,7 +98,15 @@ refresh=setTimeout("action()",speed);}action();
               <div class="form-group">
                 <label class="col-sm-2 control-label">Berkas</label>
                 <div class="col-sm-12">
-                  <a style="color:#fc9b3f" href="">File : <?=$stmb->berkas?></a>
+      <?php 
+            if($stmb->berkas==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }else{
+            $id_berkas=$stmb->id;
+            $path= base_url("admin/mobility/detailBerkas/$id_berkas");
+            echo '<a style="color:#fc9b3f" href="'.$path.'">'.$stmb->berkas.'</a>';
+            }
+      ?>
                   <input type="file" class="form-control" name="berkas" value="<?= $stmb->berkas;?>" required>
                 </div>
               </div>

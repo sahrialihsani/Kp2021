@@ -9,10 +9,13 @@
  * tag HTML diizinkan
  */
 $lang['welcome'] = 'Selamat Datang di <span>UPT KSLI Universitas Bengkulu</span>';
+$lang['welcome2'] = 'Tugas <span>UPT KSLI Universitas Bengkulu</span>';
+$lang['welcome3'] = 'Visi <span>UPT KSLI Universitas Bengkulu</span>';
 $lang['menu_beranda'] = "Beranda";
 $lang['menu_tkami'] = "Tentang Kami";
 $lang['menu_berita'] = "Berita";
-$lang['menu_layanan'] = "Program";
+$lang['menu_layanan'] = "Layanan";
+$lang['menu_program'] = "Program";
 $lang['menu_hubungi'] = "Hubungi Kami";
 $lang['menu_bahasa'] = "Bahasa";
 $lang['beasiswa'] = "Beasiswa dan Peluang Global";
@@ -24,8 +27,8 @@ $lang['contact_us'] = "Kandang Limun, Muara Bangka Hulu, Kota Bengkulu, Bengkulu
 $lang['phone'] = "(0736) 21170, 21884, Ext (190)";
 $lang['email'] = "international@unib.ac.id";
 $lang['hero1_keterangan'] = "UPT KSLI bertanggung jawab atas hubungan kerja sama unib dengan lembaga/universitas lokal dan asing.";
-$lang['hero2_keterangan'] = "UPT KSLI bertanggung jawab atas hubungan kerja sama unib dengan lembaga/universitas lokal dan asing.";
-$lang['hero3_keterangan'] = "UPT KSLI bertanggung jawab atas hubungan kerja sama unib dengan lembaga/universitas lokal dan asing.";
+$lang['hero2_keterangan'] = "Melaksanakan urusan pengembangan kerja sama, pelayanan mahasiswa, pendidik, dan tenaga kependidikan asing, serta promosi internasional UNIB.";
+$lang['hero3_keterangan'] = "Mendukung pencapaian cita-cita Universitas Bengkulu menjadi universitas berkelas dunia (world-class university) melalui peningkatan tata kelola yang baik terkait pengembangan kerja sama Universitas Bengkulu pada tingkat nasional dan internasional.";
 $lang['exchange_mhs']="Pertukaran Mahasiswa ke Luar Negeri";
 $lang['exchange_dsn']="Pertukaran Dosen ke Luar Negeri";
 $lang['foreign_mhs']="Mahasiswa Asing";

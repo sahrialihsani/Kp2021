@@ -76,6 +76,13 @@ refresh=setTimeout("action()",speed);}action();
                   <input type="text" class="form-control" name="nama_kerjasama" value="<?= $sws->nama_kerjasama;?>"required></input>
                 </div>
               </div>
+              
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Nomor Kerjasama</label>
+                <div class="col-sm-12">
+                <input type="text" class="form-control" name="no_kerjasama" required value="<?= $sws->no_kerjasama;?>"></input>
+                </div>
+              </div>
 
               <div class="form-group">
                 <label class="col-sm-2 control-label">Isi Kerjasama</label>
@@ -84,20 +91,42 @@ refresh=setTimeout("action()",speed);}action();
                 </div>
               </div>
 
-              <div class="form-group">
+<div class="form-group">
                 <label class="col-sm-2 control-label">Status Kerjasama</label>
                 <div class="col-sm-12">
                 <select name="status" class="form-control" required>
                 <option>Aktif</option>
                 <option>Tidak Aktif</option>
+               <option>Kesepakatan</option>
                 </select>
                 </div>
               </div>
 
               <div class="form-group">
+                <label class="col-sm-2 control-label">MOU/PKS</label>
+                <div class="col-sm-12">
+                <select name="mou_or_pks" class="form-control" required>
+                <option>MOU</option>
+                <option>PKS</option>
+                <option>LOI</option>
+                <option>COC</option>
+                </select>
+                </div>
+              </div>
+
+
+              <div class="form-group">
                 <label class="col-sm-2 con\trol-label">File Kerjasama</label>
                 <div class="col-sm-12">
-                <a style="color:#fc9b3f" href="">File : <?=$sws->file?></a>
+                <?php 
+            if($sws->file==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }else{
+            $id_file=$sws->id;
+            $path= base_url("admin/pangkalandata/detailBerkasIns/$id_file");
+            echo '<a style="color:#fc9b3f" href="'.$path.'">'.$sws->file.'</a>';
+            }
+      ?>
                   <input type="file" class="form-control" name="file" value="<?= $sws->file;?>"required></input>
                 </div>
               </div>

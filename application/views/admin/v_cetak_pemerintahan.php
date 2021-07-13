@@ -28,7 +28,8 @@
 								<tr>
 									<th width="1%">No</th>
 		                            <th>Institusi</th>                            
-		                            <th>Nama Kerja Sama</th>                            
+		                            <th>Nama Kerja Sama</th>
+		                            <th>No Kerjasama</th>                            
 									<th>Jenis Kerja Sama</th>  
 									<th>Tanggal Mulai</th>                           
 		                            <th>Tanggal Berakhir</th>                            
@@ -42,7 +43,8 @@
 								<tr align="center">
 									<td><?php echo $no++; ?></td>                              
 	                                <td><?php echo $d->institusi; ?></td>                                
-	                                <td><?php echo $d->nama_kerjasama; ?></td>                                
+	                                <td><?php echo $d->nama_kerjasama; ?></td>
+									<td><?php echo $d->no_kerjasama; ?></td>                                   
 	                                <td><?php echo $d->mou_or_pks; ?></td>                                
 	                                <td><?php echo date('d F Y', strtotime($d->tgl_mulai)); ?></td>
 	                                <td><?php echo date('d F Y', strtotime($d->tgl_akhir)); ?></td>

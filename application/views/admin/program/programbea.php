@@ -43,7 +43,7 @@ refresh=setTimeout("action()",speed);}action();
 	
   <div class="content-wrapper">
     <div class="container-fluid">
-    
+    <?= $this->session->flashdata('message'); ?>
     <section class="counts">
     <h2 class="justify-content-center text-center" style=" font-weight: 700;
   margin-bottom: 20px;

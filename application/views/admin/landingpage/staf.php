@@ -76,7 +76,18 @@ refresh=setTimeout("action()",speed);}action();
             <td><?=$stf->nip; ?></td>
             <td><?=$stf->nama; ?></td>  
             <td><?=$stf->jabatan; ?></td>   
-            <td align="center"> <img style="object-fit: contain;" src="<?php echo base_url('assets/dua/img/staf/'.$stf->foto)?>" width="400px" height="200"></td>
+            <td align="center"> 
+            <!-- <img style="object-fit: contain;" src="<?php echo base_url('assets/dua/img/staf/'.$stf->foto)?>" width="400px" height="200"> -->
+        <?php 
+            if($stf->foto==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }else{
+            $gbr=$stf->foto;
+            $path= base_url("assets/dua/img/staf/$gbr");
+            echo'<img style="object-fit: contain;" src="'.$path.'" alt=""  width="400px" height="300px">';
+            }
+        ?>
+            </td>
                       <td>
                         <div  class="btn-group">
                         <button type="button" class="btn btn-warning btn-flat btn-xs">Aksi</button>

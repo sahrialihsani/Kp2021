@@ -140,6 +140,7 @@ public function tambahMitra()
 				$gambar = $_FILES['gambar'];
 				$config['upload_path'] = './assets/dua/img/mitra/Gambar';
 				$config['allowed_types']  = 'jpeg|jpg|png';
+				$config['max_size']  = '2000';
 				$config['file_name'] = "Mitra_".$institusi;
 				$this->load->library('upload',$config);
 				
@@ -163,6 +164,7 @@ public function tambahMitra()
 			$berkas = $_FILES['berkas'];
 				$config2['upload_path'] = './assets/dua/img/mitra/File';
 				$config2['allowed_types']  = 'doc|docx|pdf';
+				$config['max_size']  = '2000';
 				$config2['file_name'] = "Mitra_".$institusi;
 				$this->upload->initialize($config2);
 	  
@@ -248,6 +250,7 @@ public function ubah_mitra(){
 		}else{
 				$config['upload_path']='./assets/dua/berkas/mitra/';
 				$config['allowed_types']='jpg|jpeg|png';
+				$config['max_size']  = '2000';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('gambar')){
 					$gambar=$this->upload->data('file_name');
@@ -258,6 +261,7 @@ public function ubah_mitra(){
 				}
 				$config['upload_path']='./assets/dua/berkas/mitra/';
 				$config['allowed_types']='pdf|doc|docx';
+				$config['max_size']  = '2000';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('berkas')){
 					$berkas=$this->upload->data('file_name');

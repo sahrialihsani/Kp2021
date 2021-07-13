@@ -41,6 +41,7 @@ refresh=setTimeout("action()",speed);}action();
 	
   <div class="content-wrapper">
     <div class="container-fluid">
+    <?= $this->session->flashdata('message'); ?>
       <button onclick="window.location.href='<?=base_url('admin/programdanbea')?>'" style="border-radius:10px; margin-bottom:10px" class="btn btn-primary"><i class="icofont-arrow-left"></i> Kembali</button>
 
     <h2 class="justify-content-center text-center" style=" font-weight: 700;
@@ -75,8 +76,16 @@ refresh=setTimeout("action()",speed);}action();
             <td><?=$prg->nama; ?></td>
             <td><?php echo wordwrap($prg->keterangan,100,"<br>\n");?></td>   
             <td><?=$prg->tahun?></td>
-            <td><a style="color:#fc9b3f" href="<?=base_url('admin/program/detailBerkas/').$prg->id?>"><?=$prg->berkas?></a></td>
-
+            <td>
+            <?php 
+            if($prg->berkas==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }else{
+            $id_berkas=$prg->id;
+            $path= base_url("admin/program/detailBerkas/$id_berkas");
+            echo '<a style="color:#fc9b3f" href="'.$path.'">'.$prg->berkas.'</a>';
+            }
+      ?>
                       <td>
                         <div  class="btn-group">
                         <button type="button" class="btn btn-warning btn-flat btn-xs">Aksi</button>

@@ -36,6 +36,7 @@ redirect(base_url('admin/program'));
 		}else{
 				$config['upload_path']='./assets/dua/berkas/program/';
 				$config['allowed_types']='pdf|doc|docx';
+				$config['max_size']  = '2000';
 				$this->load->library('upload',$config);
 				if($this->upload->do_upload('berkas')){
 					$berkas=$this->upload->data('file_name');
@@ -81,6 +82,7 @@ $this->Model_program->tambah_program($data,'tb_program');
 			}else{
 					$config['upload_path']='./assets/dua/berkas/program/';
 					$config['allowed_types']='pdf|doc|docx';
+					$config['max_size']  = '2000';
 					$this->load->library('upload',$config);
 					if($this->upload->do_upload('berkas')){
 						$berkas=$this->upload->data('file_name');

@@ -84,8 +84,29 @@ refresh=setTimeout("action()",speed);}action();
         <td><?php echo wordwrap(word_limiter("$mtra->pesan",30),50,"<br>\n");?></td>   
         <td><?=$mtra->status; ?></td>   
         <td align="center">
-        <img style="object-fit: cover;" src="<?php echo base_url('assets/dua/img/mitra/Gambar/'.$mtra->gambar)?> " width="200px" height="150px">
-        <td><a style="color:#fc9b3f" href="<?=base_url('assets/dua/img/mitra/File/').$mtra->id?>"><?=$mtra->berkas?></a></td>   
+        <?php 
+            if($mtra->gambar==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }else{
+            $gbr=$mtra->gambar;
+            $path= base_url("assets/dua/img/mitra/Gambar/$gbr");
+            echo'<img style="object-fit: contain;" src="'.$path.'" alt=""  width="200px" height="150px">';
+            }
+        ?>
+        <!-- <img style="object-fit: cover;" src="<?php echo base_url('assets/dua/img/mitra/Gambar/'.$mtra->gambar)?> " width="200px" height="150px"> -->
+        <td>
+        <!-- <a style="color:#fc9b3f" href="<?=base_url('assets/dua/img/mitra/File/').$mtra->id?>"><?=$mtra->berkas?></a> -->
+        <?php 
+            if($mtra->berkas==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }else{
+            $id_file=$mtra->id;
+            $path= base_url("assets/dua/img/mitra/File/$id_file");
+            echo '<a style="color:#fc9b3f" href="'.$path.'">'.$mtra->berkas.'</a>';
+            }
+      ?>
+        
+        </td>   
           
           </td>
                   <td>
@@ -103,7 +124,7 @@ refresh=setTimeout("action()",speed);}action();
                               }
                       else if($mtra->status == "Menunggu"){
                         echo anchor('admin/mitra/terima/'.$mtra->id,'<div class="btn btn-success btn-sm"><i class="icofont-check">Terima</i></div>');
-                        echo '<br>';
+                        echo '<br>'; 
                         echo anchor('admin/mitra/tolak/'.$mtra->id,'<div style="margin-top:5px" class="btn btn-danger btn-sm"><i class="icofont-close">Tolak</i></div>');
                         echo '<br>';
                         echo anchor('admin/mitra/editMitra/'.$mtra->id,'<div style="margin-top:5px" class="btn btn-warning btn-sm"><i class="icofont-ui-edit">Edit Mitra</i></div>');

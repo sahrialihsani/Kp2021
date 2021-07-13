@@ -81,9 +81,27 @@ refresh=setTimeout("action()",speed);}action();
             <td><?=$unv->institusi; ?></td>
             <td><?=$unv->nama_kerjasama; ?></td>
             <td><?=$unv->mou_or_pks; ?></td>
-            <td><a style="color:#fc9b3f" href="<?=base_url('admin/pangkalandata/detailBerkasUniv/').$unv->id?>"><?=$unv->file?></a></td>
+            <td>
+      <?php 
+            if($unv->file==''){
+            echo"<a style='color:#fc9b3f'>-</a>";
+            }else{
+            $id_file=$unv->id;
+            $path= base_url("admin/pangkalandata/detailBerkasUniv/$id_file");
+            echo '<a style="color:#fc9b3f" href="'.$path.'">'.$unv->file.'</a>';
+            }
+      ?>
+            </td>
             <td><?=date('d F Y', strtotime($unv->tgl_mulai)); ?></td> 
-      <td><?php echo date('d F Y', strtotime($unv->tgl_akhir)); ?></td>  
+            <td>
+      <?php 
+      if($unv->tgl_akhir=='0000-00-00'){
+        echo'Kesepakatan';
+      }
+      else{
+        echo date('d F Y', strtotime($unv->tgl_akhir));
+      }
+      ?></td>  
                       <td>
                         <div  class="btn-group">
                         <button type="button" class="btn btn-warning btn-flat btn-xs">Aksi</button>
